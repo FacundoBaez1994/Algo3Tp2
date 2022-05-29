@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+":TestCase" -> ":Vehiculo": MoverHacia(derecha: DirDerecha)
+":Vehiculo" -> "derecha:DirDerecha":
+
+@enduml

@@ -1,0 +1,59 @@
+@startuml
+'Una moto atraviesa la grilla sin obstáculos y la cantidad de movimientos es X
+abstract class Vehiculo
+class Moto
+class 4x4
+class Auto
+Moto --|> Vehiculo
+Auto --|> Vehiculo
+4x4 --|> Vehiculo
+
+class Grilla
+class Esquina
+class Calle
+
+abstract class Obstaculo
+class Pozo
+class Piquete
+class ControlPolicial
+Pozo --|> Obstaculo
+Piquete --|> Obstaculo
+ControlPolicial --|> Obstaculo
+
+
+'class Turno
+class Juego
+
+abstract class Sorpresa
+class Favorable
+class Desfavorable
+class CambioDeVehiculo
+Favorable --|> Sorpresa
+Desfavorable --|> Sorpresa
+CambioDeVehiculo --|> Sorpresa
+
+Calle "1" *-- "*" Sorpresa
+Calle "1" *-- "*" Obstaculo
+Vehiculo "1" *-- "*" Esquina
+Grilla  "1" *-- "*" Esquina
+Grilla  "1" *-- "*" Calle
+'consultar
+
+Juego "1" *-- "1" Grilla
+Juego "1" *-- "1" Vehiculo
+
+
+
+
+@endu
+--------------------------------------------------
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+":TestCase" -> ":Vehiculo": MoverHacia(derecha: DirDerecha)
+":Vehiculo" -> "derecha:DirDerecha":
+
+@enduml
+qqv-duno-sdf
