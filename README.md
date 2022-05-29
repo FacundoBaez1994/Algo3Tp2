@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo {N°}
 
 * Facundo Emiliano Baez - [integrante1](https://github.com/FacundoBaez1994)
 * Cristian Valentín Torales* - [integrante2](https://github.com/cvtorales)
