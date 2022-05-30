@@ -8,8 +8,8 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * Facundo Emiliano Baez - [integrante1](https://github.com/FacundoBaez1994)
 * Cristian Valentín Torales* - [integrante2](https://github.com/cvtorales)
-*  Agustin Esteban Piperno Fletcher - [integrante3](https://github.com/agustinpiperno)
-* Matias Viñas* - [integrante4](https://github.com/matiasviñas)
+* Agustin Esteban Piperno Fletcher - [integrante3](https://github.com/agustinpiperno)
+* Matias Ezequiel Viñas* - [integrante4](https://github.com/matiasviñas)
 
 Corrector: **{Corrector}**
 
