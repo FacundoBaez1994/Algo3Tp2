@@ -1,22 +1,22 @@
 @startuml
-class Juego
 class Vehiculo {
 + moverHacia(unaDireccion)
 }
 
 class Movimiento
 
-class Movimiento
 
 class Esquina{
 + desplazarAOtraEsquina(:Esquina): Esquina
 }
 
-class Calle
+class Calle {
+- obstaculo: Obstaculo
+- sorpresa: Sorpresa
+}
 
 class Grilla
-Juego "1"*--"*" Grilla
-Grilla "1"*--"*" Vehiculo
+
 Grilla "1"*--"*" Esquina
 Grilla "1" *-- "*" Calle
 Calle "1"*--"2" Esquina
@@ -27,16 +27,13 @@ class Abajo
 class Derecha
 class Izquierda
 
-class ContadorDeMovimientos{
-- cantidad
-}
-Vehiculo "1"*--"1" ContadorDeMovimientos
+
+
 Arriba --|> Direccion
 Abajo --|> Direccion
 Derecha --|> Direccion
 Izquierda --|> Direccion
 
-Juego "1"*--"*" Vehiculo
 Vehiculo "1" *-- "1" Movimiento
 Vehiculo "1" *-- "1" Esquina
 Movimiento "1" *-- "1"Direccion

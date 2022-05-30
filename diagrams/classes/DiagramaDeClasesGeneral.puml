@@ -8,9 +8,18 @@ Moto --|> Vehiculo
 Auto --|> Vehiculo
 4x4 --|> Vehiculo
 
+class Jugador
+
 class Grilla
-class Esquina
 class Calle
+
+abstract class Esquina
+class Inicio
+class Meta
+class EsquinaComun
+Inicio --|> Esquina
+Meta --|> Esquina
+EsquinaComun --|> Esquina
 
 abstract class Obstaculo
 class Pozo
@@ -24,6 +33,11 @@ ControlPolicial --|> Obstaculo
 'class Turno
 class Juego
 
+class ContadorDeMovimientos{
+- cantidad
+}
+
+
 abstract class Sorpresa
 class Favorable
 class Desfavorable
@@ -32,15 +46,17 @@ Favorable --|> Sorpresa
 Desfavorable --|> Sorpresa
 CambioDeVehiculo --|> Sorpresa
 
+Calle "1" *-- "2" Esquina
+Jugador "1" *-- "1" ContadorDeMovimientos
+Juego "1" *-- "*" Jugador
 Calle "1" *-- "*" Sorpresa
 Calle "1" *-- "*" Obstaculo
-Vehiculo "1" *-- "*" Esquina
+Vehiculo "1" *-- "1" Esquina
 Grilla  "1" *-- "*" Esquina
 Grilla  "1" *-- "*" Calle
 'consultar
-
 Juego "1" *-- "1" Grilla
-Juego "1" *-- "1" Vehiculo
+Jugador "1" *-- "1" Vehiculo
 
 
 

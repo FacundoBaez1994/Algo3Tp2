@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+":TestCase" -> "j1:Jugador": moverVehiculoHacia (unaDireccion, j1:Jugador)
+loop paraTodasLasEsquinasYCallesHastaLaEsquinaDeLaMeta
+    "j1:Jugador" -> ":Moto": moverHacia(unaDireccion)
+    ":Moto" -> "Esquina": desplazarAOtraEsquina (unaDireccion, j1:Jugador)
+    "Esquina" -> ":Calle": transitar (j1:Jugador)
+    ":Calle" -> "j1:Jugador" : modificarCantidadDeMovimientos (X:int)
+     "j1:Jugador" -> ":CantidadDeMovimientos" : modificar (X:int)
+    "Esquina" <-- ":Calle": unaEsquina
+    ":Moto" <-- "Esquina": unaEsquina
+end
+
+@enduml
