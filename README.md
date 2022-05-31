@@ -11,7 +11,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * Agustin Esteban Piperno Fletcher - [integrante3](https://github.com/agustinpiperno)
 * Matias Ezequiel Viñas* - [integrante4](https://github.com/matiasviñas)
 
-Corrector: **{Corrector}**
+Corrector: **{Joaquin Gomez}**
 
 ## Aplicación
 

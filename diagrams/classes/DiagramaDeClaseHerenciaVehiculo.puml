@@ -1,0 +1,10 @@
+@startuml
+abstract class Vehiculo
+class Moto
+class 4x4
+class Auto
+Moto --|> Vehiculo
+Auto --|> Vehiculo
+4x4 --|> Vehiculo
+
+@enduml

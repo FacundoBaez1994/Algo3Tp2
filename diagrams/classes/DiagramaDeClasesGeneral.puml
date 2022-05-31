@@ -1,62 +1,59 @@
 @startuml
 'Una moto atraviesa la grilla sin obstáculos y la cantidad de movimientos es X
-abstract class Vehiculo
-class Moto
-class 4x4
-class Auto
-Moto --|> Vehiculo
-Auto --|> Vehiculo
-4x4 --|> Vehiculo
+abstract class Vehiculo{
++ moverHacia(unaDireccion)
+}
 
-class Jugador
+class Jugador {
+    + obtenerCantidadDeMovimientos ()
+    + moverVehiculoHacia (unaDireccion)
+}
 
 class Grilla
-class Calle
+
+class Calle{
++ serTransitada (j1:Jugador)
+}
+
+class Movimiento {
++ moverse (esquinaActual, j1:Jugador)
+}
 
 abstract class Esquina
-class Inicio
-class Meta
-class EsquinaComun
-Inicio --|> Esquina
-Meta --|> Esquina
-EsquinaComun --|> Esquina
+
+abstract class Direccion
 
 abstract class Obstaculo
-class Pozo
-class Piquete
-class ControlPolicial
-Pozo --|> Obstaculo
-Piquete --|> Obstaculo
-ControlPolicial --|> Obstaculo
 
+abstract class Visibilidad
+Calle "1" *-- "1" Visibilidad
+Esquina "1" *-- "1" Visibilidad
 
 'class Turno
 class Juego
 
 class ContadorDeMovimientos{
 - cantidad
+
++ obtenerCantidadDeMovimientos ()
 }
 
 
 abstract class Sorpresa
-class Favorable
-class Desfavorable
-class CambioDeVehiculo
-Favorable --|> Sorpresa
-Desfavorable --|> Sorpresa
-CambioDeVehiculo --|> Sorpresa
 
 Calle "1" *-- "2" Esquina
+Esquina "1" *-- "1..*" Calle
 Jugador "1" *-- "1" ContadorDeMovimientos
 Juego "1" *-- "*" Jugador
-Calle "1" *-- "*" Sorpresa
-Calle "1" *-- "*" Obstaculo
-Vehiculo "1" *-- "1" Esquina
+Calle "1" o-- "*" Sorpresa
+Calle "1" o-- "*" Obstaculo
+Vehiculo "1" --> "1" Esquina
 Grilla  "1" *-- "*" Esquina
 Grilla  "1" *-- "*" Calle
-'consultar
 Juego "1" *-- "1" Grilla
-Jugador "1" *-- "1" Vehiculo
+Jugador "1" o-- "1" Vehiculo
+Vehiculo "1" *-- "1" Movimiento
+Movimiento "1" *-- "1"Direccion
 
 
 

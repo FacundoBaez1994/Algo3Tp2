@@ -1,0 +1,10 @@
+@startuml
+abstract class Esquina
+class Inicio
+class Meta
+class EsquinaComun
+Inicio --|> Esquina
+Meta --|> Esquina
+EsquinaComun --|> Esquina
+
+@enduml

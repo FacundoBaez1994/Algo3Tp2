@@ -1,0 +1,26 @@
+@startuml
+
+
+
+
+abstract class Sorpresa
+class Favorable
+class Desfavorable
+class CambioDeVehiculo
+Favorable --|> Sorpresa
+Desfavorable --|> Sorpresa
+CambioDeVehiculo --|> Sorpresa
+
+abstract class Direccion
+class Arriba
+class Abajo
+class Derecha
+class Izquierda
+Arriba --|> Direccion
+Abajo --|> Direccion
+Derecha --|> Direccion
+Izquierda --|> Direccion
+
+
+
+@endu
