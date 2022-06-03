@@ -5,6 +5,7 @@ abstract class Vehiculo{
 }
 
 class Jugador {
+    - cantidadDeMovimientos
     + obtenerCantidadDeMovimientos ()
     + moverVehiculoHacia (unaDireccion)
 }
@@ -32,18 +33,18 @@ Esquina "1" *-- "1" Visibilidad
 'class Turno
 class Juego
 
-class ContadorDeMovimientos{
-- cantidad
+'class ContadorDeMovimientos{
+'- cantidad
 
-+ obtenerCantidadDeMovimientos ()
-}
+'+ obtenerCantidadDeMovimientos ()
+'}
 
 
 abstract class Sorpresa
 
 Calle "1" *-- "2" Esquina
 Esquina "1" *-- "1..*" Calle
-Jugador "1" *-- "1" ContadorDeMovimientos
+'Jugador "1" *-- "1" ContadorDeMovimientos
 Juego "1" *-- "*" Jugador
 Calle "1" o-- "*" Sorpresa
 Calle "1" o-- "*" Obstaculo

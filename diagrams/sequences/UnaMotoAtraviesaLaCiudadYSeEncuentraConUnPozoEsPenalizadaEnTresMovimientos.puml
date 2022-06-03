@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor ":TestCase"
+Activate ":TestCase"
+   ":TestCase" -> "j1:Jugador": moverVehiculoHacia (unaDireccion)
+    Activate "j1:Jugador"
+    "j1:Jugador" -> ":Moto": moverHacia(unaDireccion)
+    Activate ":Moto"
+    create ":Movimiento"
+    ":Moto" -> ":Movimiento": <<new Movimiento (unaDireccion) >>
+    Activate ":Movimiento"
+    ":Moto" -> ":Movimiento": moverse (esquinaActual, :Moto)
+    ":Movimiento" -> ":Calle": serTransitada (:Moto)
+    Activate ":Calle"
+    ":Calle" -> ":Moto": serAfectadoPorObstaculo (unPozo)
+     ":Movimiento" <-- ":Calle": otraEsquina
+     Deactivate ":Calle"
+     Deactivate ":Movimiento"
+     ":Moto" <-- ":Movimiento": otraEsquina
+     Deactivate ":Moto"
+     Deactivate "j1:Jugador"
+     "j1:Jugador"  <-- ":Moto": cantidadDeMovimientos
+
+
+
+
+
+@enduml
