@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-public class Moto extends Vehiculo {
+public class Moto extends TipoDeVehiculo {
 
-    public Moto (Esquina unaEsquina) {
-        this.posicion = unaEsquina;
+    public Moto () {
     }
 
     public int serAfectadoPorObstaculo (Obstaculo unObstaculo) {

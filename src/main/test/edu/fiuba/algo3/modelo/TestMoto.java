@@ -15,10 +15,10 @@ public class TestMoto {
         Esquina otraEsquina = new EsquinaComun ();
         Calle unaCalle = new CalleComun (unaEsquina, otraEsquina);
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
-        Moto unaMoto = new Moto (unaEsquina);
+        Vehiculo unaMoto = new Vehiculo (new Moto() , unaEsquina);
 
-        movimientos = unaMoto.moverseHacia (unaDireccion);
-        assertEquals(movimientos, 3);
+        unaMoto.moverseHacia (unaDireccion);
+        assertEquals(unaMoto.getCantidadDeMovimientos(), 3);
     }
 
 }
