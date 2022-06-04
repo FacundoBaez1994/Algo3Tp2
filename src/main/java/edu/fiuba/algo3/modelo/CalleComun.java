@@ -19,7 +19,7 @@ public class CalleComun extends Calle{
     }
 
     public Esquina serTransitada (Vehiculo unVehiculo) {
-         this.unObstaculo.afectarMovimientos(unVehiculo);
+        unVehiculo.afectarMovimientos ( this.unObstaculo );
          return this.esquinaDelotroLado; // Revisar luego
     }
 }

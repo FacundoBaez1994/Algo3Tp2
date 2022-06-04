@@ -5,7 +5,7 @@ public class Moto extends TipoDeVehiculo {
     public Moto () {
     }
 
-    public int serAfectadoPorObstaculo (Obstaculo unObstaculo) {
+    public int calcularPenalizacion (Obstaculo unObstaculo) {
         return 3;
     }
 }

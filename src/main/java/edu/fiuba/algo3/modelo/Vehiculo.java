@@ -8,7 +8,6 @@ package edu.fiuba.algo3.modelo;
         this.cantidadDeMovimientos = 0;
         this.unTipoDeVehiculo = unTipoDeVehiculo;
         this.posicion = unaEsquina;
-
     }
 
     public void moverseHacia (Direccion unaDireccion) {
@@ -16,13 +15,13 @@ package edu.fiuba.algo3.modelo;
         Movimiento unMovimiento = new MovimientoComun (unaDireccion);
         Calle unaCalle = this.posicion.obtenerCalleEnDireccion(unaDireccion);
         unMovimiento.mover(unaCalle,this);
-
-
     }
 
-    public  void afectarMovimientos(int unaPenalizacion){
-        this.cantidadDeMovimientos += unaPenalizacion;
+    public  void afectarMovimientos(Obstaculo unObstaculo) {
+        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion (unObstaculo);
+        this.cantidadDeMovimientos += 1;
     }
+
     public int getCantidadDeMovimientos(){
         return this.cantidadDeMovimientos;
     }
