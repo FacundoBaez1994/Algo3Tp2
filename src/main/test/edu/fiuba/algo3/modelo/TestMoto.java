@@ -1,24 +1,23 @@
 package edu.fiuba.algo3.modelo;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class MotoTest {
+public class TestMoto {
     @Test
-    public class UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos {
+    public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos () {
 
         int movimientos;
+
         Direccion unaDireccion = new Derecha ();
         Esquina unaEsquina = new EsquinaComun ();
         Esquina otraEsquina = new EsquinaComun ();
-        Calle unaCalle = new Calle (unaEsquina, otraEsquina)
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina);
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
         Moto unaMoto = new Moto (unaEsquina);
 
-        movimientos = unaMoto moverHacia (unaDireccion);
-
-
+        movimientos = unaMoto.moverseHacia (unaDireccion);
         assertEquals(movimientos, 3);
     }
 
