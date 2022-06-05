@@ -1,8 +1,24 @@
 @startuml
-abstract class Esquina
+abstract class Esquina  {
+    # int coordenadaX;
+    # int coordenadaY;
+    # ArrayList Calle unasCalles
+    + {abstract} setearCalleEnDireccion (Calle calle, Direccion unaDireccion) : void
+    + {abstract} obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
+}
 class Inicio
-class Meta
-class EsquinaComun
+{
+    setearCalleEnDireccion (Calle calle, Direccion unaDireccion) : void
+    obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
+            }
+class Meta{
+    setearCalleEnDireccion (Calle calle, Direccion unaDireccion) : void
+    obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
+}
+class EsquinaComun {
+    setearCalleEnDireccion (Calle calle, Direccion unaDireccion) : void
+    obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
+}
 Inicio --|> Esquina
 Meta --|> Esquina
 EsquinaComun --|> Esquina

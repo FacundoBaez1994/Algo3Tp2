@@ -1,5 +1,5 @@
 @startuml
-abstract class Sorpresa
+interface Sorpresa
 class Favorable
 class Desfavorable
 class CambioDeVehiculo
