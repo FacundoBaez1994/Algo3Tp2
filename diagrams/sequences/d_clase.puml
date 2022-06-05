@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+class Jugador {}
+
+class Esquina {}
+
+class Vehiculo {
+    - cantMovimentos: int
+}
+
+class Tipo {}
+
+class 4x4
+class Moto
+class Auto
+
+
+Jugador -> Vehiculo
+Jugador -> Esquina
+Vehiculo -> Tipo
+
+@enduml
