@@ -1,51 +1,74 @@
 @startuml
 'Una moto atraviesa la grilla sin obstáculos y la cantidad de movimientos es X
-abstract class Vehiculo{
-+ moverHacia(unaDireccion)
+class Vehiculo {
+    - Esquina posicion;
+    - TipoDeVehiculo unTipoDeVehiculo;
+    - int cantidadDeMovimientos;
+    +  moverseHacia (Direccion unaDireccion): void
+    + afectarMovimientos(Obstaculo unObstaculo): void
+    + getCantidadDeMovimientos (): int
 }
+Vehiculo"1" ..>  "1" Obstaculo
 
 class Jugador {
-    - cantidadDeMovimientos
-    + obtenerCantidadDeMovimientos ()
-    + moverVehiculoHacia (unaDireccion)
+    + moverVehiculoHacia (unaDireccion): void
+}
+
+class PuntajesAltos{
+-ListaDeJugadores
 }
 
 class Grilla
 
-class Calle{
-+ serTransitada (j1:Jugador)
+Abstract class Calle{
+    # Esquina esquinaDeUnLado
+    # Esquina esquinaDelotroLado
+    + {abstract} obtenerEsquinaOpuesta (Esquina esquinaOrigen) :Esquina
+    + {abstract} serTransitada (Vehiculo unVehiculo) : Esquina
+}
+Calle "1" ..>  "1" Vehiculo
+
+interface Movimiento {
++ {abstract} mover(Calle unaCalle, Vehiculo unVehiculo ) : void
 }
 
-class Movimiento {
-+ moverse (esquinaActual, j1:Jugador)
+abstract class Esquina {
+    # int coordenadaX;
+    # int coordenadaY;
+    # ArrayList Calle unasCalles
+    + {abstract} setearCalleEnDireccion (Calle calle, Direccion unaDireccion) : void
+    + {abstract} obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
 }
+Esquina "1" *-- "1..*" Calle
+Esquina "1" ..>  "1" Direccion
 
-abstract class Esquina
 
-abstract class Direccion
+abstract class TipoDeVehiculo {
+    + {abstract} calcularPenalizacion (Obstaculo unObstaculo): int
+}
+TipoDeVehiculo"1" ..>  "1" Obstaculo
 
-abstract class Obstaculo
+interface Direccion
+
+interface Obstaculo {
+   + {abstract} equals (Obstaculo unObstaculo): boolean
+ }
 
 abstract class Visibilidad
 Calle "1" *-- "1" Visibilidad
 Esquina "1" *-- "1" Visibilidad
 
-'class Turno
 class Juego
-
-'class ContadorDeMovimientos{
-'- cantidad
-
-'+ obtenerCantidadDeMovimientos ()
-'}
+Juego "1" *-- "*" Jugador
+Juego "1" *-- "*" PuntajesAltos
 
 
-abstract class Sorpresa
+
+interface Sorpresa
 
 Calle "1" *-- "2" Esquina
-Esquina "1" *-- "1..*" Calle
-'Jugador "1" *-- "1" ContadorDeMovimientos
-Juego "1" *-- "*" Jugador
+
+
 Calle "1" o-- "*" Sorpresa
 Calle "1" o-- "*" Obstaculo
 Vehiculo "1" --> "1" Esquina
@@ -53,8 +76,10 @@ Grilla  "1" *-- "*" Esquina
 Grilla  "1" *-- "*" Calle
 Juego "1" *-- "1" Grilla
 Jugador "1" o-- "1" Vehiculo
-Vehiculo "1" *-- "1" Movimiento
+Vehiculo "1" ..>  "1" Movimiento
+Vehiculo "1" ..>  "1" Direccion
 Movimiento "1" *-- "1"Direccion
+Vehiculo "1" *-- "1"TipoDeVehiculo
 
 
 

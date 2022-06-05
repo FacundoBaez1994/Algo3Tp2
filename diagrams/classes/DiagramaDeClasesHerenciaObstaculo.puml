@@ -1,8 +1,20 @@
 @startuml
-abstract class Obstaculo
+interface Obstaculo
+{
+    + {abstract} equals (Obstaculo unObstaculo): boolean
+ }
 class Pozo
+{
+    + equals (Obstaculo unObstaculo): boolean
+ }
 class Piquete
+{
+    + equals (Obstaculo unObstaculo): boolean
+ }
 class ControlPolicial
+{
+    + equals (Obstaculo unObstaculo): boolean
+ }
 Pozo --|> Obstaculo
 Piquete --|> Obstaculo
 ControlPolicial --|> Obstaculo

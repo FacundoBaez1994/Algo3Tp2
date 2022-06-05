@@ -1,10 +1,19 @@
 @startuml
-abstract class TipoDeVehiculo
-class Moto
-class 4x4
-class Auto
+abstract class TipoDeVehiculo {
+    + {abstract} calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class Moto {
+    + calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class CuatroPorCuatro {
+- int pozosAtrevezados
++ calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class Auto {
+   + calcularPenalizacion (Obstaculo unObstaculo): int
+}
 Moto --|> TipoDeVehiculo
 Auto --|> TipoDeVehiculo
-4x4 --|> TipoDeVehiculo
+CuatroPorCuatro  --|> TipoDeVehiculo
 
 @enduml
