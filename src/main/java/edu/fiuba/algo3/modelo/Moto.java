@@ -17,5 +17,4 @@ public class Moto extends TipoDeVehiculo {
         }
         return 0;
     }
-    }
 }

@@ -12,7 +12,7 @@ public class Auto extends TipoDeVehiculo {
       if (unObstaculo.equals ( new Pozo ())) {
           return 3;
       }
-      if ((unObstaculo.equals ( new ControlPolicial ())) && (Math.random() > (1 - 0.3))) {
+      if ((unObstaculo.equals ( new ControlPolicial ())) && (Math.random() > (1 - 0.5))) {
           return 3;
       }
       return 0;

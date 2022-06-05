@@ -42,7 +42,7 @@ public class TestVehiculo {
         Esquina otraEsquina = new EsquinaComun ();
         Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo ());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
-        Vehiculo unaCuatroPorCuatro = new Vehiculo (new cuatroPorCuatro () , unaEsquina);
+        Vehiculo unaCuatroPorCuatro = new Vehiculo (new CuatroPorCuatro () , unaEsquina);
         unaCuatroPorCuatro.moverseHacia (unaDireccion);
         assertEquals (unaCuatroPorCuatro.getCantidadDeMovimientos(), 1);
     }
@@ -63,6 +63,25 @@ public class TestVehiculo {
         };
 
         assertThrows (VehiculoNoPuedePasar.class, task);
+    }
+
+
+    @Test
+    public void Una4x4Atraviesa3PozosYEsPenalizadaCon3Movimientos () {
+
+        Direccion unaDireccion = new Derecha ();
+
+        Esquina unaEsquina = new EsquinaComun();
+        Vehiculo unaCuatroPorCuatro = new Vehiculo (new CuatroPorCuatro () , unaEsquina);
+        for (int i = 0; i < 3; i++ ){
+            Esquina otraEsquina = new EsquinaComun();
+            Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo());
+            unaEsquina.setearCalleEnDireccion(unaCalle, unaDireccion);
+            unaCuatroPorCuatro.moverseHacia (unaDireccion);
+            unaEsquina = otraEsquina;
+        }
+
+        assertEquals (unaCuatroPorCuatro.getCantidadDeMovimientos(), 3 + 2);
     }
 
 }

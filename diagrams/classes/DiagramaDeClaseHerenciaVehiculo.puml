@@ -1,10 +1,10 @@
 @startuml
-abstract class Vehiculo
+abstract class TipoDeVehiculo
 class Moto
 class 4x4
 class Auto
-Moto --|> Vehiculo
-Auto --|> Vehiculo
-4x4 --|> Vehiculo
+Moto --|> TipoDeVehiculo
+Auto --|> TipoDeVehiculo
+4x4 --|> TipoDeVehiculo
 
 @enduml
