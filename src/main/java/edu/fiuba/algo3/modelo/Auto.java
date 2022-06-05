@@ -7,8 +7,14 @@ public class Auto extends TipoDeVehiculo {
 
     public int calcularPenalizacion (Obstaculo unObstaculo) {
       if (unObstaculo.equals ( new Piquete ())) {
-            throw new VehiculoNoPuedePasar ();
-        }
-       return 3;
+          throw new VehiculoNoPuedePasar ();
+      }
+      if (unObstaculo.equals ( new Pozo ())) {
+          return 3;
+      }
+      if ((unObstaculo.equals ( new ControlPolicial ())) && (Math.random() > (1 - 0.3))) {
+          return 3;
+      }
+      return 0;
     }
 }
