@@ -19,7 +19,6 @@ Activate ":TestCase"
     Activate ":Auto"
     ":Vehiculo" <-- ":Auto": VehiculoNoPuedePasar Excepcion
     Deactivate ":Auto"
-    ":TestCase"  -> ":Vehiculo": getCantidadDeMovimientos ()
     ":TestCase"  <-- ":Vehiculo": VehiculoNoPuedePasar Excepcion
     Deactivate ":Vehiculo"
 
