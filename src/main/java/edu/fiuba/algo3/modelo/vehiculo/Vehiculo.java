@@ -18,15 +18,32 @@ public class Vehiculo   {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
         Calle unaCalle = this.posicion.obtenerCalleEnDireccion(unaDireccion);
-        unMovimiento.mover(unaCalle,this.unTipoDeVehiculo );
+        unMovimiento.mover(unaCalle,this );
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {
-        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion (unObstaculo);
+        this.cantidadDeMovimientos += unObstaculo.calcularPenalizacion (this.unTipoDeVehiculo);
         this.cantidadDeMovimientos += 1;
     }
 
     public int getCantidadDeMovimientos(){
         return this.cantidadDeMovimientos;
     }
+
+    public void aumentarCantidadMovimientosEnPorcentaje(int porcentaje) {
+        int aumento;
+        aumento = (int) this.cantidadDeMovimientos * (porcentaje / 100);
+        this.cantidadDeMovimientos += aumento;
+    }
+
+    public void disminuirCantidadMovimientosEnPorcentaje(int porcentaje) {
+        int aumento;
+        aumento = (int) this.cantidadDeMovimientos * (porcentaje / 100);
+        this.cantidadDeMovimientos -= aumento;
+    }
+
+    public void proximoVehiculo() {
+        this.unTipoDeVehiculo = this.unTipoDeVehiculo.proximoTipoDeVehiculo();
+    }
+
 }

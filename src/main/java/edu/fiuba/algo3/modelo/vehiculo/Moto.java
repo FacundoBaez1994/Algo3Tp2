@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
+import edu.fiuba.algo3.modelo.VehiculoNoPuedePasar;
 import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
@@ -7,19 +8,26 @@ import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
 public class Moto extends TipoDeVehiculo {
 
-    public Moto () {
+    private double probDetencion;
+    public Moto () { this.probDetencion = 0.8;
     }
 
-    public int calcularPenalizacion (Obstaculo unObstaculo) {
-        if (unObstaculo.equals ( new Piquete())) {
-            return 2;
-        }
-        if (unObstaculo.equals ( new Pozo())) {
-            return 3;
-        }
-        if ((unObstaculo.equals ( new ControlPolicial())) && (Math.random() > (1 - 0.8))) {
+    public int calcularPenalizacion (ControlPolicial unControl) {
+        if ( Math.random() > (1 - this.probDetencion)) {
             return 3;
         }
         return 0;
+    }
+
+    public int calcularPenalizacion (Pozo unPozo) {
+        return 3;
+    }
+
+    public int calcularPenalizacion (Piquete unPiquete) {
+        return 2;
+    }
+
+    public TipoDeVehiculo proximoTipoDeVehiculo () {
+        return new Auto();
     }
 }

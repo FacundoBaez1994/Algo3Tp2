@@ -8,12 +8,14 @@ import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
 public class CuatroPorCuatro extends TipoDeVehiculo {
     private int pozosAtravesados;
+    private double probDetencion;
     public CuatroPorCuatro () {
         this.pozosAtravesados = 0;
+        this.probDetencion = 0.5;
     }
 
     public int calcularPenalizacion (ControlPolicial unControl) {
-        if ( Math.random() > (1 - 0.5)) {
+        if ( Math.random() > (1 - this.probDetencion)) {
             return 3;
         }
         return 0;
@@ -30,5 +32,9 @@ public class CuatroPorCuatro extends TipoDeVehiculo {
 
     public int calcularPenalizacion (Piquete unPiquete) {
         throw new VehiculoNoPuedePasar();
+    }
+
+    public TipoDeVehiculo proximoTipoDeVehiculo () {
+        return new Moto();
     }
 }

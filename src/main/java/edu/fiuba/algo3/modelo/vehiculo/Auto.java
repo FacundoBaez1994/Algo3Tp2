@@ -8,19 +8,27 @@ import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
 public class Auto extends TipoDeVehiculo {
 
+    private double probDetencion;
     public Auto () {
+        this.probDetencion = 0.5;
     }
 
-    public int calcularPenalizacion (Obstaculo unObstaculo) {
-      if (unObstaculo.equals ( new Piquete())) {
-          throw new VehiculoNoPuedePasar();
-      }
-      if (unObstaculo.equals ( new Pozo())) {
-          return 3;
-      }
-      if ((unObstaculo.equals ( new ControlPolicial())) && (Math.random() > (1 - 0.5))) {
-          return 3;
-      }
-      return 0;
+    public int calcularPenalizacion (ControlPolicial unControl) {
+        if ( Math.random() > (1 - this.probDetencion)) {
+            return 3;
+        }
+        return 0;
+    }
+
+    public int calcularPenalizacion (Pozo unPozo) {
+        return 3;
+    }
+
+    public int calcularPenalizacion (Piquete unPiquete) {
+        throw new VehiculoNoPuedePasar();
+    }
+
+    public TipoDeVehiculo proximoTipoDeVehiculo () {
+        return new CuatroPorCuatro();
     }
 }

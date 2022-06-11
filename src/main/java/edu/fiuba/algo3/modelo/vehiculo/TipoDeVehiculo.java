@@ -12,4 +12,6 @@ public abstract class TipoDeVehiculo {
 
     public abstract int calcularPenalizacion (Pozo unPozo);
 
+    public abstract TipoDeVehiculo proximoTipoDeVehiculo ();
+
 }

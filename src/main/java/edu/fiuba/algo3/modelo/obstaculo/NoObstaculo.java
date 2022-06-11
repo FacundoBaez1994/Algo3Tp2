@@ -3,8 +3,9 @@ package edu.fiuba.algo3.modelo.obstaculo;
 import edu.fiuba.algo3.modelo.VehiculoNoPuedePasar;
 import edu.fiuba.algo3.modelo.vehiculo.*;
 
-public class Pozo implements Obstaculo {
+public class NoObstaculo implements Obstaculo {
+
     public int calcularPenalizacion (TipoDeVehiculo unTipo) {
-        return unTipo.calcularPenalizacion(this);
+        return 0;
     }
 }

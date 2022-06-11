@@ -1,0 +1,45 @@
+@startuml
+top to bottom direction
+interface TipoDeVehiculo{
+    + seEncuentraConUnPozo()
+    + seEncuentraConUnPiquete()
+    + seEncuentraConUnPolicia()
+    + proximoTipoDeVehiculo()
+}
+
+class Moto{
+    + seEncuentraConUnPozo()
+    + seEncuentraConUnPiquete()
+    + seEncuentraConUnPolicia()
+    + proximoTipoDeVehiculo()
+}
+
+class 4x4{
+    + seEncuentraConUnPozo()
+    + seEncuentraConUnPiquete()
+    + seEncuentraConUnPolicia()
+    + proximoTipoDeVehiculo()
+}
+
+class Auto{
+    + seEncuentraConUnPozo()
+    + seEncuentraConUnPiquete()
+    + seEncuentraConUnPolicia()
+    + proximoTipoDeVehiculo()
+}
+
+Moto    ...up.|> TipoDeVehiculo
+4x4 ..up.|> TipoDeVehiculo
+Auto ..up.|> TipoDeVehiculo
+
+note right of Auto::seEncuentraConUnPozo
+seEncuentraConUnPozo()
+    return 3;
+end note
+
+note right of Auto::proximoTipoDeVehiculo
+proximoTipoDeVehiculo()
+    return 4x4;
+end note
+
+@enduml
