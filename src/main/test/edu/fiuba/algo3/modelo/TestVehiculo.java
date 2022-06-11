@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.esquina.Calle;
+import edu.fiuba.algo3.modelo.esquina.CalleComun;
+import edu.fiuba.algo3.modelo.esquina.Esquina;
+import edu.fiuba.algo3.modelo.esquina.EsquinaComun;
+import edu.fiuba.algo3.modelo.excepciones.VehiculoNoPuedePasar;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 import edu.fiuba.algo3.modelo.sorpresa.CambioDeVehiculo;
@@ -9,6 +14,8 @@ import edu.fiuba.algo3.modelo.vehiculo.Auto;
 import edu.fiuba.algo3.modelo.vehiculo.CuatroPorCuatro;
 import edu.fiuba.algo3.modelo.vehiculo.Moto;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.direcciones.Derecha;
+import edu.fiuba.algo3.modelo.direcciones.Direccion;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -22,9 +29,9 @@ public class TestVehiculo {
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos () {
         Direccion unaDireccion = new Derecha ();
-        Esquina unaEsquina = new EsquinaComun ();
+        Esquina unaEsquina = new EsquinaComun();
         Esquina otraEsquina = new EsquinaComun ();
-        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo());
+        Calle unaCalle = new CalleComun(unaEsquina, otraEsquina, new Pozo());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
         Vehiculo unaMoto = new Vehiculo (new Moto() , unaEsquina);
         unaMoto.moverseHacia (unaDireccion);

@@ -1,10 +1,9 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.esquina;
 
 import edu.fiuba.algo3.modelo.obstaculo.NoObstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Sorpresa;
 import edu.fiuba.algo3.modelo.sorpresa.NoSorpresa;
-import edu.fiuba.algo3.modelo.vehiculo.TipoDeVehiculo;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
 

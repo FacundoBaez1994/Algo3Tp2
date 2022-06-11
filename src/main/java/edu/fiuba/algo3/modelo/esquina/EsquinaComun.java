@@ -1,4 +1,6 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.esquina;
+
+import edu.fiuba.algo3.modelo.direcciones.Direccion;
 
 public class EsquinaComun extends Esquina {
     public EsquinaComun () {
@@ -9,7 +11,7 @@ public class EsquinaComun extends Esquina {
         coordenadaY = UnaCoordenadaY;
     }
 
-    public void setearCalleEnDireccion (Calle calle ,Direccion unaDireccion) {
+    public void setearCalleEnDireccion (Calle calle , Direccion unaDireccion) {
         this.unaCalle = calle;
     }
 

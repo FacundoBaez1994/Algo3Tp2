@@ -1,4 +1,5 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.esquina;
+import edu.fiuba.algo3.modelo.direcciones.Direccion;
 
 abstract public class Esquina {
     protected int coordenadaX;

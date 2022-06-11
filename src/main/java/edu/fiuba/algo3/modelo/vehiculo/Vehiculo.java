@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.*;
+import edu.fiuba.algo3.modelo.direcciones.Direccion;
+import edu.fiuba.algo3.modelo.esquina.Calle;
+import edu.fiuba.algo3.modelo.esquina.Esquina;
+import edu.fiuba.algo3.modelo.movimiento.Movimiento;
+import edu.fiuba.algo3.modelo.movimiento.MovimientoComun;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 
 public class Vehiculo   {

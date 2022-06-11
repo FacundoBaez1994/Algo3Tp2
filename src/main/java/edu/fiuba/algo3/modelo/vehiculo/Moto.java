@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.VehiculoNoPuedePasar;
 import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
-import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
