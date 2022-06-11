@@ -10,11 +10,12 @@ public class Auto extends TipoDeVehiculo {
     private double probDetencion;
     public Auto () {
         this.probDetencion = 0.5;
+        this.penalizacionPorControlPolicial =3;
     }
 
     public int calcularPenalizacion (ControlPolicial unControl) {
         if ( Math.random() > (1 - this.probDetencion)) {
-            return 3;
+            return this.penalizacionPorControlPolicial;
         }
         return 0;
     }

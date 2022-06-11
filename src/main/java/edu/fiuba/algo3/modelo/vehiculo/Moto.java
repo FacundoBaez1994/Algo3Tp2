@@ -7,12 +7,14 @@ import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 public class Moto extends TipoDeVehiculo {
 
     private double probDetencion;
-    public Moto () { this.probDetencion = 0.8;
+    public Moto () {
+        this.probDetencion = 0.8;
+        this.penalizacionPorControlPolicial =3;
     }
 
     public int calcularPenalizacion (ControlPolicial unControl) {
         if ( Math.random() > (1 - this.probDetencion)) {
-            return 3;
+            return this.penalizacionPorControlPolicial;
         }
         return 0;
     }

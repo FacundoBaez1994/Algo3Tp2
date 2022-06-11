@@ -6,6 +6,9 @@ import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
 public abstract class TipoDeVehiculo {
+    protected int penalizacionPorPozo;
+    protected int penalizacionPorControlPolicial;
+
     public abstract int calcularPenalizacion (ControlPolicial unControl);
 
     public abstract int calcularPenalizacion (Piquete unPiquete);
