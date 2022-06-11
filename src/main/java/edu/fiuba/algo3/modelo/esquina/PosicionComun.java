@@ -2,11 +2,11 @@ package edu.fiuba.algo3.modelo.esquina;
 
 import edu.fiuba.algo3.modelo.direcciones.Direccion;
 
-public class EsquinaComun extends Esquina {
-    public EsquinaComun () {
+public class PosicionComun extends Posicion {
+    public PosicionComun() {
     }
 
-    public EsquinaComun (int UnaCoordenadaX, int UnaCoordenadaY) {
+    public PosicionComun(int UnaCoordenadaX, int UnaCoordenadaY) {
         coordenadaX = UnaCoordenadaX;
         coordenadaY = UnaCoordenadaY;
     }

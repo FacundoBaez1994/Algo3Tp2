@@ -12,34 +12,34 @@ public class CalleComun extends Calle{
     private Obstaculo unObstaculo;
     private Sorpresa unaSorpresa;
 
-     public CalleComun (Esquina unaEsquina, Esquina otraEsquina) {
-         this.esquinaDeUnLado = unaEsquina;
-         this.esquinaDelotroLado = otraEsquina;
+     public CalleComun (Posicion unaPosicion, Posicion otraPosicion) {
+         this.posicionDeUnLado = unaPosicion;
+         this.posicionDelotroLado = otraPosicion;
          this.unaSorpresa = new NoSorpresa();
     }
 
-    public CalleComun (Esquina unaEsquina, Esquina otraEsquina, Sorpresa unaSorpresa) {
-        this.esquinaDeUnLado = unaEsquina;
-        this.esquinaDelotroLado = otraEsquina;
+    public CalleComun (Posicion unaPosicion, Posicion otraPosicion, Sorpresa unaSorpresa) {
+        this.posicionDeUnLado = unaPosicion;
+        this.posicionDelotroLado = otraPosicion;
         this.unaSorpresa = unaSorpresa;
         this.unObstaculo = new NoObstaculo();
     }
 
-    public CalleComun (Esquina unaEsquina, Esquina otraEsquina, Obstaculo unObstaculo) {
-        this.esquinaDeUnLado = unaEsquina;
-        this.esquinaDelotroLado = otraEsquina;
+    public CalleComun (Posicion unaPosicion, Posicion otraPosicion, Obstaculo unObstaculo) {
+        this.posicionDeUnLado = unaPosicion;
+        this.posicionDelotroLado = otraPosicion;
         this.unObstaculo = unObstaculo;
         this.unaSorpresa = new NoSorpresa();
     }
 
-    public Esquina obtenerEsquinaOpuesta (Esquina esquinaOrigen) {
-         return this.esquinaDelotroLado;
+    public Posicion obtenerEsquinaOpuesta (Posicion posicionOrigen) {
+         return this.posicionDelotroLado;
     }
 
-    public Esquina serTransitada (Vehiculo unVehiculo) {
+    public Posicion serTransitada (Vehiculo unVehiculo) {
         unVehiculo.afectarMovimientos(unObstaculo);
         unaSorpresa.serEncontradaPor(unVehiculo);
-        return this.esquinaDelotroLado; // Revisar luego
+        return this.posicionDelotroLado; // Revisar luego
 
     }
 }

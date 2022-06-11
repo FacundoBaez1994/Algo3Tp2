@@ -2,20 +2,20 @@ package edu.fiuba.algo3.modelo.vehiculo;
 
 import edu.fiuba.algo3.modelo.direcciones.Direccion;
 import edu.fiuba.algo3.modelo.esquina.Calle;
-import edu.fiuba.algo3.modelo.esquina.Esquina;
+import edu.fiuba.algo3.modelo.esquina.Posicion;
 import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.movimiento.MovimientoComun;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 
 public class Vehiculo   {
-    private Esquina posicion;
+    private Posicion posicion;
     private TipoDeVehiculo unTipoDeVehiculo;
     private int cantidadDeMovimientos;
 
-    public Vehiculo(TipoDeVehiculo unTipoDeVehiculo, Esquina unaEsquina){
+    public Vehiculo(TipoDeVehiculo unTipoDeVehiculo, Posicion unaPosicion){
         this.cantidadDeMovimientos = 0;
         this.unTipoDeVehiculo = unTipoDeVehiculo;
-        this.posicion = unaEsquina;
+        this.posicion = unaPosicion;
     }
 
     public void moverseHacia (Direccion unaDireccion) {

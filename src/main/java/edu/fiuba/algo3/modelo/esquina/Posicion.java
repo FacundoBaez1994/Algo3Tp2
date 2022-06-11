@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.esquina;
 import edu.fiuba.algo3.modelo.direcciones.Direccion;
 
-abstract public class Esquina {
+abstract public class Posicion {
     protected int coordenadaX;
     protected int coordenadaY;
     protected Calle unaCalle; //Esto deberia ser un arrayList con las direcciones
