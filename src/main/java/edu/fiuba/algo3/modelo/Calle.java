@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
+
 abstract public class Calle {
     protected Esquina esquinaDeUnLado;
     protected Esquina esquinaDelotroLado;

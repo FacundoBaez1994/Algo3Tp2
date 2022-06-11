@@ -1,5 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
+import edu.fiuba.algo3.modelo.vehiculo.TipoDeVehiculo;
+import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
+
 public class CalleComun extends Calle{
 
     private Obstaculo unObstaculo;
@@ -18,8 +22,8 @@ public class CalleComun extends Calle{
          return this.esquinaDelotroLado;
     }
 
-    public Esquina serTransitada (Vehiculo unVehiculo) {
-        unVehiculo.afectarMovimientos ( this.unObstaculo );
+    public Esquina serTransitada (TipoDeVehiculo unTipoDeVehiculo) {
+        unObstaculo.afectarMovimientos (unVehiculo);
          return this.esquinaDelotroLado; // Revisar luego
     }
 }

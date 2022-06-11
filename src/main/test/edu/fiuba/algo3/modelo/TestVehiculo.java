@@ -1,5 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.obstaculo.Piquete;
+import edu.fiuba.algo3.modelo.obstaculo.Pozo;
+import edu.fiuba.algo3.modelo.vehiculo.Auto;
+import edu.fiuba.algo3.modelo.vehiculo.CuatroPorCuatro;
+import edu.fiuba.algo3.modelo.vehiculo.Moto;
+import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -14,7 +20,7 @@ public class TestVehiculo {
         Direccion unaDireccion = new Derecha ();
         Esquina unaEsquina = new EsquinaComun ();
         Esquina otraEsquina = new EsquinaComun ();
-        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo ());
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
         Vehiculo unaMoto = new Vehiculo (new Moto() , unaEsquina);
         unaMoto.moverseHacia (unaDireccion);
@@ -29,7 +35,7 @@ public class TestVehiculo {
         Esquina otraEsquina = new EsquinaComun ();
         Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo ());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
-        Vehiculo unAuto = new Vehiculo (new Auto () , unaEsquina);
+        Vehiculo unAuto = new Vehiculo (new Auto() , unaEsquina);
         unAuto.moverseHacia (unaDireccion);
         assertEquals(unAuto.getCantidadDeMovimientos(), 3 + 1);
     }
@@ -42,7 +48,7 @@ public class TestVehiculo {
         Esquina otraEsquina = new EsquinaComun ();
         Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Pozo ());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
-        Vehiculo unaCuatroPorCuatro = new Vehiculo (new CuatroPorCuatro () , unaEsquina);
+        Vehiculo unaCuatroPorCuatro = new Vehiculo (new CuatroPorCuatro() , unaEsquina);
         unaCuatroPorCuatro.moverseHacia (unaDireccion);
         assertEquals (unaCuatroPorCuatro.getCantidadDeMovimientos(), 1);
     }
@@ -53,7 +59,7 @@ public class TestVehiculo {
         Direccion unaDireccion = new Derecha ();
         Esquina unaEsquina = new EsquinaComun ();
         Esquina otraEsquina = new EsquinaComun ();
-        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Piquete ());
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new Piquete());
         unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
         Vehiculo unAuto = new Vehiculo (new Auto () , unaEsquina);
 
