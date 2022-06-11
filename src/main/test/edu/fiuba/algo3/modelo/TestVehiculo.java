@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
+import edu.fiuba.algo3.modelo.sorpresa.CambioDeVehiculo;
+import edu.fiuba.algo3.modelo.sorpresa.SorpresaFavorable;
+import edu.fiuba.algo3.modelo.sorpresa.SorpresaNoFavorable;
 import edu.fiuba.algo3.modelo.vehiculo.Auto;
 import edu.fiuba.algo3.modelo.vehiculo.CuatroPorCuatro;
 import edu.fiuba.algo3.modelo.vehiculo.Moto;
@@ -12,6 +15,7 @@ import org.junit.jupiter.api.function.Executable;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class TestVehiculo {
@@ -90,4 +94,65 @@ public class TestVehiculo {
         assertEquals (unaCuatroPorCuatro.getCantidadDeMovimientos(), 3 + 2);
     }
 
+    @Test
+    public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaFavorable () {
+        Direccion unaDireccion = new Derecha ();
+        Esquina unaEsquina = new EsquinaComun ();
+        Esquina otraEsquina = new EsquinaComun ();
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new SorpresaFavorable());
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
+        Vehiculo unAuto = new Vehiculo (new Auto() , unaEsquina);
+        unAuto.setCantidadDeMovimientos(9);
+        unAuto.moverseHacia (unaDireccion);
+        assertEquals(unAuto.getCantidadDeMovimientos(), 8);
+    }
+
+    @Test
+    public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaNoFavorable () {
+        Direccion unaDireccion = new Derecha ();
+        Esquina unaEsquina = new EsquinaComun ();
+        Esquina otraEsquina = new EsquinaComun ();
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new SorpresaNoFavorable());
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
+        Vehiculo unAuto = new Vehiculo (new Auto() , unaEsquina);
+        unAuto.setCantidadDeMovimientos(9);
+        unAuto.moverseHacia (unaDireccion);
+        assertEquals(unAuto.getCantidadDeMovimientos(), 13);
+    }
+
+    @Test
+    public void UnaMotoAtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo () {
+        Direccion unaDireccion = new Derecha ();
+        Esquina unaEsquina = new EsquinaComun ();
+        Esquina otraEsquina = new EsquinaComun ();
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new CambioDeVehiculo());
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
+        Vehiculo unaMoto = new Vehiculo (new Moto() , unaEsquina);
+        unaMoto.moverseHacia (unaDireccion);
+        assertTrue((unaMoto.getTipoDeVehiculo ()).getClass().equals(((new Auto()).getClass())));
+    }
+
+    @Test
+    public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo () {
+        Direccion unaDireccion = new Derecha ();
+        Esquina unaEsquina = new EsquinaComun ();
+        Esquina otraEsquina = new EsquinaComun ();
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new CambioDeVehiculo());
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
+        Vehiculo unAuto= new Vehiculo (new Auto() , unaEsquina);
+        unAuto.moverseHacia (unaDireccion);
+        assertTrue((unAuto.getTipoDeVehiculo ()).getClass().equals(((new CuatroPorCuatro()).getClass())));
+    }
+
+    @Test
+    public void Una4x4AtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo () {
+        Direccion unaDireccion = new Derecha ();
+        Esquina unaEsquina = new EsquinaComun ();
+        Esquina otraEsquina = new EsquinaComun ();
+        Calle unaCalle = new CalleComun (unaEsquina, otraEsquina, new CambioDeVehiculo());
+        unaEsquina.setearCalleEnDireccion (unaCalle, unaDireccion);
+        Vehiculo unaCuatroPorCuatro= new Vehiculo (new CuatroPorCuatro() , unaEsquina);
+        unaCuatroPorCuatro.moverseHacia (unaDireccion);
+        assertTrue((unaCuatroPorCuatro.getTipoDeVehiculo ()).getClass().equals(((new Moto()).getClass())));
+    }
 }

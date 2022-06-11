@@ -29,21 +29,28 @@ public class Vehiculo   {
     public int getCantidadDeMovimientos(){
         return this.cantidadDeMovimientos;
     }
+    public void setCantidadDeMovimientos(int unaCantidadDeMovimientos){
+        this.cantidadDeMovimientos = unaCantidadDeMovimientos;
+    }
 
-    public void aumentarCantidadMovimientosEnPorcentaje(int porcentaje) {
+    public void aumentarCantidadMovimientosEnPorcentaje(double porcentaje) {
         int aumento;
-        aumento = (int) this.cantidadDeMovimientos * (porcentaje / 100);
+        aumento = (int) Math.round(this.cantidadDeMovimientos * (porcentaje / 100));
         this.cantidadDeMovimientos += aumento;
     }
 
-    public void disminuirCantidadMovimientosEnPorcentaje(int porcentaje) {
+    public void disminuirCantidadMovimientosEnPorcentaje(double porcentaje) {
         int aumento;
-        aumento = (int) this.cantidadDeMovimientos * (porcentaje / 100);
+        aumento = (int) Math.round(this.cantidadDeMovimientos * (porcentaje / 100));
         this.cantidadDeMovimientos -= aumento;
     }
 
     public void proximoVehiculo() {
         this.unTipoDeVehiculo = this.unTipoDeVehiculo.proximoTipoDeVehiculo();
+    }
+
+    public TipoDeVehiculo getTipoDeVehiculo(){
+        return this.unTipoDeVehiculo;
     }
 
 }

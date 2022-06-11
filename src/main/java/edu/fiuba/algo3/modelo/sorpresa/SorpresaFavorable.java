@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
 public class SorpresaFavorable implements Sorpresa {
 
-    private int porcentaje;
+    private double porcentaje;
     public SorpresaFavorable () {
         this.porcentaje = 20;
     }
