@@ -1,6 +1,5 @@
-package edu.fiuba.algo3.modelo.esquina;
+package edu.fiuba.algo3.modelo.posicion;
 
-import edu.fiuba.algo3.modelo.esquina.Calle;
 import edu.fiuba.algo3.modelo.obstaculo.NoObstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 import edu.fiuba.algo3.modelo.obstaculo.Sorpresa;

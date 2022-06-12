@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo.direcciones;
+package edu.fiuba.algo3.modelo.movimiento.direcciones;
 
-import edu.fiuba.algo3.modelo.esquina.Posicion;
+import edu.fiuba.algo3.modelo.posicion.Posicion;
 
 public class Derecha implements Direccion {
 

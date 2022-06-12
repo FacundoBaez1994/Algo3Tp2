@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.esquina;
+package edu.fiuba.algo3.modelo.posicion;
 
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 

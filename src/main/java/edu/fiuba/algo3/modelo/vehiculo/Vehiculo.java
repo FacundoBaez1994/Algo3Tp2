@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.direcciones.Direccion;
-import edu.fiuba.algo3.modelo.esquina.Calle;
-import edu.fiuba.algo3.modelo.esquina.Posicion;
+import edu.fiuba.algo3.modelo.movimiento.direcciones.Direccion;
+import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.movimiento.MovimientoComun;
 import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
@@ -21,7 +20,8 @@ public class Vehiculo   {
     public void moverseHacia (Direccion unaDireccion) {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
-        this.posicion = unMovimiento.moverseDesde(this.posicion,this );
+        this.posicion = unMovimiento.moverseDesde(this.posicion, this);
+        // APLICAR OBSTACULOS Y REGALOS
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {

@@ -1,6 +1,6 @@
-package edu.fiuba.algo3.modelo.esquina;
-import edu.fiuba.algo3.modelo.direcciones.Direccion;
- public class Posicion {
+package edu.fiuba.algo3.modelo.posicion;
+
+public class Posicion {
     protected int coordenadaX;
     protected int coordenadaY;
 
@@ -21,7 +21,7 @@ import edu.fiuba.algo3.modelo.direcciones.Direccion;
                  this.coordenadaY + otraPosicion.coordenadaY );
      }
 
-     public boolean igualA(Posicion otraPosicion) {
+     public boolean igualA (Posicion otraPosicion) {
          if (this.coordenadaX == otraPosicion.coordenadaX &&
                  this.coordenadaY == otraPosicion.coordenadaY)
              return true;

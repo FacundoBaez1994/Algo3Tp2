@@ -1,24 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.esquina.Calle;
-import edu.fiuba.algo3.modelo.esquina.CalleComun;
-import edu.fiuba.algo3.modelo.esquina.Posicion;
-import edu.fiuba.algo3.modelo.esquina.PosicionComun;
-import edu.fiuba.algo3.modelo.excepciones.VehiculoNoPuedePasar;
-import edu.fiuba.algo3.modelo.obstaculo.Piquete;
-import edu.fiuba.algo3.modelo.obstaculo.Pozo;
-import edu.fiuba.algo3.modelo.sorpresa.CambioDeVehiculo;
-import edu.fiuba.algo3.modelo.sorpresa.SorpresaFavorable;
-import edu.fiuba.algo3.modelo.sorpresa.SorpresaNoFavorable;
-import edu.fiuba.algo3.modelo.vehiculo.Auto;
-import edu.fiuba.algo3.modelo.vehiculo.CuatroPorCuatro;
-import edu.fiuba.algo3.modelo.vehiculo.Moto;
-import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
-import edu.fiuba.algo3.modelo.direcciones.Derecha;
-import edu.fiuba.algo3.modelo.direcciones.Direccion;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -26,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class TestVehiculo {
+        /*
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos () {
         Direccion unaDireccion = new Derecha ();
@@ -162,4 +144,6 @@ public class TestVehiculo {
         unaCuatroPorCuatro.moverseHacia (unaDireccion);
         assertTrue((unaCuatroPorCuatro.getTipoDeVehiculo ()).getClass().equals(((new Moto()).getClass())));
     }
+
+         */
 }

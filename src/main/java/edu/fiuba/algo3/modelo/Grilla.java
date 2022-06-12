@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.direcciones.Direccion;
-import edu.fiuba.algo3.modelo.esquina.Posicion;
-import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
+import edu.fiuba.algo3.modelo.posicion.Posicion;
 
 public class Grilla {
     // Singleton pattern
@@ -14,7 +12,7 @@ public class Grilla {
     private Posicion[][] posiciones = new Posicion[this.maximaCantidadDePosicionesEnX][this.maximaCantidadDePosicionesEnY];
 
     private Grilla(){
-        this.crearPosiciones();
+        //this.crearPosiciones();
     }
     public static Grilla getInstance() {
         if (INSTANCE == null) {
