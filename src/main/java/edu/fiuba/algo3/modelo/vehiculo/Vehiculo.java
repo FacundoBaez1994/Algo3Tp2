@@ -20,8 +20,8 @@ public class Vehiculo   {
     public void moverseHacia (Direccion unaDireccion) {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
-        this.posicion = unMovimiento.moverseDesde(this.posicion, this);
-        // APLICAR OBSTACULOS Y REGALOS
+        this.posicion = unMovimiento.moverse (this.posicion, this);
+        // APLICAR OBSTACULOS Y SORPRESAS
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {

@@ -20,7 +20,7 @@ public class TestMovimiento {
         Posicion unaPosicion = new Posicion(1,1);
         Posicion unaPosicionFinal = new Posicion(2,1);
         Movimiento unMovimiento = new MovimientoComun(new Derecha());
-        Posicion otraPosicion = unMovimiento.moverseDesde( unaPosicion, unVehiculo);
+        Posicion otraPosicion = unMovimiento.moverse ( unaPosicion, unVehiculo);
         assertTrue (otraPosicion.igualA(unaPosicionFinal));
     }
 
@@ -30,7 +30,7 @@ public class TestMovimiento {
         Posicion unaPosicion = new Posicion(1,1);
         Posicion unaPosicionFinal = new Posicion(0,1);
         Movimiento unMovimiento = new MovimientoComun(new Izquierda());
-        Posicion otraPosicion = unMovimiento.moverseDesde( unaPosicion, unVehiculo);
+        Posicion otraPosicion = unMovimiento.moverse( unaPosicion, unVehiculo);
         assertTrue (otraPosicion.igualA(unaPosicionFinal));
     }
 
@@ -40,7 +40,7 @@ public class TestMovimiento {
         Posicion unaPosicion = new Posicion(1,1);
         Posicion unaPosicionFinal = new Posicion(1,2);
         Movimiento unMovimiento = new MovimientoComun(new Arriba());
-        Posicion otraPosicion = unMovimiento.moverseDesde( unaPosicion, unVehiculo);
+        Posicion otraPosicion = unMovimiento.moverse( unaPosicion, unVehiculo);
         assertTrue (otraPosicion.igualA(unaPosicionFinal));
     }
 
@@ -50,7 +50,7 @@ public class TestMovimiento {
         Posicion unaPosicion = new Posicion(1,1);
         Posicion unaPosicionFinal = new Posicion(1,0);
         Movimiento unMovimiento = new MovimientoComun(new Abajo());
-        Posicion otraPosicion = unMovimiento.moverseDesde( unaPosicion, unVehiculo);
+        Posicion otraPosicion = unMovimiento.moverse( unaPosicion, unVehiculo);
         assertTrue (otraPosicion.igualA(unaPosicionFinal));
     }
 

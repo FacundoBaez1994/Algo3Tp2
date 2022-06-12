@@ -4,5 +4,5 @@ import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
 public interface Movimiento {
-    public abstract Posicion moverseDesde (Posicion unaPosicion, Vehiculo unVehiculo);
+    public abstract Posicion moverse (Posicion unaPosicion, Vehiculo unVehiculo);
 }

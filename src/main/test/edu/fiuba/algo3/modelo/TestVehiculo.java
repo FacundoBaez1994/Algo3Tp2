@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class TestVehiculo {
-        /*
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos () {
         Direccion unaDireccion = new Derecha ();
@@ -144,6 +143,4 @@ public class TestVehiculo {
         unaCuatroPorCuatro.moverseHacia (unaDireccion);
         assertTrue((unaCuatroPorCuatro.getTipoDeVehiculo ()).getClass().equals(((new Moto()).getClass())));
     }
-
-         */
 }
