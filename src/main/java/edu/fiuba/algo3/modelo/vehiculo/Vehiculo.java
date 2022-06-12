@@ -21,8 +21,7 @@ public class Vehiculo   {
     public void moverseHacia (Direccion unaDireccion) {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
-        Calle unaCalle = this.posicion.obtenerCalleEnDireccion(unaDireccion);
-        unMovimiento.mover(unaCalle,this );
+        this.posicion = unMovimiento.moverseDesde(this.posicion,this );
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {
