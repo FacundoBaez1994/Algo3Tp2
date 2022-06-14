@@ -22,7 +22,7 @@ public class Vehiculo   {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
         Calle unaCalle = this.posicion.obtenerCalleEnDireccion(unaDireccion);
-        unMovimiento.mover(unaCalle,this );
+        this.posicion = unMovimiento.mover(unaCalle,this );
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {

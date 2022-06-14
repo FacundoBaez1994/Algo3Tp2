@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title Un Auto Atraviesa La Ciudad Y Se Encuentra Con Una Sorpresa Cambio De Vehiculo
+autonumber
+actor ":TestCase"
+Activate ":TestCase"
+   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
+    Activate ":Vehiculo"
+    create ":MovimientoComun"
+    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    Activate ":MovimientoComun"
+    ":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
+    ":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
+     Activate ":CalleComun"
+    ":CalleComun" -> ":CambioDeVehiculo": serEncontradaPor (:Vehiculo)
+    Activate ":CambioDeVehiculo"
+    ":CambioDeVehiculo" -> ":Vehiculo": proximoTipoDeVehiculo ()
+     Deactivate ":CambioDeVehiculo"
+     ":Vehiculo" -> ":CuatroPorCuatro": proximoTipoDeVehiculo ()
+     ":Vehiculo" <-- ":CuatroPorCuatro":
+
+    ":MovimientoComun" <-- ":CalleComun": nuevaPosicion:Posicion
+    Deactivate ":CalleComun"
+    ":Vehiculo" <-- ":MovimientoComun": nuevaPosicion:Posicion
+    Deactivate ":MovimientoComun"
+
+@enduml
