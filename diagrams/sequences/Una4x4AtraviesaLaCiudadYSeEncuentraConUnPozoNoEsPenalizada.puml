@@ -1,27 +1,27 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Una 4x4 Atraviesa La Ciudad Y Se Encuentra Con Un Pozo No Es Penalizada
+title Un 4x4 Atraviesa La Ciudad Y Se Encuentra Con Un Pozo No Es Penalizada
 autonumber
 actor ":TestCase"
 Activate ":TestCase"
-   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-    Activate ":Vehiculo"
-    create ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-    Activate ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-    ":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-    Deactivate ":MovimientoComun"
-    Activate ":CalleComun"
-    ":CalleComun" -> ":Vehiculo": afectarMovimientos (unObstaculo)
-    Deactivate ":CalleComun"
-    ":Vehiculo" -> ":CuatroPorCuatro": calcularPenalizacion (unObstaculo)
-    Activate ":CuatroPorCuatro"
-    ":Vehiculo" <-- ":CuatroPorCuatro": cantidadDeMovimientos
-    Deactivate ":CuatroPorCuatro"
-    ":TestCase"  -> ":Vehiculo": getCantidadDeMovimientos ()
-    ":TestCase"  <-- ":Vehiculo": cantidadDeMovimientos
-    Deactivate ":Vehiculo"
+":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
+Activate ":Vehiculo"
+create ":MovimientoComun"
+":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+Activate ":MovimientoComun"
+":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
+":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
+Activate ":CalleComun"
+":CalleComun" -> ":Vehiculo": afectarMovimientos (unPozo:Obstaculo)
+":Vehiculo" -> "unPozo:Obstaculo": calcularPenalizacion (una4x4:TipoDeVehiculo)
+Activate "unPozo:Obstaculo"
+"unPozo:Obstaculo" -> "una4x4:TipoDeVehiculo": calcularPenalizacion (unPozo:Obstaculo)
+Activate "una4x4:TipoDeVehiculo"
+return cantidadDeMovimientos
+return cantidadDeMovimientos
+return nuevaPosicion:Posicion
+return nuevaPosicion:Posicion
+return cantidadMovimientos
 
 
 @enduml

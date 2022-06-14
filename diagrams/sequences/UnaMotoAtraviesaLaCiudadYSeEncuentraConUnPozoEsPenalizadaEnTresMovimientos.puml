@@ -4,24 +4,24 @@ title Una Moto Atraviesa La Ciudad Y Se Encuentra Con Un Pozo Es Penalizada En T
 autonumber
 actor ":TestCase"
 Activate ":TestCase"
-   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-    Activate ":Vehiculo"
-    create ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-    Activate ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-    ":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-    Deactivate ":MovimientoComun"
-    Activate ":CalleComun"
-    ":CalleComun" -> ":Vehiculo": afectarMovimientos (unObstaculo)
-    Deactivate ":CalleComun"
-    ":Vehiculo" -> ":Moto": calcularPenalizacion (unObstaculo)
-    Activate ":Moto"
-    ":Vehiculo" <-- ":Moto": cantidadDeMovimientos
-    Deactivate ":Moto"
-    ":TestCase"  -> ":Vehiculo": getCantidadDeMovimientos ()
-    ":TestCase"  <-- ":Vehiculo": cantidadDeMovimientos
-    Deactivate ":Vehiculo"
+":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
+Activate ":Vehiculo"
+create ":MovimientoComun"
+":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+Activate ":MovimientoComun"
+":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
+":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
+Activate ":CalleComun"
+":CalleComun" -> ":Vehiculo": afectarMovimientos (unPozo:Obstaculo)
+":Vehiculo" -> "unPozo:Obstaculo": calcularPenalizacion (unaMoto:TipoDeVehiculo)
+Activate "unPozo:Obstaculo"
+"unPozo:Obstaculo" -> "unaMoto:TipoDeVehiculo": calcularPenalizacion (unPozo:Obstaculo)
+Activate "unaMoto:TipoDeVehiculo"
+return cantidadDeMovimientos
+return cantidadDeMovimientos
+return nuevaPosicion:Posicion
+return nuevaPosicion:Posicion
+return cantidadMovimientos
 
 
 @enduml
