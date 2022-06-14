@@ -8,7 +8,7 @@ class Vehiculo {
     + afectarMovimientos(Obstaculo unObstaculo): void
     + getCantidadDeMovimientos (): int
 }
-Vehiculo"1" ..>  "1" Obstaculo
+'Vehiculo"1" ..>  "1" Obstaculo
 
 class Jugador {
     + moverVehiculoHacia (unaDireccion): void
@@ -26,7 +26,7 @@ Abstract class Calle{
     + {abstract} obtenerEsquinaOpuesta (Posicion esquinaOrigen) :Posicion
     + {abstract} serTransitada (Vehiculo unVehiculo) : Posicion
 }
-Calle "1" ..>  "1" Vehiculo
+'Calle "1" ..>  "1" Vehiculo
 
 interface Movimiento {
 + {abstract} mover(Calle unaCalle, Vehiculo unVehiculo ) : Posicion
@@ -40,14 +40,14 @@ abstract class Posicion {
     + {abstract} obtenerCalleEnDireccion (Direccion unaDireccion) :  Calle
 }
 Posicion "1" -> "1..*" Calle
-Posicion "1" ..>  "1" Direccion
+'Posicion "1" ..>  "1" Direccion
 
 
 abstract class TipoDeVehiculo {
     + {abstract} calcularPenalizacion (Obstaculo unObstaculo): int
     + {abstract} proximoTipoDeVehiculo (): TipoDeVehiculo
 }
-TipoDeVehiculo"1" ..>  "1" Obstaculo
+'TipoDeVehiculo"1" ..>  "1" Obstaculo
 
 interface Direccion
 
@@ -75,12 +75,12 @@ Grilla  "1" -> "*" Posicion
 Grilla  "1" -> "*" Calle
 Juego "1" -> "1" Grilla
 Jugador "1" o-- "1" Vehiculo
-Vehiculo "1" ..>  "1" Movimiento
-Vehiculo "1" ..>  "1" Direccion
+'Vehiculo "1" ..>  "1" Movimiento
+'Vehiculo "1" ..>  "1" Direccion
 Movimiento "1" -> "1"Direccion
-Movimiento "1" ..> "1"Calle
-Vehiculo "1" *-- "1"TipoDeVehiculo
-Sorpresa "1" ..> "1"Vehiculo
+'Movimiento "1" ..> "1"Calle
+Vehiculo "1" -> "1"TipoDeVehiculo
+'Sorpresa "1" ..> "1"Vehiculo
 
 
 
