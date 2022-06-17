@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
 public class Piquete implements Obstaculo, Ubicables {
     private Posicion unaPosicion;
+    public Piquete(){}
     public Piquete(Posicion unaPosicion){
         this.unaPosicion = unaPosicion;
     }
@@ -14,7 +15,7 @@ public class Piquete implements Obstaculo, Ubicables {
         return unTipo.calcularPenalizacion(this);
     }
     public boolean estaEnPosicion(Posicion unaPosicion){
-        return this.unaPosicion.equals(unaPosicion);
+        return this.unaPosicion.igualA(unaPosicion);
     }
     public void serEncontradoPor (Vehiculo unVehiculo){
         unVehiculo.calcularPenalizacion(this);

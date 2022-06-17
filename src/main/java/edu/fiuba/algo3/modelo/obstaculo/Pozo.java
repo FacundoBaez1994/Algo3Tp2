@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.vehiculo.*;
 
 public class Pozo implements Obstaculo, Ubicables {
     private Posicion unaPosicion;
+    public Pozo(){}
     public Pozo(Posicion unaPosicion){
         this.unaPosicion = unaPosicion;
     }
@@ -13,7 +14,7 @@ public class Pozo implements Obstaculo, Ubicables {
         return unTipo.calcularPenalizacion(this);
     }
     public boolean estaEnPosicion(Posicion unaPosicion){
-        return this.unaPosicion.equals(unaPosicion);
+        return this.unaPosicion.igualA(unaPosicion);
     }
     public void serEncontradoPor (Vehiculo unVehiculo){
         unVehiculo.calcularPenalizacion(this);

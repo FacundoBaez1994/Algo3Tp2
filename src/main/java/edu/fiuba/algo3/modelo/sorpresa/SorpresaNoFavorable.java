@@ -11,7 +11,9 @@ public class SorpresaNoFavorable implements Sorpresa, Ubicables {
     private double porcentaje;
     private Posicion unaPosicion;
     public SorpresaNoFavorable(Posicion unaPosicion){
+
         this.unaPosicion = unaPosicion;
+        this.porcentaje = 25;
     }
     public SorpresaNoFavorable () {
         this.porcentaje = 25;
@@ -21,6 +23,6 @@ public class SorpresaNoFavorable implements Sorpresa, Ubicables {
         unVehiculo.aumentarCantidadMovimientosEnPorcentaje(this.porcentaje);
     }
     public boolean estaEnPosicion(Posicion unaPosicion){
-        return this.unaPosicion.equals(unaPosicion);
+        return this.unaPosicion.igualA(unaPosicion);
     }
 }

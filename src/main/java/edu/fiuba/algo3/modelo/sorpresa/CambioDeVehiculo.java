@@ -19,6 +19,6 @@ public class CambioDeVehiculo implements Sorpresa, Ubicables {
     }
 
     public boolean estaEnPosicion(Posicion unaPosicion){
-       return this.unaPosicion.equals(unaPosicion);
+       return this.unaPosicion.igualA(unaPosicion);
     }
 }

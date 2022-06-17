@@ -22,12 +22,13 @@ public class Vehiculo{
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
         unMovimiento.moverse (this);
+        this.cantidadDeMovimientos += 1;
     }
-
+/*
     public  void afectarMovimientos(Obstaculo unObstaculo) {
         this.cantidadDeMovimientos += unObstaculo.calcularPenalizacion (this.unTipoDeVehiculo);
         this.cantidadDeMovimientos += 1;
-    }
+    }*/
 
     public int getCantidadDeMovimientos(){
         return this.cantidadDeMovimientos;

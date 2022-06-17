@@ -19,6 +19,6 @@ public class NoSorpresa implements Sorpresa, Ubicables {
     }
 
     public boolean estaEnPosicion(Posicion unaPosicion){
-        return this.unaPosicion.equals(unaPosicion);
+        return this.unaPosicion.igualA(unaPosicion);
     }
 }

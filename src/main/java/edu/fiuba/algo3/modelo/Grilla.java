@@ -18,6 +18,7 @@ public class Grilla {
 
     private Grilla(){
         this.crearPosiciones();
+        this.ubicables = new ArrayList<>();
     }
     public static Grilla getInstance() {
         if (INSTANCE == null) {
@@ -39,8 +40,9 @@ public class Grilla {
     }
     public void aplicarElementoUbicableAVehiculo (Vehiculo unVehiculo) {
         for( Ubicables ubicable : ubicables){
-            if( ubicable.estaEnPosicion(unVehiculo.getPosicion()))
+            if( ubicable.estaEnPosicion(unVehiculo.getPosicion())) {
                 ubicable.serEncontradoPor(unVehiculo);
+            }
         }
     }
 
@@ -51,7 +53,7 @@ public class Grilla {
             }
         }
     }
-    private void agregarUbicable(Ubicables unUbicable){
+    public void agregarUbicable(Ubicables unUbicable){
         this.ubicables.add(unUbicable);
     }
 }
