@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.obstaculo.*;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.movimiento.MovimientoComun;
-
+// Comentario
 public class Vehiculo{
     private Posicion posicion;
     private TipoDeVehiculo unTipoDeVehiculo;
