@@ -1,12 +1,13 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
+import edu.fiuba.algo3.modelo.Ubicables;
 import edu.fiuba.algo3.modelo.movimiento.direcciones.Direccion;
+import edu.fiuba.algo3.modelo.obstaculo.*;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.movimiento.Movimiento;
 import edu.fiuba.algo3.modelo.movimiento.MovimientoComun;
-import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
 
-public class Vehiculo   {
+public class Vehiculo{
     private Posicion posicion;
     private TipoDeVehiculo unTipoDeVehiculo;
     private int cantidadDeMovimientos;
@@ -20,8 +21,7 @@ public class Vehiculo   {
     public void moverseHacia (Direccion unaDireccion) {
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
-        this.posicion = unMovimiento.moverse (this.posicion, this);
-        // APLICAR OBSTACULOS Y SORPRESAS
+        unMovimiento.moverse (this);
     }
 
     public  void afectarMovimientos(Obstaculo unObstaculo) {
@@ -56,4 +56,26 @@ public class Vehiculo   {
         return this.unTipoDeVehiculo;
     }
 
+    public void cambiarPosicionHacia(Posicion posicionRelativa) {
+        this.posicion.sumarCoordenadas(posicionRelativa);
+    }
+    public boolean estaEnPosicion(Posicion unaPosicion){
+        return this.posicion.equals(unaPosicion);
+    }
+    public Posicion getPosicion(){
+        return this.posicion;
+    }
+
+    public void calcularPenalizacion(Pozo pozo) {
+        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(pozo);
+    }
+    public void calcularPenalizacion(ControlPolicial controlPolicial) {
+        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(controlPolicial);
+    }
+    public void calcularPenalizacion(Piquete piquete) {
+        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(piquete);
+    }
+    public void calcularPenalizacion(NoObstaculo noObstaculo) {
+        this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(noObstaculo);
+    }
 }

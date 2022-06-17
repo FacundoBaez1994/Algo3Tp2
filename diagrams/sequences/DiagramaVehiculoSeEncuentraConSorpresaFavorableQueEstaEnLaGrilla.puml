@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title Diagrama Vehiculo Se Encuentra Con Sorpresa Favorable Que Esta En La Grilla
+autonumber
+actor ":TestCase"
+
+Activate ":TestCase"
+   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
+    Activate ":Vehiculo"
+    create ":MovimientoComun"
+    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    Activate ":MovimientoComun"
+    ":Vehiculo" -> ":MovimientoComun": moverse (:Vehiculo)
+    ":MovimientoComun" -> ":Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    Activate ":Grilla"
+    ":MovimientoComun" -> ":Grilla": aplicarElemento(:Vehiculo)
+      Deactivate ":MovimientoComun"
+loop paraLaSorpresaEnLaMismaPosicionQueElVehiculo
+    Activate ":SorpresaFavorable"
+    ":Grilla" -> ":SorpresaFavorable": serEncontradoPor(:Vehiculo)
+    ":Vehiculo" <- ":SorpresaFavorable": disminuirCantidadDeMovimientosEnPorcentaje(unPorcentaje)
+    Deactivate ":SorpresaFavorable"
+    Deactivate ":Grilla"
+end
+@enduml

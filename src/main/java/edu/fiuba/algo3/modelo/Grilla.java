@@ -3,10 +3,12 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
+import java.util.ArrayList;
+
 public class Grilla {
     // Singleton pattern
     private static Grilla INSTANCE = null;
-
+    private ArrayList<Ubicables> ubicables = null;
     private final int maximaCantidadDePosicionesEnX = 20;
     private final int maximaCantidadDePosicionesEnY = 20;
 
@@ -35,8 +37,11 @@ public class Grilla {
             }
         }
     }
-    public void aplicarElementosAVehiculo (Posicion posicion, Vehiculo unVehiculo) {
-        ArrayList <Elementos> elementos =  this.buscarElementosEn (posicion);
+    public void aplicarElementoUbicableAVehiculo (Vehiculo unVehiculo) {
+        for( Ubicables ubicable : ubicables){
+            if( ubicable.estaEnPosicion(unVehiculo.getPosicion()))
+                ubicable.serEncontradoPor(unVehiculo);
+        }
     }
 
     private void buscarElementosEn(Posicion posicion) {
@@ -45,6 +50,9 @@ public class Grilla {
                 // que elemento tienen la posicion
             }
         }
+    }
+    private void agregarUbicable(Ubicables unUbicable){
+        this.ubicables.add(unUbicable);
     }
 }
 

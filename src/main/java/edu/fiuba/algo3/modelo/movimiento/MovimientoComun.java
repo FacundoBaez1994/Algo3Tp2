@@ -13,10 +13,9 @@ public class MovimientoComun implements Movimiento {
         this.unaDireccion = unaDireccion;
     }
 
-    public Posicion moverse (Posicion unaPosicion, Vehiculo unVehiculo ) {
-        Posicion otraPosicion = unaPosicion.obtenerSumaDeCoordenadas( unaDireccion.posicionRelativa());
+    public void moverse (Vehiculo unVehiculo ) {
+        unVehiculo.cambiarPosicionHacia(unaDireccion.posicionRelativa());
         Grilla grilla = Grilla.getInstance();
-        grilla.aplicarElementosAVehiculo (otraPosicion, unVehiculo);
-        return otraPosicion;
+        grilla.aplicarElementoUbicableAVehiculo (unVehiculo);
     }
 }
