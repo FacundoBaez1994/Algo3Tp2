@@ -22,6 +22,7 @@ public class Vehiculo{
 
         Movimiento unMovimiento = new MovimientoComun(unaDireccion);
         unMovimiento.moverse (this);
+        unMovimiento.moverse (this);
         this.cantidadDeMovimientos += 1;
     }
 /*

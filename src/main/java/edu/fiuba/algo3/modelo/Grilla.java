@@ -56,6 +56,11 @@ public class Grilla {
     public void agregarUbicable(Ubicables unUbicable){
         this.ubicables.add(unUbicable);
     }
+
+    public void reiniciar () {
+        this.crearPosiciones();
+        this.ubicables = new ArrayList<>();
+    }
 }
 
 
