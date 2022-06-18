@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.Ubicables;
+import edu.fiuba.algo3.modelo.Ubicable;
 import edu.fiuba.algo3.modelo.movimiento.direcciones.Direccion;
 import edu.fiuba.algo3.modelo.obstaculo.*;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
@@ -81,7 +81,7 @@ public class Vehiculo{
         this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(noObstaculo);
     }
 
-    public void toparseConUn(Ubicables ubicable) {
+    public void toparseConUn(Ubicable ubicable) {
         if( ubicable.estaEnPosicion(this.posicion)) {
             ubicable.serEncontradoPor(this);
         }

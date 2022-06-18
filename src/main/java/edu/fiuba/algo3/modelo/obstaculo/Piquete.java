@@ -1,11 +1,11 @@
 package edu.fiuba.algo3.modelo.obstaculo;
 
-import edu.fiuba.algo3.modelo.Ubicables;
+import edu.fiuba.algo3.modelo.Ubicable;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.TipoDeVehiculo;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
-public class Piquete implements Obstaculo, Ubicables {
+public class Piquete implements Obstaculo, Ubicable {
     private Posicion unaPosicion;
     public Piquete(){}
     public Piquete(Posicion unaPosicion){

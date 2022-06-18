@@ -1,10 +1,10 @@
 package edu.fiuba.algo3.modelo.obstaculo;
 
-import edu.fiuba.algo3.modelo.Ubicables;
+import edu.fiuba.algo3.modelo.Ubicable;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.*;
 
-public class NoObstaculo implements Obstaculo, Ubicables {
+public class NoObstaculo implements Obstaculo, Ubicable {
 
     private Posicion unaPosicion;
     public NoObstaculo(){}

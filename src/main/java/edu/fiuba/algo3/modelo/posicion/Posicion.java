@@ -4,8 +4,6 @@ public class Posicion {
     protected int coordenadaX;
     protected int coordenadaY;
 
-    protected int coordenadas;
-
      public Posicion(int x, int y){
          this.coordenadaX = x;
          this.coordenadaY = y;

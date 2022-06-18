@@ -60,9 +60,10 @@ public class TestEntrega1 {
         Posicion otraPosicion = new Posicion(1,1);
         Vehiculo una4x4 = new Vehiculo (new CuatroPorCuatro() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        //unaGrilla.reiniciar ();
         unaGrilla.agregarUbicable(new Pozo(otraPosicion));
+
         una4x4.moverseHacia (unaDireccion);
+
         assertEquals(una4x4.getCantidadDeMovimientos(),  1);
     }
 
