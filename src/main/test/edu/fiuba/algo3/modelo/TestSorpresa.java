@@ -16,21 +16,21 @@ public class TestSorpresa {
     public void testUnVehiculoSeEncuentraUnaSorpresaFavorable(){
         Vehiculo unVehiculo = mock(Vehiculo.class);
         SorpresaFavorable unaSorpresa = new SorpresaFavorable();
-        unaSorpresa.serEncontradaPor(unVehiculo);
+        unaSorpresa.serEncontradoPor(unVehiculo);
         verify(unVehiculo, times(1)).disminuirCantidadMovimientosEnPorcentaje(20);
     }
     @Test
     public void testUnVehiculoSeEncuentraUnaSorpresaNoFavorable(){
         Vehiculo unVehiculo = mock(Vehiculo.class);
         SorpresaNoFavorable unaSorpresa = new SorpresaNoFavorable();
-        unaSorpresa.serEncontradaPor(unVehiculo);
+        unaSorpresa.serEncontradoPor(unVehiculo);
         verify(unVehiculo, times(1)).aumentarCantidadMovimientosEnPorcentaje(25);
     }
     @Test
     public void testUnVehiculoSeEncuentraUnaSorpresaCambioVehiculo(){
         Vehiculo unVehiculo = mock(Vehiculo.class);
         CambioDeVehiculo unaSorpresa = new CambioDeVehiculo();
-        unaSorpresa.serEncontradaPor(unVehiculo);
+        unaSorpresa.serEncontradoPor(unVehiculo);
         verify(unVehiculo, times(1)).proximoVehiculo();
     }
 }

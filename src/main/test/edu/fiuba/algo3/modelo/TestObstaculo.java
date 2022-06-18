@@ -9,9 +9,6 @@ import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
-import org.junit.jupiter.api.Test;
-
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 
 public class TestObstaculo {

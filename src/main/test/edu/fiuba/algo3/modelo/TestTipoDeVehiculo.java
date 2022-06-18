@@ -63,4 +63,5 @@ public class TestTipoDeVehiculo {
         };
         assertThrows (VehiculoNoPuedePasar.class, task);
     }
+
 }

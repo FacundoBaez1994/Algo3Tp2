@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
-import edu.fiuba.algo3.modelo.obstaculo.Obstaculo;
-import edu.fiuba.algo3.modelo.obstaculo.Piquete;
-import edu.fiuba.algo3.modelo.obstaculo.Pozo;
+import edu.fiuba.algo3.modelo.obstaculo.*;
 
 public abstract class TipoDeVehiculo {
     protected int penalizacionPorPozo;
@@ -14,6 +11,9 @@ public abstract class TipoDeVehiculo {
     public abstract int calcularPenalizacion (Piquete unPiquete);
 
     public abstract int calcularPenalizacion (Pozo unPozo);
+    public int calcularPenalizacion (NoObstaculo unNoObstaculo) {
+        return 0;
+    }
 
     public abstract TipoDeVehiculo proximoTipoDeVehiculo ();
 
