@@ -40,9 +40,7 @@ public class Grilla {
     }
     public void aplicarElementoUbicableAVehiculo (Vehiculo unVehiculo) {
         for( Ubicables ubicable : ubicables){
-            if( ubicable.estaEnPosicion(unVehiculo.getPosicion())) {
-                ubicable.serEncontradoPor(unVehiculo);
-            }
+            unVehiculo.toparseConUn (ubicable);
         }
     }
 

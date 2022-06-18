@@ -80,4 +80,10 @@ public class Vehiculo{
     public void calcularPenalizacion(NoObstaculo noObstaculo) {
         this.cantidadDeMovimientos += this.unTipoDeVehiculo.calcularPenalizacion(noObstaculo);
     }
+
+    public void toparseConUn(Ubicables ubicable) {
+        if( ubicable.estaEnPosicion(this.posicion)) {
+            ubicable.serEncontradoPor(this);
+        }
+    }
 }
