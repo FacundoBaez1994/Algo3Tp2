@@ -4,5 +4,7 @@ public class Puntaje {
     private String nombre = "";
     private int cantidadDePuntos = 0;
 
-    //public Puntaje()
+   // public Puntaje(String unNombre, int puntos){
+
+    //}
 }
