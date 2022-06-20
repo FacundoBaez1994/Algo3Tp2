@@ -1,0 +1,24 @@
+@startuml
+title Diagrama de Clase Ubicable
+Grilla -d-> Ubicable
+Ubicable .r.> Vehiculo
+
+SopresaFav .u.|> Ubicable
+SopresaNoFav .u.|> Ubicable
+CambioDeVehiculo .u.|>  Ubicable
+Pozo .u.|> Ubicable
+Piquete .u.|> Ubicable
+ControlPolicial .u.|> Ubicable
+NoObstaculo .u.|> Ubicable
+
+SopresaFav -d-> Posicion
+SopresaNoFav -d-> Posicion
+CambioDeVehiculo -d-> Posicion
+Pozo -d-> Posicion
+Piquete -d-> Posicion
+ControlPolicial -d-> Posicion
+NoObstaculo -d-> Posicion
+
+interface Ubicable
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+title Diagrama De Clase Grilla
+
+MovimientoComun "1" .d.> "1" Grilla
+Grilla "1" -d-> "*" Ubicables
+Grilla "1" .r.> "1" Vehiculo
+
+interface Ubicables
+
+@enduml

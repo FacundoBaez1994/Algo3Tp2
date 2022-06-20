@@ -1,0 +1,22 @@
+@startuml
+title Diagrama De Clase Movimiento y Direccion
+
+Vehiculo "1" .r.> "1" Direccion
+Vehiculo  ..>  MovimientoComun
+Vehiculo  <..  MovimientoComun
+Direccion  <..  MovimientoComun
+
+MovimientoComun .d.> Grilla
+
+Arriba -u-|> Direccion
+Abajo -u-|> Direccion
+Derecha -u-|> Direccion
+Izquierda -u-|> Direccion
+
+interface Direccion
+
+MovimientoComun -u-|> Movimiento
+
+interface Movimiento
+
+@enduml

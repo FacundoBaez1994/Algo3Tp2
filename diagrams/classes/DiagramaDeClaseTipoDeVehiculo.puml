@@ -1,0 +1,44 @@
+@startuml
+
+title Diagrama de Clase TipoDeVehiculo
+
+Pozo -u-> Posicion
+Piquete -u-> Posicion
+ControlPolicial -u-> Posicion
+
+
+TipoDeVehiculo .u.> Pozo
+TipoDeVehiculo .u.> Piquete
+TipoDeVehiculo .u.> ControlPolicial
+
+TipoDeVehiculo <.u. Pozo
+TipoDeVehiculo <.u. Piquete
+TipoDeVehiculo <.u. ControlPolicial
+
+TipoDeVehiculo <|-d- Auto
+TipoDeVehiculo <|-d- Moto
+TipoDeVehiculo <|-d- CuatroPorCuatro
+
+
+
+
+abstract class TipoDeVehiculo
+
+@enduml
+
+abstract class TipoDeVehiculo {
+    + {abstract} calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class Moto {
+    + calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class CuatroPorCuatro {
+- int pozosAtrevezados
++ calcularPenalizacion (Obstaculo unObstaculo): int
+}
+class Auto {
+   + calcularPenalizacion (Obstaculo unObstaculo): int
+}
+Moto --|> TipoDeVehiculo
+Auto --|> TipoDeVehiculo
+CuatroPorCuatro  --|> TipoDeVehiculo

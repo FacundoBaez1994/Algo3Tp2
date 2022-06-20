@@ -9,15 +9,17 @@ Activate ":TestCase"
     Activate ":Vehiculo"
     create ":MovimientoComun"
     ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-    Activate ":MovimientoComun"
     ":Vehiculo" -> ":MovimientoComun": moverse (:Vehiculo)
+    Activate ":MovimientoComun"
     ":MovimientoComun" -> ":Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(:Vehiculo)
+    Deactivate ":MovimientoComun"
     Activate ":Grilla"
-    ":MovimientoComun" -> ":Grilla": aplicarElemento(:Vehiculo)
-      Deactivate ":MovimientoComun"
-loop paraLaSorpresaEnLaMismaPosicionQueElVehiculo
-    Activate ":SorpresaFavorable"
+
+    loop paraLaSorpresaEnLaMismaPosicionQueElVehiculo
+
     ":Grilla" -> ":SorpresaFavorable": serEncontradoPor(:Vehiculo)
+    Activate ":SorpresaFavorable"
     ":Vehiculo" <- ":SorpresaFavorable": disminuirCantidadDeMovimientosEnPorcentaje(unPorcentaje)
     Deactivate ":SorpresaFavorable"
     Deactivate ":Grilla"
