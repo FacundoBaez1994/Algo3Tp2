@@ -96,11 +96,15 @@ public class Grilla {
             }
         }
     }
-    private Ubicable generarObstaculoRandomEn (Posicion unaPosicion) {
-        if ( Math.random() > (0.7)) {
+
+    public Ubicable generarObstaculoRandomEn (Posicion unaPosicion) {
+       // Random ran = new Random();
+        double randomSelection = this.generarNumeroRandom ();
+
+        if ( randomSelection < (0.3)) {
             return new ControlPolicial (unaPosicion);
         }
-        else if ( Math.random() > (0.7)) {
+        else if ( 0.3 < randomSelection && randomSelection < 0.7) {
             return new Piquete(unaPosicion);
         }
         else {
@@ -108,7 +112,12 @@ public class Grilla {
         }
     }
 
-    private Ubicable generarSorpresaRandomEn (Posicion unaPosicion ) {
+    public Double generarNumeroRandom () {
+        Random ran = new Random();
+        return  ran.nextDouble();
+    }
+
+    public Ubicable generarSorpresaRandomEn (Posicion unaPosicion ) {
         if ( Math.random() > (0.7)) {
             return new SorpresaFavorable(unaPosicion);
         }
@@ -137,7 +146,6 @@ public class Grilla {
             this.agregarUbicable (meta);
         }
     }
-
 
 }
 
