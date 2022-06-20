@@ -1,0 +1,27 @@
+@startuml
+title Diagrama De Clase Grilla
+
+MovimientoComun "1" .d.> "1" Grilla
+Grilla "1" -d-> "*" Ubicables
+Grilla "1" .r.> "1" Vehiculo
+
+class MovimientoComun {
+    - int cantidadDeMovimientos;
+    + MovimientoComun(Direccion): void
+    + moverse (Vehiculo): void
+}
+
+class Grilla {
+    - maximaCantidadDePosicionesEnX: int
+    - maximaCantidadDePosicionesEnY: int
+    + crearPosiciones(): void
+    + aplicarElementoUbicableAVehiculo (Vehiculo) : void
+    + agregarUbicable (Ubicables) :  void
+}
+
+interface Ubicables {
+    + {abstract} estaEnPosicion(Posicion): boolean
+    + {abstract} serEncontradoPor(Vehiculo): void
+}
+
+@enduml

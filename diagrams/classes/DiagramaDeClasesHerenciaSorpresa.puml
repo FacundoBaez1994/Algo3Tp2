@@ -1,9 +1,0 @@
-@startuml
-interface Sorpresa
-class Favorable
-class Desfavorable
-class CambioDeVehiculo
-Favorable --|> Sorpresa
-Desfavorable --|> Sorpresa
-CambioDeVehiculo --|> Sorpresa
-@enduml

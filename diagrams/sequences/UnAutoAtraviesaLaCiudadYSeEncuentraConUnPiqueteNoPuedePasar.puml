@@ -1,26 +1,34 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Un Auto Atraviesa La Ciudad Y Se Encuentra Con Un Piquete No Pasa
+title Diagrama Auto Atraviesa La Ciudad Y Se Encuentra con Pozo Penalizada En Tres Movimientos
 autonumber
 actor ":TestCase"
+
 Activate ":TestCase"
-":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-Activate ":Vehiculo"
-create ":MovimientoComun"
-":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-Activate ":MovimientoComun"
-":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-Activate ":CalleComun"
-":CalleComun" -> ":Vehiculo": afectarMovimientos (unPozo:Obstaculo)
-":Vehiculo" -> "unPozo:Obstaculo": calcularPenalizacion (unAuto:TipoDeVehiculo)
-Activate "unPozo:Obstaculo"
-"unPozo:Obstaculo" -> "unAuto:TipoDeVehiculo": calcularPenalizacion (unPozo:Obstaculo)
-Activate "unAuto:TipoDeVehiculo"
-return VehiculoNoPuedePasar
-return VehiculoNoPuedePasar
-":TestCase" <--":Vehiculo": VehiculoNoPuedePasar
+   ":TestCase" -> "unVe:Vehiculo": moverseHacia (unaDireccion)
+    Activate "unVe:Vehiculo"
+    create ":MovimientoComun"
+    "unVe:Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    "unVe:Vehiculo" -> ":MovimientoComun": moverse (unVe)
+    Activate ":MovimientoComun"
+    ":MovimientoComun" -> "unVe:Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(unVe)
+    Deactivate ":MovimientoComun"
+    Activate ":Grilla"
+    loop Por Cada Ubicable de la Lista
+    ":Grilla" -> "unVe:Vehiculo": toparseCon(:Ubicable)
+    "unVe:Vehiculo" -> ":Ubicable": estaEnPosicion(:Posicion)
+    Activate ":Ubicable"
+    end
 
 
+    "unVe:Vehiculo" <- ":Ubicable": aplicarPenalizacion(Piquete)
+    "unVe:Vehiculo" -> ":Auto": aplicarPenalizacion(Piquete)
+    Activate ":Auto"
+    return VehiculoNoPuedePasar
+    Deactivate ":Ubicable"
+    Deactivate ":Grilla"
+
+    return VehiculoNoPuedePasar
 
 @enduml

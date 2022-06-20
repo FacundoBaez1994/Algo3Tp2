@@ -1,0 +1,82 @@
+@startuml
+title Diagrama General
+
+
+Vehiculo "1" -d-> "1" TipoDeVehiculo
+Vehiculo "1" -d-> "1" Posicion
+Vehiculo "1" .r.> "1" MovimientoComun
+Vehiculo "1" .r.> "1" Direccion
+
+
+MovimientoComun "1" .r.> "1" Direccion
+MovimientoComun "1" .d.> "1" Grilla
+
+Grilla "1" -d-> "*" Ubicables
+Grilla "1" .r.> "1" Vehiculo
+
+TipoDeVehiculo <|-d- Auto
+TipoDeVehiculo <|-d- Moto
+TipoDeVehiculo <|-d- CuatroPorCuatro
+
+class Vehiculo {
+    - int cantidadDeMovimientos;
+    +  moverseHacia (Direccion): void
+    + afectarMovimientos(Obstaculo): void
+    + moverseHacia (Direccion): void
+    + calcularPenalizacion(Pozo): void
+    + calcularPenalizacion(Piquete): void
+    + calcularPenalizacion(ControlPolicial): void
+    + toparseCon(Ubicable): void
+}
+
+class MovimientoComun {
+    - int cantidadDeMovimientos;
+    + MovimientoComun(Direccion): void
+    + moverse (Vehiculo): void
+}
+
+interface Direccion {
+    + {abstract} posicionRelativa(): Posicion
+}
+
+abstract class TipoDeVehiculo {
+    - penalizacionPorPozo: int
+    - penalizacionPorControlPolicial: int
+    - probDetencion: int
+    + {abstract} calcularPenalizacion(Pozo): int
+    + {abstract} calcularPenalizacion(Piquete): int
+    + {abstract} calcularPenalizacion(ControlPolicial): int
+    + {abstract} proximoTipoDeVehiculo (): TipoDeVehiculo
+}
+
+class Moto {
+    - penalizacionPorPiquete: int
+}
+
+class CuatroPorCuatro {
+    - pozosAtravesados: int
+    - cantidadDePozosHastaPenalizacion: int
+}
+
+class Posicion {
+    # int coordenadaX;
+    # int coordenadaY;
+    + Posicion(X:int, Y:int): void
+    + sumarCoordenadas (Posicion) : void
+    + igualA (Posicion) :  boolean
+}
+
+class Grilla {
+    - maximaCantidadDePosicionesEnX: int
+    - maximaCantidadDePosicionesEnY: int
+    + crearPosiciones(): void
+    + aplicarElementoUbicableAVehiculo (Vehiculo) : void
+    + agregarUbicable (Ubicables) :  void
+}
+
+interface Ubicables {
+    + {abstract} estaEnPosicion(Posicion): boolean
+    + {abstract} serEncontradoPor(Vehiculo): void
+}
+
+@enduml
