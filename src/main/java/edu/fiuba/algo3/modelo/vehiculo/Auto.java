@@ -8,10 +8,12 @@ import edu.fiuba.algo3.modelo.obstaculo.Pozo;
 
 public class Auto extends TipoDeVehiculo {
 
+
     private double probDetencion;
     public Auto () {
         this.probDetencion = 0.5;
         this.penalizacionPorControlPolicial =3;
+        this.penalizacionPorPozo = 3;
     }
 
     public int calcularPenalizacion (ControlPolicial unControl) {
@@ -22,7 +24,7 @@ public class Auto extends TipoDeVehiculo {
     }
 
     public int calcularPenalizacion (Pozo unPozo) {
-        return 3;
+        return this.penalizacionPorPozo;
     }
 
     public int calcularPenalizacion (Piquete unPiquete) {

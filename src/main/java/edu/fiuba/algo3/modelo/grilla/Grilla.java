@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.grilla;
 
+import edu.fiuba.algo3.modelo.excepciones.PosicionFueraDeLimite;
 import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
@@ -168,6 +169,13 @@ public class Grilla {
         return this.maximaCantidadDePosicionesEnY;
     }
 
+    public void comprobarCoordenadasDentroDeLosLimites(int coordenadaX, int coordenadaY) {
+        if(     coordenadaX< 0 || coordenadaY < 0
+                || this.maximaCantidadDePosicionesEnX < coordenadaX
+                || this.maximaCantidadDePosicionesEnY < coordenadaY){
+             throw new PosicionFueraDeLimite();
+        }
+    }
 }
 
 

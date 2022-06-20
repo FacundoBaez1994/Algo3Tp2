@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.posicion;
 
+import edu.fiuba.algo3.modelo.excepciones.PosicionFueraDeLimite;
+import edu.fiuba.algo3.modelo.grilla.Grilla;
+
 public class Posicion {
     protected int coordenadaX;
     protected int coordenadaY;
@@ -10,8 +13,14 @@ public class Posicion {
      }
 
      public void sumarCoordenadas(Posicion otraPosicion) {
-         this.coordenadaX = this.coordenadaX + otraPosicion.coordenadaX;
-         this.coordenadaY = this.coordenadaY + otraPosicion.coordenadaY;
+
+         int resultadoEnX = this.coordenadaX + otraPosicion.coordenadaX;
+         int resultadoEnY = this.coordenadaY + otraPosicion.coordenadaY;
+         Grilla grilla = Grilla.getInstance();
+         grilla.comprobarCoordenadasDentroDeLosLimites(resultadoEnX, resultadoEnY);
+         this.coordenadaX = resultadoEnX;
+         this.coordenadaY = resultadoEnY;
+
      }
 
      public Posicion obtenerSumaDeCoordenadas(Posicion otraPosicion) {

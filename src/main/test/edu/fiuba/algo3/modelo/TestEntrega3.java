@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
 
 
+
 import edu.fiuba.algo3.modelo.excepciones.LlegadaALaMeta;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.modelo.grilla.Meta;
@@ -143,6 +144,7 @@ public class TestEntrega3 {
                 }
             }
         }
+      
     }
 
     @Test
