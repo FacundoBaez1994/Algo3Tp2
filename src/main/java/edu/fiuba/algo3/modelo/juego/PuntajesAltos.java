@@ -1,26 +1,21 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.modelo.grilla.Ubicable;
+
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
 public class PuntajesAltos {
-
-    Map<String, Integer> ranking = null;
-  //  Map<String, Integer> map = new HashMap<String, Integer>();
+    private ArrayList<Puntaje> puntajes = null;
     public PuntajesAltos(){
-       this.ranking =  new HashMap<String, Integer>();
+       this.puntajes =  new ArrayList<>();
     }
-    public void agregarPuntaje(){
-       // this.ranking.put("Ramon", 28000);
+    public void agregarPuntaje(Puntaje unPuntaje){
+       puntajes.add(unPuntaje);
     }
-   /* public int obtenerPuntajeMasAlto(){
-        for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            final int valorActual = entry.getValue();
+    public void ordenarPuntajes(){
+    }
 
-            if (valorActual > valorMax)
-                valorMax = valorActual;
-        }
-    }*/
 }
