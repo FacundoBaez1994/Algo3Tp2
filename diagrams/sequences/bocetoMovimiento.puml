@@ -1,0 +1,25 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+title Un Auto Atraviesa La Ciudad Y Se Encuentra Con Un Pozo Es Penalizada En Tres Movimientos
+autonumber
+actor ":TestCase"
+
+":TestCase" -> ":Movimiento": moverseHacia (:Vehiculo, :Direccion)
+Activate ":Movimiento"
+":Movimiento" -> ":Vehiculo": moverseHacia (:Direccion)
+Activate ":Vehiculo"
+":Movimiento" -> ":Grilla": buscarElemento (:Vehiculo)
+
+return :Elemento
+":Movimiento" -> ":Vehiculo": encuentra (:Elemento)
+":Vehiculo" -> ":Elemento": calcularPenalizacion (:Vehiculo)
+
+":Elemento" -> ":TipoDeVehiculo": calcularPenalizacion ()
+Activate ":Elemento"
+return cantidadMovimientos
+Deactivate ":Elemento"
+
+
+
+
+@enduml
