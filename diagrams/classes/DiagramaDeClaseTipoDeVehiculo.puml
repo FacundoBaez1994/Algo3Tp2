@@ -1,0 +1,75 @@
+@startuml
+
+title Diagrama de Clase TipoDeVehiculo
+
+Pozo -u-> Posicion
+Piquete -u-> Posicion
+ControlPolicial -u-> Posicion
+
+
+TipoDeVehiculo .u.> Pozo
+TipoDeVehiculo .u.> Piquete
+TipoDeVehiculo .u.> ControlPolicial
+
+TipoDeVehiculo <.u. Pozo
+TipoDeVehiculo <.u. Piquete
+TipoDeVehiculo <.u. ControlPolicial
+
+TipoDeVehiculo <|-d- Moto
+TipoDeVehiculo <|-d- Auto
+TipoDeVehiculo <|-d- CuatroPorCuatro
+
+Moto .r.> Auto
+Auto .l.> CuatroPorCuatro
+CuatroPorCuatro ..> Moto
+
+class Posicion {
+    # int coordenadaX;
+    # int coordenadaY;
+    + Posicion(X:int, Y:int): void
+    + sumarCoordenadas (Posicion) : void
+    + igualA (Posicion) :  boolean
+}
+
+abstract class TipoDeVehiculo {
+    - penalizacionPorPozo: int
+    - penalizacionPorControlPolicial: int
+    - probDetencion: int
+    + {abstract} calcularPenalizacion(Pozo): int
+    + {abstract} calcularPenalizacion(Piquete): int
+    + {abstract} calcularPenalizacion(ControlPolicial): int
+    + {abstract} proximoTipoDeVehiculo (): TipoDeVehiculo
+}
+
+class Moto {
+    - penalizacionPorPiquete: int
+}
+
+class CuatroPorCuatro {
+    - pozosAtravesados: int
+    - cantidadDePozosHastaPenalizacion: int
+}
+
+class Posicion {
+    # int coordenadaX;
+    # int coordenadaY;
+    + Posicion(X:int, Y:int): void
+    + sumarCoordenadas (Posicion) : void
+    + igualA (Posicion) :  boolean
+}
+
+class Pozo {
++ calcularPenalizacion(TipoDeVehiculo): int
+}
+
+class Piquete {
++ calcularPenalizacion(TipoDeVehiculo): int
+}
+
+class ControlPolicial {
+    + calcularPenalizacion(TipoDeVehiculo): int
+}
+
+abstract class TipoDeVehiculo
+
+@enduml

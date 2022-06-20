@@ -1,29 +1,35 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Una 4x4 Atraviesa 3 Pozos Y Es Penalizada Con 3 Movimientos
+title Diagrama 4x4 Atraviesa La Ciudad Y Se Encuentra con Pozo Es Penalizada
 autonumber
 actor ":TestCase"
-Activate ":TestCase"
-loop para 3 Pozos
-   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-    Activate ":Vehiculo"
-    create ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-    Activate ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-    ":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-    Deactivate ":MovimientoComun"
-    Activate ":CalleComun"
-    ":CalleComun" -> ":Vehiculo": afectarMovimientos (unObstaculo)
-    Deactivate ":CalleComun"
-end
-    ":Vehiculo" -> ":CuatroPorCuatro": calcularPenalizacion (unObstaculo)
-    Activate ":CuatroPorCuatro"
-    ":Vehiculo" <-- ":CuatroPorCuatro": cantidadDeMovimientos
-    Deactivate ":CuatroPorCuatro"
-    ":TestCase"  -> ":Vehiculo": getCantidadDeMovimientos ()
-    ":TestCase"  <-- ":Vehiculo": cantidadDeMovimientos
-    Deactivate ":Vehiculo"
 
+Activate ":TestCase"
+   ":TestCase" -> "unVe:Vehiculo": moverseHacia (unaDireccion)
+    Activate "unVe:Vehiculo"
+    create ":MovimientoComun"
+    "unVe:Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    "unVe:Vehiculo" -> ":MovimientoComun": moverse (unVe)
+    Activate ":MovimientoComun"
+    ":MovimientoComun" -> "unVe:Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(unVe)
+    Deactivate ":MovimientoComun"
+    Activate ":Grilla"
+    loop Por Cada Ubicable de la Lista
+    ":Grilla" -> "unVe:Vehiculo": toparseCon(:Ubicable)
+    "unVe:Vehiculo" -> ":Ubicable": estaEnPosicion(:Posicion)
+    Activate ":Ubicable"
+    end
+
+
+    "unVe:Vehiculo" <- ":Ubicable": aplicarPenalizacion(Pozo)
+    "unVe:Vehiculo" -> ":4x4": aplicarPenalizacion(Pozo)
+    Activate ":4x4"
+    ":4x4" -> ":4x4": pozosAtravesados ++
+    return cantidadDeMovimientos
+    Deactivate ":Ubicable"
+    Deactivate ":Grilla"
+    ":TestCase" -> "unVe:Vehiculo": getCantidadMovimientos()
+    return cantidadDeMovimientos
 
 @enduml

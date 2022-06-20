@@ -1,27 +1,35 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Un Auto Atraviesa La Ciudad Y Se Encuentra Con Una Sorpresa Cambio De Vehiculo
+title Diagrama 4x4 Atraviesa La Ciudad Y Se Encuentra con Sorpresa Cambio De Vehiculo
 autonumber
 actor ":TestCase"
-Activate ":TestCase"
-   ":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-    Activate ":Vehiculo"
-    create ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-    Activate ":MovimientoComun"
-    ":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-    ":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-     Activate ":CalleComun"
-    ":CalleComun" -> ":CambioDeVehiculo": serEncontradaPor (:Vehiculo)
-    Activate ":CambioDeVehiculo"
-    ":CambioDeVehiculo" -> ":Vehiculo": proximoTipoDeVehiculo ()
-     Deactivate ":CambioDeVehiculo"
-     ":Vehiculo" -> ":CuatroPorCuatro": proximoTipoDeVehiculo ()
-     ":Vehiculo" <-- ":CuatroPorCuatro":
 
-    ":MovimientoComun" <-- ":CalleComun": nuevaPosicion:Posicion
-    Deactivate ":CalleComun"
-    ":Vehiculo" <-- ":MovimientoComun": nuevaPosicion:Posicion
+Activate ":TestCase"
+   ":TestCase" -> "unVe:Vehiculo": moverseHacia (unaDireccion)
+    Activate "unVe:Vehiculo"
+    create ":MovimientoComun"
+    "unVe:Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    "unVe:Vehiculo" -> ":MovimientoComun": moverse (unVe)
+    Activate ":MovimientoComun"
+    ":MovimientoComun" -> "unVe:Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(unVe)
     Deactivate ":MovimientoComun"
+    Activate ":Grilla"
+    loop Por Cada Ubicable de la Lista
+    ":Grilla" -> "unVe:Vehiculo": toparseCon(:Ubicable)
+    "unVe:Vehiculo" -> ":Ubicable": estaEnPosicion(:Posicion)
+    Activate ":Ubicable"
+    end
+
+
+    "unVe:Vehiculo" <- ":Ubicable": proximoVehiculo()
+    "unVe:Vehiculo" -> ":4x4": proximoTipoDeVehiculo()
+    Activate ":4x4"
+    return unaMoto:Moto
+    "unVe:Vehiculo" -> "unVe:Vehiculo":tipoDeVehiculo = unaMoto
+    Deactivate ":Ubicable"
+    Deactivate ":Grilla"
+    ":TestCase" -> "unVe:Vehiculo": getTipoDeVehiculo()
+    return tipoDeVehiculo
 
 @enduml

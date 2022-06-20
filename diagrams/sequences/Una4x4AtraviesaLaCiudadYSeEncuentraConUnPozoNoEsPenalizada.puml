@@ -1,27 +1,35 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Un 4x4 Atraviesa La Ciudad Y Se Encuentra Con Un Pozo No Es Penalizada
+title Diagrama 4x4 Atraviesa La Ciudad Y Se Encuentra con Pozo No Es Penalizada
 autonumber
 actor ":TestCase"
-Activate ":TestCase"
-":TestCase" -> ":Vehiculo": moverseHacia (unaDireccion)
-Activate ":Vehiculo"
-create ":MovimientoComun"
-":Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
-Activate ":MovimientoComun"
-":Vehiculo" -> ":MovimientoComun": mover (unaCalle, :Vehiculo)
-":MovimientoComun" -> ":CalleComun": serTransitada (:Vehiculo)
-Activate ":CalleComun"
-":CalleComun" -> ":Vehiculo": afectarMovimientos (unPozo:Obstaculo)
-":Vehiculo" -> "unPozo:Obstaculo": calcularPenalizacion (una4x4:TipoDeVehiculo)
-Activate "unPozo:Obstaculo"
-"unPozo:Obstaculo" -> "una4x4:TipoDeVehiculo": calcularPenalizacion (unPozo:Obstaculo)
-Activate "una4x4:TipoDeVehiculo"
-return cantidadDeMovimientos
-return cantidadDeMovimientos
-return nuevaPosicion:Posicion
-return nuevaPosicion:Posicion
-return cantidadMovimientos
 
+Activate ":TestCase"
+   ":TestCase" -> "unVe:Vehiculo": moverseHacia (unaDireccion)
+    Activate "unVe:Vehiculo"
+    create ":MovimientoComun"
+    "unVe:Vehiculo" -> ":MovimientoComun": <<new Movimiento (unaDireccion) >>
+    "unVe:Vehiculo" -> ":MovimientoComun": moverse (unVe)
+    Activate ":MovimientoComun"
+    ":MovimientoComun" -> "unVe:Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
+    ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(unVe)
+    Deactivate ":MovimientoComun"
+    Activate ":Grilla"
+    loop Por Cada Ubicable de la Lista
+    ":Grilla" -> "unVe:Vehiculo": toparseCon(:Ubicable)
+    "unVe:Vehiculo" -> ":Ubicable": estaEnPosicion(:Posicion)
+    Activate ":Ubicable"
+    end
+
+
+    "unVe:Vehiculo" <- ":Ubicable": aplicarPenalizacion(Pozo)
+    "unVe:Vehiculo" -> ":4x4": aplicarPenalizacion(Pozo)
+    Activate ":4x4"
+    ":4x4" -> ":4x4": pozosAtravesados ++
+    return "0"
+    Deactivate ":Ubicable"
+    Deactivate ":Grilla"
+    ":TestCase" -> "unVe:Vehiculo": getCantidadMovimientos()
+    return cantidadDeMovimientos
 
 @enduml

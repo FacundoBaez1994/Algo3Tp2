@@ -1,0 +1,48 @@
+@startuml
+title Diagrama de Clase Ubicables
+Grilla "1" -d-> "*" Ubicables
+Ubicables .r.> Vehiculo
+
+SorpresaFav .u.|> Ubicables
+SorpresaNoFav .u.|> Ubicables
+CambioDeVehiculo .u.|>  Ubicables
+Pozo .u.|> Ubicables
+Piquete .u.|> Ubicables
+ControlPolicial .u.|> Ubicables
+NoObstaculo .u.|> Ubicables
+
+SorpresaFav -d-> Posicion
+SorpresaNoFav -d-> Posicion
+CambioDeVehiculo -d-> Posicion
+Pozo -d-> Posicion
+Piquete -d-> Posicion
+ControlPolicial -d-> Posicion
+NoObstaculo -d-> Posicion
+
+interface Ubicables {
+    + {abstract} estaEnPosicion(Posicion): boolean
+    + {abstract} serEncontradoPor(Vehiculo): void
+}
+
+class SorpresaFav {
+- porcentaje: double
+}
+
+class SorpresaNoFav {
+- porcentaje: double
+}
+
+class CambioDeVehiculo {
++ cambioDeVehiculo(): void
+}
+
+
+class Posicion {
+    # int coordenadaX;
+    # int coordenadaY;
+    + Posicion(X:int, Y:int): void
+    + sumarCoordenadas (Posicion) : void
+    + igualA (Posicion) :  boolean
+}
+
+@enduml

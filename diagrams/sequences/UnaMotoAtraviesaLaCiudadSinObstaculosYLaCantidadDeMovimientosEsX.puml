@@ -1,6 +1,6 @@
 @startuml
 'https://plantuml.com/sequence-diagram
-title Diagrama Auto Atraviesa La Ciudad Y Se Encuentra con Pozo Penalizada En Tres Movimientos
+title Diagrama Moto Atraviesa La Ciudad Y Sin Obstaculos La Cantidad De Movimientos es X
 autonumber
 actor ":TestCase"
 
@@ -13,21 +13,22 @@ Activate ":TestCase"
     Activate ":MovimientoComun"
     ":MovimientoComun" -> "unVe:Vehiculo": cambiarPosicionHacia (:PosicionRelativa)
     ":MovimientoComun" -> ":Grilla": aplicarElementoUbicable(unVe)
-    Deactivate ":MovimientoComun"
+
     Activate ":Grilla"
     loop Por Cada Ubicable de la Lista
     ":Grilla" -> "unVe:Vehiculo": toparseCon(:Ubicable)
+    Deactivate ":Grilla"
     "unVe:Vehiculo" -> ":Ubicable": estaEnPosicion(:Posicion)
     Activate ":Ubicable"
+    return false
     end
+    "unVe:Vehiculo" -> ":MovimientoComun": moverse (unVe)
+    return
+    "unVe:Vehiculo" -> "unVe:Vehiculo": cantidadDeMovimientos += 1
 
 
-    "unVe:Vehiculo" <- ":Ubicable": aplicarPenalizacion(Pozo)
-    "unVe:Vehiculo" -> ":Moto": aplicarPenalizacion(Pozo)
-    Activate ":Moto"
-    return cantidadDeMovimientos
     Deactivate ":Ubicable"
-    Deactivate ":Grilla"
+
     ":TestCase" -> "unVe:Vehiculo": getCantidadMovimientos()
     return cantidadDeMovimientos
 

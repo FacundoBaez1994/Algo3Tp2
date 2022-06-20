@@ -1,0 +1,56 @@
+@startuml
+title Diagrama De Clase Movimiento y Direccion
+
+Vehiculo "1" .r.> "1" Direccion
+Vehiculo  ..>  MovimientoComun
+Vehiculo  <..  MovimientoComun
+Direccion  <..  MovimientoComun
+
+MovimientoComun .d.> Grilla
+
+Arriba -u--|> Direccion
+Abajo -u-|> Direccion
+Derecha -u--|> Direccion
+Izquierda -u-|> Direccion
+
+MovimientoComun -u-|> Movimiento
+
+interface Movimiento {
+    + {abstract} moverse(Vehiculo): void
+}
+
+class MovimientoComun {
+    - int cantidadDeMovimientos;
+    + MovimientoComun(Direccion): void
+    + moverse (Vehiculo): void
+}
+
+interface Direccion {
+    + {abstract} posicionRelativa(): Posicion
+}
+
+class Arriba {
+    + posicionRelativa(): Posicion
+}
+
+class Abajo {
+    + posicionRelativa(): Posicion
+}
+
+class Izquierda {
+    + posicionRelativa(): Posicion
+}
+
+class Derecha {
+    + posicionRelativa(): Posicion
+}
+
+class Grilla {
+    - maximaCantidadDePosicionesEnX: int
+    - maximaCantidadDePosicionesEnY: int
+    + crearPosiciones(): void
+    + aplicarElementoUbicableAVehiculo (Vehiculo) : void
+    + agregarUbicable (Ubicables) :  void
+}
+
+@enduml

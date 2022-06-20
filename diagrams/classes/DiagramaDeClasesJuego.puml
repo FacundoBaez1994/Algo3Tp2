@@ -1,0 +1,8 @@
+@startuml
+title Diagrama General
+
+Juego -d-> Jugador
+Juego -d-> PuntajesMaximos
+Jugador -d-> Vehiculo
+
+@enduml
