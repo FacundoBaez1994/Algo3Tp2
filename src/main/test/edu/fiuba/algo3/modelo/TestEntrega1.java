@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import edu.fiuba.algo3.modelo.grilla.Grilla;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.function.Executable;
 import edu.fiuba.algo3.modelo.excepciones.VehiculoNoPuedePasar;
@@ -18,8 +19,6 @@ import edu.fiuba.algo3.modelo.vehiculo.CuatroPorCuatro;
 import edu.fiuba.algo3.modelo.vehiculo.Moto;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 import org.junit.jupiter.api.Test;
-
-import java.lang.reflect.Field;
 
 public class TestEntrega1 {
 

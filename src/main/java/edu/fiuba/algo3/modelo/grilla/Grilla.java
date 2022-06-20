@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo;
+package edu.fiuba.algo3.modelo.grilla;
 
 import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
@@ -146,7 +146,7 @@ public class Grilla {
 
         for(int j = 1; j < this.maximaCantidadDePosicionesEnY; j = j + 2 ){
             if ( Math.random() > (this.probabilidadDeGenerarMetaEnPosicion)) {
-                Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX, j));
+                Ubicable meta = new Meta(new Posicion (this.maximaCantidadDePosicionesEnX, j));
                 this.agregarUbicable (meta);
                 return;
             }

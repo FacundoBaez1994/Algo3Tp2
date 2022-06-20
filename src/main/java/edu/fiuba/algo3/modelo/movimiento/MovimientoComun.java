@@ -1,8 +1,7 @@
 package edu.fiuba.algo3.modelo.movimiento;
 
-import edu.fiuba.algo3.modelo.Grilla;
+import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.modelo.movimiento.direcciones.Direccion;
-import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
 public class MovimientoComun implements Movimiento {

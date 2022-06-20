@@ -6,6 +6,9 @@ import static org.mockito.Mockito.*;
 
 
 import edu.fiuba.algo3.modelo.excepciones.LlegadaALaMeta;
+import edu.fiuba.algo3.modelo.grilla.Grilla;
+import edu.fiuba.algo3.modelo.grilla.Meta;
+import edu.fiuba.algo3.modelo.grilla.Ubicable;
 import edu.fiuba.algo3.modelo.obstaculo.ControlPolicial;
 import edu.fiuba.algo3.modelo.obstaculo.Piquete;
 import edu.fiuba.algo3.modelo.obstaculo.Pozo;
@@ -18,7 +21,6 @@ import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.Moto;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.Test;
@@ -39,7 +41,7 @@ public class TestEntrega3 {
         Posicion unaPosicion = new Posicion(0,0);
         Vehiculo unaMoto = new Vehiculo (new Moto() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new Meta (new Posicion(2,0)));
+        unaGrilla.agregarUbicable(new Meta(new Posicion(2,0)));
 
         Executable task = () -> {
             unaMoto.moverseHacia (unaDireccion);

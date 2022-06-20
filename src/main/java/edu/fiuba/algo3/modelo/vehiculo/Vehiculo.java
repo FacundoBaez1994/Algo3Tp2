@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.vehiculo;
 
-import edu.fiuba.algo3.modelo.Ubicable;
+import edu.fiuba.algo3.modelo.grilla.Ubicable;
 import edu.fiuba.algo3.modelo.movimiento.direcciones.Direccion;
 import edu.fiuba.algo3.modelo.obstaculo.*;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
