@@ -18,6 +18,14 @@ public class Grilla {
     private ArrayList<Ubicable> ubicables = null;
     private int maximaCantidadDePosicionesEnX = 20;
     private int maximaCantidadDePosicionesEnY = 20;
+    private double probabilidadControlPolicial = 0.3;
+    private double probabilidadPiquete = 0.7;
+    private double probabilidadSorpresaFavorable = 0.3;
+    private double probabilidadSorpresaNoFavorable = 0.7;
+    private double probabilidadDeGenerarMetaEnPosicion = 0.7;
+    private double probabilidadDeGenerarSorpresaEnUnaPosicion = 0.2;
+    private double probabilidadDeGenerarObstaculoEnUnaPosicion = 0.2;
+
 
     private Posicion[][] posiciones = new Posicion[this.maximaCantidadDePosicionesEnX][this.maximaCantidadDePosicionesEnY];
 
@@ -63,13 +71,15 @@ public class Grilla {
         }
     }
 
-    private void buscarElementosEn(Posicion posicion) {
-        for(int i = 0; i < this.maximaCantidadDePosicionesEnX; i++ ){
-            for(int j = 0; j < this.maximaCantidadDePosicionesEnY ; j++ ) {
-                // que elemento tienen la posicion
+    public boolean existeUbicableEn (Posicion posicion) {
+        for( Ubicable ubicable : ubicables){
+            if (ubicable.estaEnPosicion(posicion)) {
+                return true;
             }
         }
+        return false;
     }
+
     public void agregarUbicable(Ubicable unUbicable){
         this.ubicables.add(unUbicable);
     }
@@ -80,15 +90,15 @@ public class Grilla {
     }
 
     public void generarUbicablesRandom () {
-        // Random rand = new Random(System.currentTimeMillis());
-        for(int i = 0; i < this.maximaCantidadDePosicionesEnX; i++ ){
+
+        for(int i = 1; i < this.maximaCantidadDePosicionesEnX - 1; i++ ){
             for(int j = 0; j < this.maximaCantidadDePosicionesEnY ; j++ ) {
-                if ( !((i % 2 == 0) && (j % 2 == 0))) {
-                    if ( Math.random() > (1 - 0.5)) {
+                if ( ( !((i % 2 == 0) && (j % 2 == 0))) ) {
+                    if ( this.generarNumeroRandom () < this.probabilidadDeGenerarObstaculoEnUnaPosicion) {
                         Ubicable unObstaculo = this.generarObstaculoRandomEn (new Posicion (i, j));
                         this.agregarUbicable (unObstaculo);
                     }
-                    else if ( Math.random() > (1 - 0.5)) {
+                    else if ( this.generarNumeroRandom () < this.probabilidadDeGenerarSorpresaEnUnaPosicion) {
                         Ubicable unaSorpresa = this.generarSorpresaRandomEn (new Posicion (i, j));
                         this.agregarUbicable (unaSorpresa);
                     }
@@ -98,13 +108,13 @@ public class Grilla {
     }
 
     public Ubicable generarObstaculoRandomEn (Posicion unaPosicion) {
-       // Random ran = new Random();
         double randomSelection = this.generarNumeroRandom ();
 
-        if ( randomSelection < (0.3)) {
+        if ( randomSelection < (this.probabilidadControlPolicial)) {
             return new ControlPolicial (unaPosicion);
         }
-        else if ( 0.3 < randomSelection && randomSelection < 0.7) {
+        else if ( this.probabilidadControlPolicial < randomSelection &&
+                randomSelection < this.probabilidadPiquete) {
             return new Piquete(unaPosicion);
         }
         else {
@@ -118,10 +128,13 @@ public class Grilla {
     }
 
     public Ubicable generarSorpresaRandomEn (Posicion unaPosicion ) {
-        if ( Math.random() > (0.7)) {
+        double randomSelection = this.generarNumeroRandom ();
+
+        if ( randomSelection < this.probabilidadSorpresaFavorable ) {
             return new SorpresaFavorable(unaPosicion);
         }
-        else if ( Math.random() > (0.7)) {
+        else if ( this.probabilidadSorpresaFavorable < randomSelection &&
+                randomSelection < this.probabilidadSorpresaNoFavorable) {
             return new SorpresaNoFavorable (unaPosicion);
         }
         else {
@@ -130,9 +143,9 @@ public class Grilla {
     }
 
     public void generarMeta () {
-        // Random rand = new Random(System.currentTimeMillis());
+
         for(int j = 1; j < this.maximaCantidadDePosicionesEnY; j = j + 2 ){
-            if ( Math.random() > (0.7)) {
+            if ( Math.random() > (this.probabilidadDeGenerarMetaEnPosicion)) {
                 Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX, j));
                 this.agregarUbicable (meta);
                 return;
@@ -145,6 +158,14 @@ public class Grilla {
             Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX, maximaCantidadDePosicionesEnY - 1));
             this.agregarUbicable (meta);
         }
+    }
+
+    public int getMaximaCantidadDePosicionesEnX () {
+        return this.maximaCantidadDePosicionesEnX;
+    }
+
+    public int getMaximaCantidadDePosicionesEnY () {
+        return this.maximaCantidadDePosicionesEnY;
     }
 
 }
