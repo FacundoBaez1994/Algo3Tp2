@@ -62,7 +62,7 @@ public class Vehiculo{
         this.posicion.sumarCoordenadas(posicionRelativa);
     }
     public boolean estaEnPosicion(Posicion unaPosicion){
-        return this.posicion.equals(unaPosicion);
+        return this.posicion.igualA(unaPosicion);
     }
     public Posicion getPosicion(){
         return this.posicion;

@@ -46,9 +46,13 @@ public class Juego {
             unJugador.moverVehiculoHacia(unaDireccion);
         }catch (Exception e){
            this.jugadores.add(unJugador);
+           throw e;
         }
         // Por ahora se define que el jugador pierde su turno si ocurre un error.
         this.jugadores.add(unJugador);
     }
 
+    public void reiniciar() {
+        this.jugadores =  new LinkedList<>();
+    }
 }

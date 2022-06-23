@@ -27,7 +27,7 @@ import org.junit.jupiter.api.function.Executable;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
-public class TestEntrega3 {
+public class TestGrilla {
 
     @BeforeEach
     public void reiniciarTablero ()  {

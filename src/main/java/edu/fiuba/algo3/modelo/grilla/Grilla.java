@@ -33,11 +33,13 @@ public class Grilla {
     private Grilla(){
         this.crearPosiciones();
         this.ubicables = new ArrayList<>();
+        this.posiciones = new Posicion[this.maximaCantidadDePosicionesEnX][this.maximaCantidadDePosicionesEnY];
     }
 
     private Grilla(int cantX, int cantY){
         this.maximaCantidadDePosicionesEnX = cantX;
         this.maximaCantidadDePosicionesEnY = cantY;
+        this.posiciones = new Posicion[this.maximaCantidadDePosicionesEnX][this.maximaCantidadDePosicionesEnY];
         this.crearPosiciones();
         this.ubicables = new ArrayList<>();
     }
