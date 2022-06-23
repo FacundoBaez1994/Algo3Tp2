@@ -1,9 +1,9 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.controlador.HandlerInicioDeJuego;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -20,6 +20,7 @@ public class App extends Application {
         StackPane root =  new StackPane();
         Button buttonInicio = new Button();
         buttonInicio.setText("Iniciar juego");
+        buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
 
         Image imagen = new Image("file:src/recursos/img/InicioGPSChallenge.png",500,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
