@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+SorpresaFavorable .u.|> Sorpresa
+SorpresaNoFavorable .u.|> Sorpresa
+CambioDeVehiculo .u.|>  Sorpresa
+interface Sorpresa {
++ {abstract}serEncontradoPor(Vehiculo:)
+}
+
+class SorpresaFavorable {
+- porcentaje: double
+    + estaEnPosicion(Posicion): boolean
+    + serEncontradoPor(Vehiculo): void
+}
+
+class SorpresaNoFavorable {
+- porcentaje: double
++ estaEnPosicion(Posicion): boolean
+ + serEncontradoPor(Vehiculo): void
+}
+
+class CambioDeVehiculo {
++ cambioDeVehiculo(): void
+    + estaEnPosicion(Posicion): boolean
+    + serEncontradoPor(Vehiculo): void
+}
+@enduml

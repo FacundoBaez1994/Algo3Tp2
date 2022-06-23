@@ -1,8 +1,36 @@
 @startuml
 title Diagrama General
 
-Juego -d-> Jugador
-Juego -d-> PuntajesMaximos
-Jugador -d-> Vehiculo
+Juego "1" -d-> "1..*" Jugador
+PuntajesAltos "1" -d-> "1..*" Jugador
+Juego "1" -d-> "1" PuntajesAltos
+Jugador "1" -d-> "1" Vehiculo
+
+class Juego {
+    - juego: Juego
+    + agregarJugador (Jugador unJugador): void
+    + jugadorConTurnoActualMueveVehiculo (Direccion unaDireccion): void
+}
+class Jugador {
+    - nickName: String
+    - puntaje: int
+    + moverVehiculoHacia (Direccion unaDireccion): void
+}
+class PuntajesAltos {
+    - ordenarPuntajes():void
+    + agregarJugador(Jugador unJugador): void
+}
+class Vehiculo {
+    - posicion: Posicion
+    - unTipoDeVehiculo: TipoDeVehiculo
+    - cantidadDeMovimientos: int
+    + moverseHacia(Direccion unaDireccion): void
+    + aumentarCantidadMovimientosEnPorcentaje(Double porcentaje): void
+    + disminuirCantidadMovimientosEnPorcentaje(Double porcentaje): void
+    + proximoVehiculo():void
+    + cambiarPosicionHacia(Posicion unaPosicion): void
+    + ToparseConUn(Ubicable unUbicable): void
+}
+
 
 @enduml

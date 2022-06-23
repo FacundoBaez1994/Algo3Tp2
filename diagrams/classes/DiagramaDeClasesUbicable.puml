@@ -19,6 +19,8 @@ Piquete -d-> Posicion
 ControlPolicial -d-> Posicion
 NoObstaculo -d-> Posicion
 
+
+
 interface Ubicables {
     + {abstract} estaEnPosicion(Posicion): boolean
     + {abstract} serEncontradoPor(Vehiculo): void
@@ -26,17 +28,43 @@ interface Ubicables {
 
 class SorpresaFav {
 - porcentaje: double
+    + estaEnPosicion(Posicion): boolean
+    + serEncontradoPor(Vehiculo): void
 }
 
 class SorpresaNoFav {
 - porcentaje: double
++ estaEnPosicion(Posicion): boolean
+ + serEncontradoPor(Vehiculo): void
 }
 
 class CambioDeVehiculo {
 + cambioDeVehiculo(): void
+    + estaEnPosicion(Posicion): boolean
+    + serEncontradoPor(Vehiculo): void
 }
 
+class Pozo {
++ estaEnPosicion(Posicion:): boolean
+ + serEncontradoPor(Vehiculo:): void
+ + calcularPenalizacion(TipoDeVehiculo:):int
+}
 
+class ControlPolicial {
++ estaEnPosicion(Posicion:): boolean
+ + serEncontradoPor(Vehiculo:): void
+ + calcularPenalizacion(TipoDeVehiculo:):int
+}
+class Piquete {
++ estaEnPosicion(Posicion:): boolean
+ + serEncontradoPor(Vehiculo:): void
+ + calcularPenalizacion(TipoDeVehiculo:):int
+}
+class NoObstaculo {
++ estaEnPosicion(Posicion:): boolean
+ + serEncontradoPor(Vehiculo:): void
+ + calcularPenalizacion(TipoDeVehiculo:):int
+}
 class Posicion {
     # int coordenadaX;
     # int coordenadaY;
@@ -44,5 +72,6 @@ class Posicion {
     + sumarCoordenadas (Posicion) : void
     + igualA (Posicion) :  boolean
 }
+
 
 @enduml

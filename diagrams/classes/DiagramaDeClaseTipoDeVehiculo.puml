@@ -50,13 +50,7 @@ class CuatroPorCuatro {
     - cantidadDePozosHastaPenalizacion: int
 }
 
-class Posicion {
-    # int coordenadaX;
-    # int coordenadaY;
-    + Posicion(X:int, Y:int): void
-    + sumarCoordenadas (Posicion) : void
-    + igualA (Posicion) :  boolean
-}
+
 
 class Pozo {
 + calcularPenalizacion(TipoDeVehiculo): int

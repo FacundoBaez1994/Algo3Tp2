@@ -1,0 +1,97 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+Juego "1" -d-> "1..*" Jugador
+PuntajesAltos "1" -d-> "1..*" Jugador
+Juego "1" -d-> "1" PuntajesAltos
+Jugador "1" -d-> "1" Vehiculo
+
+Vehiculo "1" -d-> "1" TipoDeVehiculo
+'Vehiculo "1" -d-> "1" Posicion
+Vehiculo "1" .r.> "1" MovimientoComun
+Vehiculo "1" .r.> "1" Direccion
+
+
+MovimientoComun "1" .r.> "1" Direccion
+MovimientoComun "1" .d.> "1" Grilla
+
+Grilla "1" -d-> "*" Ubicables
+Grilla "1" .r.> "1" Vehiculo
+
+TipoDeVehiculo <|-d- Auto
+TipoDeVehiculo <|-d- Moto
+TipoDeVehiculo <|-d- CuatroPorCuatro
+
+'Pozo -u-> Posicion
+'Piquete -u-> Posicion
+'ControlPolicial -u-> Posicion
+
+
+TipoDeVehiculo .u.> Pozo
+TipoDeVehiculo .u.> Piquete
+TipoDeVehiculo .u.> ControlPolicial
+
+TipoDeVehiculo <.u. Pozo
+TipoDeVehiculo <.u. Piquete
+TipoDeVehiculo <.u. ControlPolicial
+
+
+Moto .r.> Auto
+Auto .l.> CuatroPorCuatro
+CuatroPorCuatro ..> Moto
+
+
+'SorpresaFavorable .u.|> Ubicables
+'SorpresaNoFavorable .u.|> Ubicables
+'CambioDeVehiculo .u.|>  Ubicables
+'Pozo .u.|> Ubicables
+'Piquete .u.|> Ubicables
+'ControlPolicial .u.|> Ubicables
+'NoObstaculo .u.|> Ubicables
+
+'SorpresaFav -d-> Posicion
+'SorpresaNoFav -d-> Posicion
+'CambioDeVehiculo -d-> Posicion
+
+
+'Pozo .u.|> Obstaculo
+'Piquete .u.|>  Obstaculo
+'NoObstaculo -d-> Posicion
+'ControlPolicial .u.|>  Obstaculo
+'NoObstaculo .u.|>  Obstaculo
+'Obstaculo .u.|> Ubicables
+'SorpresaFavorable .u.|> Sorpresa
+'SorpresaNoFavorable .u.|> Sorpresa
+'CambioDeVehiculo .u.|>  Sorpresa
+
+
+MovimientoComun ..|> Movimiento
+'interface Obstaculo {}
+interface Ubicables {}
+interface Movimiento {}
+'interface Sorpresa {}
+interface Direccion {}
+abstract TipoDeVehiculo {}
+class Pozo {
+- unaPosicion: Posicion
+}
+class ControlPolicial {
+- unaPosicion: Posicion
+}
+class Piquete {
+- unaPosicion: Posicion
+}
+'class NoObstaculo {
+'- unaPosicion: Posicion
+'}
+class Vehiculo {
+- unaPosicion: Posicion
+}
+
+
+
+
+
+
+
+@enduml

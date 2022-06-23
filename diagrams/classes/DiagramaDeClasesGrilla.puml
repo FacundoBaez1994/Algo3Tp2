@@ -12,11 +12,23 @@ class MovimientoComun {
 }
 
 class Grilla {
+    - unaGrilla: Grilla
     - maximaCantidadDePosicionesEnX: int
     - maximaCantidadDePosicionesEnY: int
     + crearPosiciones(): void
     + aplicarElementoUbicableAVehiculo (Vehiculo) : void
     + agregarUbicable (Ubicables) :  void
+}
+class Vehiculo {
+    - posicion: Posicion
+    - unTipoDeVehiculo: TipoDeVehiculo
+    - cantidadDeMovimientos: int
+    + moverseHacia(Direccion unaDireccion): void
+    + aumentarCantidadMovimientosEnPorcentaje(Double porcentaje): void
+    + disminuirCantidadMovimientosEnPorcentaje(Double porcentaje): void
+    + proximoVehiculo():void
+    + cambiarPosicionHacia(Posicion unaPosicion): void
+    + ToparseConUn(Ubicable unUbicable): void
 }
 
 interface Ubicables {

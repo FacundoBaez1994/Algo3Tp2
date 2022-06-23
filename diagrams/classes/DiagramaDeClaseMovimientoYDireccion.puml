@@ -13,7 +13,7 @@ Abajo -u-|> Direccion
 Derecha -u--|> Direccion
 Izquierda -u-|> Direccion
 
-MovimientoComun -u-|> Movimiento
+MovimientoComun ..|> Movimiento
 
 interface Movimiento {
     + {abstract} moverse(Vehiculo): void
