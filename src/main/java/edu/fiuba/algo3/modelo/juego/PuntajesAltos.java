@@ -1,7 +1,9 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.archivador.Archivador;
 import edu.fiuba.algo3.modelo.grilla.Ubicable;
 
+import java.io.IOException;
 import java.util.*;
 
 public class PuntajesAltos {
@@ -19,6 +21,14 @@ public class PuntajesAltos {
     public Jugador obtenerJugadorConPuntajeMasAlto(){
         int numeroDePosicionDePuntajeMasAlto = 0;
         return this.jugadores.get(numeroDePosicionDePuntajeMasAlto);
+    }
+
+    public void importar(Archivador manejadorArchivos){
+        this.jugadores = manejadorArchivos.importar();
+    }
+
+    public void exportar(Archivador manejadorArchivos) throws IOException {
+        manejadorArchivos.exportar(this.jugadores);
     }
 
 
