@@ -23,8 +23,6 @@ public class Jugador implements Comparable<Jugador> {
         this.puntaje = unPuntaje;
     }
 
-
-
     public Jugador (String unNickname, Posicion unaPosicion) {
         this.nickname = unNickname;
         this.puntaje = 0;

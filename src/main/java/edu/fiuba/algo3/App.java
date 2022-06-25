@@ -32,7 +32,6 @@ public class App extends Application {
         stage.setTitle("GPS CHALLENGE");
         stage.setScene(scene);
         stage.show();
-
     }
 
     public static void main(String[] args) {

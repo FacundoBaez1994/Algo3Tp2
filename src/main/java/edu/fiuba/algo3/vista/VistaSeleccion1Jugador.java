@@ -31,12 +31,13 @@ public class VistaSeleccion1Jugador {
         Label etiquetaInfo = new Label();
         etiquetaInfo.setText("");
 
-        Button boton1Jugador = new Button();
-        boton1Jugador.setText("MANDALE MECHA");
-        //boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
+        Button botonEmpezarJuego = new Button();
+        botonEmpezarJuego.setText("MANDALE MECHA!");
+        botonEmpezarJuego.setVisible(false);
+        //botonEmpezarJuego.setOnAction(new HandlerSeleccion1Jugador(stage));
 
 
-        VBox contenedorVertical = new VBox (textoCuadroNickName, etiquetaInfo , boton1Jugador);
+        VBox contenedorVertical = new VBox (textoCuadroNickName, etiquetaInfo , botonEmpezarJuego);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
@@ -47,7 +48,7 @@ public class VistaSeleccion1Jugador {
         root.getChildren().addAll(imagenVista, contenedorVertical);
 
         TextoSeleccionJugadorHandler textoSeleccionJugadorHandler =
-                new TextoSeleccionJugadorHandler (etiquetaInfo, textoCuadroNickName);
+                new TextoSeleccionJugadorHandler (etiquetaInfo, textoCuadroNickName, botonEmpezarJuego);
         textoCuadroNickName.setOnKeyPressed(textoSeleccionJugadorHandler);
 
         Scene scene = new Scene(root, 500, 500);
