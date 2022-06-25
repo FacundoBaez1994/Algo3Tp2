@@ -34,7 +34,7 @@ public class VistaSeleccion1Jugador {
         Button botonEmpezarJuego = new Button();
         botonEmpezarJuego.setText("MANDALE MECHA!");
         botonEmpezarJuego.setVisible(false);
-        //botonEmpezarJuego.setOnAction(new HandlerSeleccion1Jugador(stage));
+        botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla (stage));
 
 
         VBox contenedorVertical = new VBox (textoCuadroNickName, etiquetaInfo , botonEmpezarJuego);

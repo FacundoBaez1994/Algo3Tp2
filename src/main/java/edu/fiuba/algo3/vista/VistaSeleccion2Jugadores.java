@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.HandlerComienzoJuegoEnGrilla;
 import edu.fiuba.algo3.controlador.TextoSeleccionJugadorHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -37,7 +38,7 @@ public class VistaSeleccion2Jugadores {
 
         Button botonEmpezarJuego = new Button();
         botonEmpezarJuego.setText("Mandale Mecha!");
-       // botonEmpezarJuego.setOnAction(new HandlerSeleccion1Jugador(stage));
+        botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla(stage));
         botonEmpezarJuego.setVisible(false);
 
         VBox contenedorVertical = new VBox ( textoCuadroNickName1, etiquetaInfoSobreNickName1
