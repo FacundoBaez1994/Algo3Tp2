@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.HandlerSeleccion1Jugador;
+import edu.fiuba.algo3.controlador.HandlerSeleccion2Jugadores;
+import edu.fiuba.algo3.controlador.HandlerSeleccion3Jugadores;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -29,15 +32,15 @@ public class VistaCantidadDeJugadoresEnMapaMediano {
 
         Button boton1Jugador = new Button();
         boton1Jugador .setText("1 Jugador");
-        //buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
+        boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
 
         Button boton2Jugadores = new Button();
         boton2Jugadores.setText("2 Jugadores");
-        //buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
+        boton2Jugadores.setOnAction(new HandlerSeleccion2Jugadores(stage));
 
         Button boton3Jugadores = new Button();
         boton3Jugadores.setText("3 Jugadores");
-        //buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
+        boton3Jugadores.setOnAction(new HandlerSeleccion3Jugadores(stage));
 
         VBox contenedorVertical = new VBox (etiqueta, boton1Jugador, boton2Jugadores, boton3Jugadores);
         contenedorVertical.setSpacing (10);

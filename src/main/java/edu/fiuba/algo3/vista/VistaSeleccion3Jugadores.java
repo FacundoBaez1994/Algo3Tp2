@@ -1,43 +1,45 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.HandlerSeleccion1Jugador;
-import edu.fiuba.algo3.controlador.HandlerSeleccion2Jugadores;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class VistaCantidadDeJugadoresEnMapaChico {
+public class VistaSeleccion3Jugadores {
     private final Stage stage;
 
-    public VistaCantidadDeJugadoresEnMapaChico(Stage stage) {
+    public VistaSeleccion3Jugadores (Stage stage) {
         super();
         this.stage = stage;
     }
 
     public void mostrarPantalla() {
 
-        Label etiqueta = new Label();
-        etiqueta.setText("Seleccione cantidad de jugadores");
-
         StackPane root =  new StackPane();
 
+        TextField textoCuadroNickName1 = new TextField();
+        textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
+
+        TextField textoCuadroNickName2 = new TextField();
+        textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
+
+        TextField textoCuadroNickName3 = new TextField();
+        textoCuadroNickName3.setPromptText("Ingrese nickname Jugador 3");
+
         Button boton1Jugador = new Button();
-        boton1Jugador.setText("1 Jugador");
-        boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
+        boton1Jugador .setText("SELECCION");
+        //boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
 
-        Button boton2Jugadores = new Button();
-        boton2Jugadores.setText("2 Jugadores");
-        boton2Jugadores.setOnAction(new HandlerSeleccion2Jugadores(stage));
 
-        VBox contenedorVertical = new VBox (etiqueta, boton1Jugador, boton2Jugadores);
+        VBox contenedorVertical = new VBox (textoCuadroNickName1, textoCuadroNickName2,
+                textoCuadroNickName3, boton1Jugador);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
