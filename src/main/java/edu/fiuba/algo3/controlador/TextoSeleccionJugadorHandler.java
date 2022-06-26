@@ -58,7 +58,7 @@ public class TextoSeleccionJugadorHandler implements EventHandler <KeyEvent> {
                 this.unaEtiqueta.setText("NickName guardado: " + this.unNickName.getText());
                 this.unaEtiqueta.setTextFill(Color.GREEN);
                 Grilla grilla = Grilla.getInstance();
-                int coordenadaY = grilla.getMaximaCantidadDePosicionesEnY() / 2;
+                int coordenadaY = 1 + grilla.getMaximaCantidadDePosicionesEnY() / 2;
                 Juego juego = Juego.getInstance();
                 Jugador unJugador = new Jugador(this.unNickName.getText(),
                         new Posicion(1, coordenadaY));

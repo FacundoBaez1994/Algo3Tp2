@@ -20,7 +20,9 @@ public class HandlerOpcionMapaChico implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Grilla unaGrilla = Grilla.getInstance();
+        Grilla unaGrilla = Grilla.getInstance(LARGO_DE_GRILLA_EN_X, LARGO_DE_GRILLA_EN_Y);
+        unaGrilla.generarUbicablesRandom();
+        unaGrilla.generarMeta();
         VistaCantidadDeJugadoresEnMapaChico vistaCantidadDeJugadoresEnMapaChico  =
                 new VistaCantidadDeJugadoresEnMapaChico (this.stage);
         vistaCantidadDeJugadoresEnMapaChico.mostrarPantalla();

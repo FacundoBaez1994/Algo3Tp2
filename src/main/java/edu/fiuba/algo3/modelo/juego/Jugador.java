@@ -61,4 +61,12 @@ public class Jugador implements Comparable<Jugador> {
             return 1;
         }
     }
+
+    public TipoDeVehiculo obtenerVehiculoEnPosicion(Posicion unaPosicion) {
+        TipoDeVehiculo vehiculoEnPosicion = null;
+        if (this.unVehiculo.estaEnPosicion (unaPosicion)) {
+            vehiculoEnPosicion = unVehiculo.getTipoDeVehiculo();
+        }
+        return vehiculoEnPosicion;
+    }
 }

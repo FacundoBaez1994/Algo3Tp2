@@ -174,7 +174,7 @@ public class TestGrilla {
         int contadorDeUbicables = 0;
 
         for (int j = 0; j < unaGrilla1.getMaximaCantidadDePosicionesEnY() ; j++ ) {
-            if (unaGrilla1.existeUbicableEn (new Posicion (finalDeGrillaX , j))) {
+            if (unaGrilla1.existeUbicableEn (new Posicion (finalDeGrillaX -1, j))) {
                 contadorDeUbicables++;
             }
         }

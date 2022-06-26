@@ -18,7 +18,7 @@ public class VistaManzana extends StackPane {
     public VistaManzana (Posicion pos) {
         super();
         this.posicion = pos;
-        this.imagen = new ImageView("file:src/recursos/img/VistaManzana.png");
+        this.imagen = new ImageView("file:src/recursos/img/Manzana.PNG");
         this.imagen.setFitHeight(ALTURA_CASILLERO);
         this.imagen.setFitWidth(ANCHURA_CASILLERO);
 
