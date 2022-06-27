@@ -61,5 +61,17 @@ public class Juego {
          }
         return unVehiculoEnPosicion;
     }
+    public String obtenerNicknameJugadorActual (){
+        Jugador unJugador =  this.jugadores.peek();
+        return unJugador.getNickName();
+    }
+    public int obtenerPuntajeJugadorActual (){
+        Jugador unJugador =  this.jugadores.peek();
+        return unJugador.getPuntaje();
+    }
+    public Posicion obtenerPosicionDeJugadorActual (){
+        Jugador unJugador = this.jugadores.peek();
+        return unJugador.getVehiculo().getPosicion();
+    }
 
 }

@@ -35,5 +35,12 @@ public class Posicion {
          else
              return false;
      }
-
+    public int obtenerDistanciaMayor(Posicion otraPosicion) {
+        int compMasGrande = 0;
+        int componenteX = Math.abs(this.coordenadaX - otraPosicion.coordenadaX);
+        int componenteY = Math.abs(this.coordenadaY - otraPosicion.coordenadaY);
+        if ( componenteX < componenteY) { compMasGrande = componenteY; }
+        else { compMasGrande = componenteX; };
+        return compMasGrande;
+    }
 }

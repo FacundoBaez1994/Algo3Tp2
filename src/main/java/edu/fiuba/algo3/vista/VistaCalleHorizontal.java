@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.modelo.grilla.Ubicable;
+import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import javafx.event.EventHandler;
 import javafx.scene.image.ImageView;
@@ -26,6 +27,7 @@ public class VistaCalleHorizontal extends StackPane {
         this.imagen.setFitWidth(ANCHURA_CASILLERO);
         this.getChildren().add(this.imagen);
         this.agregarUbicable();
+        this.agregarOcultabilidad();
     }
 
     private void agregarUbicable () {
@@ -39,4 +41,18 @@ public class VistaCalleHorizontal extends StackPane {
 
     public Posicion getPosicion() { return this.posicion; }
 
+    private void agregarOcultabilidad () {
+        Grilla grilla = Grilla.getInstance();
+        Ubicable unUbicable = grilla.getUbicableEn (this.posicion);
+        if (true){
+            Juego juego = Juego.getInstance();
+            Posicion posJugador = juego.obtenerPosicionDeJugadorActual ();
+            if ( this.posicion.obtenerDistanciaMayor(posJugador) > 2 ) {
+                ImageView imagen = new ImageView("file:src/recursos/img/Manzana.PNG");
+                imagen.setFitHeight(30);
+                imagen.setFitWidth(30);
+                this.getChildren().add(imagen);
+            }
+        }
+    }
 }

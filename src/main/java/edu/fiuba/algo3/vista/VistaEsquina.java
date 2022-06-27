@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
+import edu.fiuba.algo3.modelo.grilla.Meta;
 import edu.fiuba.algo3.modelo.grilla.Ubicable;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
@@ -28,6 +29,7 @@ public class VistaEsquina extends StackPane {
         this.getChildren().add(this.imagen);
         this.agregarUbicable();
         this.agregarVehiculos();
+        this.agregarOcultabilidad();
     }
 
     private void agregarUbicable () {
@@ -49,4 +51,19 @@ public class VistaEsquina extends StackPane {
     }
 
     public Posicion getPosicion() { return this.posicion; }
+    private void agregarOcultabilidad () {
+        Grilla grilla = Grilla.getInstance();
+        Ubicable unUbicable = grilla.getUbicableEn (this.posicion);
+        if (true){
+            Juego juego = Juego.getInstance();
+            Posicion posJugador = juego.obtenerPosicionDeJugadorActual ();
+            if ( this.posicion.obtenerDistanciaMayor(posJugador) > 2 ) {
+                ImageView imagen = new ImageView("file:src/recursos/img/Manzana.PNG");
+                imagen.setFitHeight(30);
+                imagen.setFitWidth(30);
+                this.getChildren().add(imagen);
+            }
+        }
+    }
 }
+//unUbicable.getClass() != Meta.class
