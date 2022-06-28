@@ -12,6 +12,11 @@ public class Posicion {
          this.coordenadaY = y;
      }
 
+    public Posicion(Posicion unaPosicion){
+        this.coordenadaX = unaPosicion.obtenerCoordenadaX();
+        this.coordenadaY = unaPosicion.obtenerCoordenadaY();
+    }
+
      public void sumarCoordenadas(Posicion otraPosicion) {
 
          int resultadoEnX = this.coordenadaX + otraPosicion.coordenadaX;
@@ -27,6 +32,14 @@ public class Posicion {
          return new Posicion(this.coordenadaX + otraPosicion.coordenadaX,
                  this.coordenadaY + otraPosicion.coordenadaY );
      }
+
+    public int obtenerCoordenadaX() {
+        return this.coordenadaX;
+    }
+
+    public int obtenerCoordenadaY() {
+        return this.coordenadaY;
+    }
 
      public boolean igualA (Posicion otraPosicion) {
          if (this.coordenadaX == otraPosicion.coordenadaX &&

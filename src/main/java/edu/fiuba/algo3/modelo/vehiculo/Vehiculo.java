@@ -19,14 +19,14 @@ public class Vehiculo{
     }
 
     public void moverseHacia (Direccion unaDireccion) {
-        Posicion original = this.posicion;
+        Posicion original = new Posicion(this.posicion);
         try {
             Movimiento unMovimiento = new MovimientoComun(unaDireccion);
             unMovimiento.moverse (this);
             unMovimiento.moverse (this);
             this.cantidadDeMovimientos += 1;
         }catch (Exception e){
-            this.posicion = original;
+            this.posicion = new Posicion(original);
             throw e;
         }
     }
