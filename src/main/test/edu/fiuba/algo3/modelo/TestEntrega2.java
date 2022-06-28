@@ -30,10 +30,10 @@ public class TestEntrega2 {
     public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaFavorable () {
 
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo unAuto = new Vehiculo (new Auto() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new SorpresaFavorable (new Posicion(1,0)));
+        unaGrilla.agregarUbicable(new SorpresaFavorable (new Posicion(2,1)));
         unAuto.setCantidadDeMovimientos(100);
 
         unAuto.moverseHacia (unaDireccion);
@@ -45,10 +45,10 @@ public class TestEntrega2 {
     public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaNoFavorable () {
 
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo unAuto = new Vehiculo (new Auto() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new SorpresaNoFavorable(new Posicion(1,0)));
+        unaGrilla.agregarUbicable(new SorpresaNoFavorable(new Posicion(2, 1)));
         unAuto.setCantidadDeMovimientos(100);
 
         unAuto.moverseHacia (unaDireccion);
@@ -60,10 +60,10 @@ public class TestEntrega2 {
     public void UnaMotoAtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo () {
 
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo unaMoto = new Vehiculo (new Moto () , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(1,0)));
+        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(2,1)));
 
         unaMoto.moverseHacia (unaDireccion);
 
@@ -74,10 +74,10 @@ public class TestEntrega2 {
     public void UnAutoAtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo  () {
 
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo unAuto = new Vehiculo (new Auto () , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(1,0)));
+        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(2,1)));
 
         unAuto.moverseHacia (unaDireccion);
 
@@ -88,10 +88,10 @@ public class TestEntrega2 {
     public void Una4x4AtraviesaLaCiudadYEncuentraUnaSorpresaCambioDeVehículo () {
 
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo una4x4 = new Vehiculo (new CuatroPorCuatro () , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
-        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(1,0)));
+        unaGrilla.agregarUbicable(new CambioDeVehiculo(new Posicion(2,1)));
 
         una4x4 .moverseHacia (unaDireccion);
 

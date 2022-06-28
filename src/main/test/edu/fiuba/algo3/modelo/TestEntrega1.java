@@ -30,8 +30,8 @@ public class TestEntrega1 {
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConUnPozoEsPenalizadaEnTresMovimientos () {
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
-        Posicion otraPosicion = new Posicion(1,0);
+        Posicion unaPosicion = new Posicion(1,1);
+        Posicion otraPosicion = new Posicion(2,1);
         Vehiculo unaMoto = new Vehiculo (new Moto() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
         unaGrilla.agregarUbicable(new Pozo(otraPosicion));
@@ -55,8 +55,8 @@ public class TestEntrega1 {
     @Test
     public void Una4x4AtraviesaLaCiudadYSeEncuentraConUnPozoNoEsPenalizada () {
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,1);
-        Posicion otraPosicion = new Posicion(1,1);
+        Posicion unaPosicion = new Posicion(1,1);
+        Posicion otraPosicion = new Posicion(2,1);
         Vehiculo una4x4 = new Vehiculo (new CuatroPorCuatro() , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
         unaGrilla.agregarUbicable(new Pozo(otraPosicion));
@@ -86,12 +86,12 @@ public class TestEntrega1 {
     @Test
     public void Una4x4Atraviesa3PozosYEsPenalizadaCon2Movimientos () {
         Direccion unaDireccion = new Derecha();
-        Posicion unaPosicion = new Posicion(0,0);
+        Posicion unaPosicion = new Posicion(1,1);
         Vehiculo una4x4 = new Vehiculo (new CuatroPorCuatro () , unaPosicion);
         Grilla unaGrilla = Grilla.getInstance();
 
-        for (int i = 1; i <= 5; i = i + 2 ){
-            unaGrilla.agregarUbicable(new Pozo(new Posicion(i,0)));
+        for (int i = 2; i <= 6; i = i + 2 ){
+            unaGrilla.agregarUbicable(new Pozo(new Posicion(i,1)));
         };
         for (int i = 0; i < 3; i++ ){
             una4x4.moverseHacia (unaDireccion);

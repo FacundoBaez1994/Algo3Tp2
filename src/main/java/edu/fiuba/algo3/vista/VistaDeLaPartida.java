@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 public class VistaDeLaPartida {
     private final Stage stage;
     private GridPaneGrilla vistaGrilla;
+    private Label etiquetaSucesosDeLaPartida;
 
     private VistaBotonera vistaBotonera;
     public VistaDeLaPartida (Stage stage) {
@@ -21,57 +22,61 @@ public class VistaDeLaPartida {
         this.stage = stage;
         this.vistaGrilla = new GridPaneGrilla();
         this.vistaBotonera = new VistaBotonera();
+        this.etiquetaSucesosDeLaPartida = new Label();
+    }
+
+    public VistaDeLaPartida (Stage stage, Label etiquetaSucesosDeLaPartida) {
+        super();
+        this.stage = stage;
+        this.vistaGrilla = new GridPaneGrilla();
+        this.vistaBotonera = new VistaBotonera();
+        this.etiquetaSucesosDeLaPartida = etiquetaSucesosDeLaPartida;
     }
 
     public void mostrarPantalla() {
         String textoNicknameJugador = null;
         String textoPuntajeJugador = null;
-        try {
-            textoNicknameJugador = Juego.getInstance().obtenerNicknameJugadorActual();
-            Label etiquetaNicknameJugador = new Label();
-            etiquetaNicknameJugador.setText("Jugador turno actual: ".concat(textoNicknameJugador));
+        textoNicknameJugador = Juego.getInstance().obtenerNicknameJugadorActual();
+        Label etiquetaNicknameJugador = new Label();
+        etiquetaNicknameJugador.setText("Jugador turno actual: ".concat(textoNicknameJugador));
+        textoPuntajeJugador = String.valueOf(Juego.getInstance().obtenerPuntajeJugadorActual());
+        Label etiquetaPuntajeJugador = new Label();
+        etiquetaPuntajeJugador.setText("Puntos: ".concat(textoPuntajeJugador));
 
-            textoPuntajeJugador = String.valueOf(Juego.getInstance().obtenerPuntajeJugadorActual());
-            Label etiquetaPuntajeJugador = new Label();
-            etiquetaPuntajeJugador.setText("Puntos: ".concat(textoPuntajeJugador));
 
-            VBox vboxInfoJugador = new VBox(etiquetaNicknameJugador, etiquetaPuntajeJugador);
+        VBox vboxInfoJugador = new VBox(etiquetaNicknameJugador, etiquetaPuntajeJugador,this.etiquetaSucesosDeLaPartida );
 
-            Button botonMoverAbajo = new Button();
-            botonMoverAbajo.setText("Arriba"); //la etiqueta esta mal a proposito
-            Button botonMoverArriba = new Button();
-            botonMoverArriba.setText("Abajo"); //la etiqueta esta mal a proposito
-            Button botonMoverDerecha = new Button();
-            botonMoverDerecha.setText("Derecha");
-            Button botonMoverIzquierda = new Button();
-            botonMoverIzquierda.setText("Izquierda");
+        Button botonMoverAbajo = new Button();
+        botonMoverAbajo.setText("Arriba"); //la etiqueta esta mal a proposito
+        Button botonMoverArriba = new Button();
+        botonMoverArriba.setText("Abajo"); //la etiqueta esta mal a proposito
+        Button botonMoverDerecha = new Button();
+        botonMoverDerecha.setText("Derecha");
+        Button botonMoverIzquierda = new Button();
+        botonMoverIzquierda.setText("Izquierda");
 
-            HBox hboxSuperior = new HBox(botonMoverArriba);
-            HBox hboxMedio = new HBox(botonMoverIzquierda, botonMoverDerecha);
-            HBox hboxInferior = new HBox(botonMoverAbajo);
-            //VBox botonera = new VBox(hboxSuperior, hboxMedio, hboxInferior);
-            VBox botonera = new VBox(hboxInferior, hboxMedio, hboxSuperior);
+        HBox hboxSuperior = new HBox(botonMoverArriba);
+        HBox hboxMedio = new HBox(botonMoverIzquierda, botonMoverDerecha);
+        HBox hboxInferior = new HBox(botonMoverAbajo);
+        //VBox botonera = new VBox(hboxSuperior, hboxMedio, hboxInferior);
+        VBox botonera = new VBox(hboxInferior, hboxMedio, hboxSuperior);
 
-            botonMoverDerecha.setOnAction(new HandlerBotonMoverDerecha(stage));
-            botonMoverIzquierda.setOnAction(new HandlerBotonMoverIzquierda(stage));
-            botonMoverArriba.setOnAction(new HandlerBotonMoverArriba(stage));
-            botonMoverAbajo.setOnAction(new HandlerBotonMoverAbajo(stage));
+        botonMoverDerecha.setOnAction(new HandlerBotonMoverDerecha(this.stage, this.etiquetaSucesosDeLaPartida) );
+        botonMoverIzquierda.setOnAction(new HandlerBotonMoverIzquierda(this.stage, this.etiquetaSucesosDeLaPartida) );
+        botonMoverArriba.setOnAction(new HandlerBotonMoverArriba(this.stage, this.etiquetaSucesosDeLaPartida) );
+        botonMoverAbajo.setOnAction(new HandlerBotonMoverAbajo(this.stage, this.etiquetaSucesosDeLaPartida));
 
-            VBox vboxComandos = new VBox(vboxInfoJugador, botonera);
+        VBox vboxComandos = new VBox(vboxInfoJugador, botonera);
 
-            HBox root = new HBox();
-            root.getChildren().add(this.vistaGrilla);
-            root.getChildren().add(vboxComandos);
-            //HandlerTurnos.setVistaPartida(this);
+        HBox root = new HBox();
+        root.getChildren().add(this.vistaGrilla);
+        root.getChildren().add(vboxComandos);
+        //HandlerTurnos.setVistaPartida(this);
 
-            Scene scene = new Scene(root, 1000, 800);
-            this.stage.setTitle("GPS CHALLENGE");
-            this.stage.setScene(scene);
-            stage.show();
-        } catch (LlegadaALaMeta e) {
-            VistaFinDelJuego vistaFinDelJuego = new VistaFinDelJuego(stage);
-            vistaFinDelJuego.mostrarPantallaGanador(textoNicknameJugador, textoPuntajeJugador);
-        }
+        Scene scene = new Scene(root, 1000, 800);
+        this.stage.setTitle("GPS CHALLENGE");
+        this.stage.setScene(scene);
+        stage.show();
         //Thread.setDefaultUncaughtExceptionHandler()
     }
 }

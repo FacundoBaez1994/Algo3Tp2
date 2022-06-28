@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.grilla;
 
 import edu.fiuba.algo3.modelo.excepciones.LlegadaALaMeta;
+import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
+
 
 public class Meta implements Ubicable {
     private Posicion unaPosicion;
@@ -20,6 +22,7 @@ public class Meta implements Ubicable {
 
     @Override
     public void serEncontradoPor(Vehiculo unVehiculo) {
-        throw new LlegadaALaMeta();
+        Juego juego = Juego.getInstance();
+        juego.huboGanador();
     }
 }

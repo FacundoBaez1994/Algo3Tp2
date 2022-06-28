@@ -35,7 +35,7 @@ public class TestGrilla {
         unaGrilla.reiniciar ();
     }
 
-
+    /*
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConLaMeta () {
         Direccion unaDireccion = new Derecha();
@@ -50,6 +50,7 @@ public class TestGrilla {
 
         assertThrows (LlegadaALaMeta.class, task);
     }
+    */
 
     @Test
     public void SeGeneraControlPolicialEnUnaPosicionDeLaGrilla () {

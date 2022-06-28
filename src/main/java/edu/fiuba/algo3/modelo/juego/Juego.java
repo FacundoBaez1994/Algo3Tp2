@@ -17,6 +17,7 @@ public class Juego {
 
     private Queue<Jugador> jugadores = null;
     private PuntajesAltos unosPuntajes;
+    private String datosDelJugadorActual = null;
 
     private static Juego INSTANCE = null;
 
@@ -34,15 +35,14 @@ public class Juego {
         this.jugadores.add (unJugador);
     }
 
-    public void jugadorConTurnoActualMueveVehiculo (Direccion unaDireccion){
-        Jugador unJugador =  this.jugadores.poll();
+    public void jugadorConTurnoActualMueveVehiculo (Direccion unaDireccion) {
+        Jugador unJugador = this.jugadores.peek();
         try {
             unJugador.moverVehiculoHacia(unaDireccion);
-        }catch (Exception e){
-           this.jugadores.add(unJugador);
-           throw e;
+        } catch (Exception e) {
+            throw e;
         }
-        // Por ahora se define que el jugador pierde su turno si ocurre un error.
+        this.jugadores.poll();
         this.jugadores.add(unJugador);
     }
     public void reiniciar() {
@@ -72,6 +72,14 @@ public class Juego {
     public Posicion obtenerPosicionDeJugadorActual (){
         Jugador unJugador = this.jugadores.peek();
         return unJugador.getVehiculo().getPosicion();
+    }
+
+    public void huboGanador (){
+        Jugador unJugador = this.jugadores.peek();
+        this.datosDelJugadorActual = unJugador.getNickName() + "Con puntaje: " + unJugador.getPuntaje();
+    }
+    public String obtenerGanador (){
+        return this.datosDelJugadorActual;
     }
 
 }

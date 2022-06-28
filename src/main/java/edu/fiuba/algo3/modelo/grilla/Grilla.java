@@ -181,9 +181,9 @@ public class Grilla {
     }
 
     public void comprobarCoordenadasDentroDeLosLimites(int coordenadaX, int coordenadaY) {
-        if(     coordenadaX< 0 || coordenadaY < 0
-                || this.maximaCantidadDePosicionesEnX < coordenadaX
-                || this.maximaCantidadDePosicionesEnY < coordenadaY){
+        if(     coordenadaX< 1 || coordenadaY < 1
+                || this.maximaCantidadDePosicionesEnX - 1 < coordenadaX
+                || this.maximaCantidadDePosicionesEnY - 1 < coordenadaY ){
              throw new PosicionFueraDeLimite();
         }
     }

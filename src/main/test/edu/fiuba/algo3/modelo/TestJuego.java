@@ -40,10 +40,9 @@ public class TestJuego {
         Grilla unaGrilla = Grilla.getInstance();
         unaGrilla.agregarUbicable(new Meta(new Posicion(3,3)));
         juego.jugadorConTurnoActualMueveVehiculo(new Derecha());
-        Executable task = () -> {
-            juego.jugadorConTurnoActualMueveVehiculo(new Derecha());
-        };
-        assertThrows (LlegadaALaMeta.class, task);
+        juego.jugadorConTurnoActualMueveVehiculo(new Derecha());
+
+        assertTrue (juego.obtenerGanador() != null);
     }
     @Test
     public void SeIniciaElJuegoConTresJugadoresYUnJugadorAtraviesaUnPozoConUnaMoto() {

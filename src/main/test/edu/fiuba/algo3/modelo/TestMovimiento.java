@@ -29,9 +29,9 @@ public class TestMovimiento {
 
     @Test
     public void unVehiculoSeMueveHaciaLaIzquierdaSuPosicionSeModifico() {
-        Posicion unaPosicion = new Posicion(1,1);
+        Posicion unaPosicion = new Posicion(2,2);
         Vehiculo unVehiculo = new Vehiculo(new Moto(), unaPosicion);
-        Posicion unaPosicionFinal = new Posicion(0,1);
+        Posicion unaPosicionFinal = new Posicion(1,2);
         Movimiento unMovimiento = new MovimientoComun(new Izquierda());
         unMovimiento.moverse ( unVehiculo);
         assertTrue (unVehiculo.getPosicion().igualA(unaPosicionFinal));
@@ -47,9 +47,9 @@ public class TestMovimiento {
     }
     @Test
     public void unVehiculoSeMueveHaciaAbajoSuPosicionSeModifico() {
-        Posicion unaPosicion = new Posicion(1,1);
+        Posicion unaPosicion = new Posicion(2,2);
         Vehiculo unVehiculo = new Vehiculo(new Moto(), unaPosicion);
-        Posicion unaPosicionFinal = new Posicion(1,0);
+        Posicion unaPosicionFinal = new Posicion(2,1);
         Movimiento unMovimiento = new MovimientoComun(new Abajo());
         unMovimiento.moverse ( unVehiculo);
         assertTrue (unVehiculo.getPosicion().igualA(unaPosicionFinal));

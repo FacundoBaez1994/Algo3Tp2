@@ -19,17 +19,17 @@ public class Vehiculo{
     }
 
     public void moverseHacia (Direccion unaDireccion) {
-
-        Movimiento unMovimiento = new MovimientoComun(unaDireccion);
-        unMovimiento.moverse (this);
-        unMovimiento.moverse (this);
-        this.cantidadDeMovimientos += 1;
+        Posicion original = this.posicion;
+        try {
+            Movimiento unMovimiento = new MovimientoComun(unaDireccion);
+            unMovimiento.moverse (this);
+            unMovimiento.moverse (this);
+            this.cantidadDeMovimientos += 1;
+        }catch (Exception e){
+            this.posicion = original;
+            throw e;
+        }
     }
-/*
-    public  void afectarMovimientos(Obstaculo unObstaculo) {
-        this.cantidadDeMovimientos += unObstaculo.calcularPenalizacion (this.unTipoDeVehiculo);
-        this.cantidadDeMovimientos += 1;
-    }*/
 
     public int getCantidadDeMovimientos(){
         return this.cantidadDeMovimientos;

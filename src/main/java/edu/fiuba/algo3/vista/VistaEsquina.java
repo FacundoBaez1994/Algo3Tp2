@@ -14,7 +14,6 @@ import javafx.scene.layout.StackPane;
 public class VistaEsquina extends StackPane {
     private static final int ALTURA_CASILLERO = 32;
     private static final int ANCHURA_CASILLERO = 32;
-    private EventHandler<MouseEvent> eventHandler = null;
 
     private Posicion posicion;
     private ImageView imagen;
@@ -54,16 +53,19 @@ public class VistaEsquina extends StackPane {
     private void agregarOcultabilidad () {
         Grilla grilla = Grilla.getInstance();
         Ubicable unUbicable = grilla.getUbicableEn (this.posicion);
-        if (true){
             Juego juego = Juego.getInstance();
             Posicion posJugador = juego.obtenerPosicionDeJugadorActual ();
-            if ( this.posicion.obtenerDistanciaMayor(posJugador) > 2 ) {
-                ImageView imagen = new ImageView("file:src/recursos/img/Manzana.PNG");
-                imagen.setFitHeight(30);
-                imagen.setFitWidth(30);
-                this.getChildren().add(imagen);
+            if (this.posicion.obtenerDistanciaMayor(posJugador) > 2) {
+                if (unUbicable != null){
+                    if (unUbicable.getClass() == (new Meta ()).getClass()){
+                        return;
+                    }
+                }
+            ImageView imagen = new ImageView("file:src/recursos/img/Manzana.PNG");
+            imagen.setFitHeight(30);
+            imagen.setFitWidth(30);
+            this.getChildren().add(imagen);
             }
-        }
     }
 }
 //unUbicable.getClass() != Meta.class
