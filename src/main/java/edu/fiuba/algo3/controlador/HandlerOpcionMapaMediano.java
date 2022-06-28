@@ -18,7 +18,9 @@ public class HandlerOpcionMapaMediano implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        Grilla unaGrilla = Grilla.getInstance(40,40);
+        Grilla unaGrilla = Grilla.getInstance(LARGO_DE_GRILLA_EN_X,LARGO_DE_GRILLA_EN_Y);
+        unaGrilla.generarUbicablesRandom();
+        unaGrilla.generarMeta();
         VistaCantidadDeJugadoresEnMapaMediano vistaCantidadDeJugadoresEnMapaChico
                 = new VistaCantidadDeJugadoresEnMapaMediano (this.stage);
         vistaCantidadDeJugadoresEnMapaChico.mostrarPantalla();

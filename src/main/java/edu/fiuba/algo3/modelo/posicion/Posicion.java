@@ -12,6 +12,11 @@ public class Posicion {
          this.coordenadaY = y;
      }
 
+    public Posicion(Posicion unaPosicion){
+        this.coordenadaX = unaPosicion.obtenerCoordenadaX();
+        this.coordenadaY = unaPosicion.obtenerCoordenadaY();
+    }
+
      public void sumarCoordenadas(Posicion otraPosicion) {
 
          int resultadoEnX = this.coordenadaX + otraPosicion.coordenadaX;
@@ -28,6 +33,14 @@ public class Posicion {
                  this.coordenadaY + otraPosicion.coordenadaY );
      }
 
+    public int obtenerCoordenadaX() {
+        return this.coordenadaX;
+    }
+
+    public int obtenerCoordenadaY() {
+        return this.coordenadaY;
+    }
+
      public boolean igualA (Posicion otraPosicion) {
          if (this.coordenadaX == otraPosicion.coordenadaX &&
                  this.coordenadaY == otraPosicion.coordenadaY)
@@ -35,5 +48,12 @@ public class Posicion {
          else
              return false;
      }
-
+    public int obtenerDistanciaMayor(Posicion otraPosicion) {
+        int compMasGrande = 0;
+        int componenteX = Math.abs(this.coordenadaX - otraPosicion.coordenadaX);
+        int componenteY = Math.abs(this.coordenadaY - otraPosicion.coordenadaY);
+        if ( componenteX < componenteY) { compMasGrande = componenteY; }
+        else { compMasGrande = componenteX; };
+        return compMasGrande;
+    }
 }

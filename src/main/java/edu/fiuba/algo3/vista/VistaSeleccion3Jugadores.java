@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.HandlerComienzoJuegoEnGrilla;
+import edu.fiuba.algo3.controlador.TextoSeleccionJugadorHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -22,24 +24,31 @@ public class VistaSeleccion3Jugadores {
 
     public void mostrarPantalla() {
 
-        StackPane root =  new StackPane();
-
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
+        Label etiquetaInfoSobreNickName1 = new Label();
+        etiquetaInfoSobreNickName1.setText("");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
+        Label etiquetaInfoSobreNickName2 = new Label();
+        etiquetaInfoSobreNickName2.setText("");
 
         TextField textoCuadroNickName3 = new TextField();
         textoCuadroNickName3.setPromptText("Ingrese nickname Jugador 3");
+        Label etiquetaInfoSobreNickName3 = new Label();
+        etiquetaInfoSobreNickName3.setText("");
 
-        Button boton1Jugador = new Button();
-        boton1Jugador .setText("SELECCION");
-        //boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
+        StackPane root =  new StackPane();
 
+        Button botonEmpezarJuego = new Button();
+        botonEmpezarJuego.setText("Mandale Mecha!");
+        botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla(stage));
+        botonEmpezarJuego.setVisible(false);
 
-        VBox contenedorVertical = new VBox (textoCuadroNickName1, textoCuadroNickName2,
-                textoCuadroNickName3, boton1Jugador);
+        VBox contenedorVertical = new VBox ( textoCuadroNickName1, etiquetaInfoSobreNickName1
+                ,textoCuadroNickName2, etiquetaInfoSobreNickName2, textoCuadroNickName3,
+                etiquetaInfoSobreNickName3 ,botonEmpezarJuego);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
@@ -48,6 +57,18 @@ public class VistaSeleccion3Jugadores {
         final ImageView imagenVista = new ImageView(imagen);
 
         root.getChildren().addAll(imagenVista, contenedorVertical);
+
+        TextoSeleccionJugadorHandler textoSeleccionJugadorHandler1 =
+                new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName1, textoCuadroNickName1, textoCuadroNickName2 );
+        textoCuadroNickName1.setOnKeyPressed(textoSeleccionJugadorHandler1);
+
+        TextoSeleccionJugadorHandler textoSeleccionJugadorHandler2 =
+                new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName2, textoCuadroNickName2, textoCuadroNickName3 );
+        textoCuadroNickName2.setOnKeyPressed(textoSeleccionJugadorHandler2);
+
+        TextoSeleccionJugadorHandler textoSeleccionJugadorHandler3 =
+                new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName3, textoCuadroNickName3, botonEmpezarJuego );
+        textoCuadroNickName3.setOnKeyPressed(textoSeleccionJugadorHandler3);
 
         Scene scene = new Scene(root, 500, 500);
 

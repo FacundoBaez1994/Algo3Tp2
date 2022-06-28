@@ -35,7 +35,7 @@ public class TestGrilla {
         unaGrilla.reiniciar ();
     }
 
-
+    /*
     @Test
     public void UnaMotoAtraviesaLaCiudadYSeEncuentraConLaMeta () {
         Direccion unaDireccion = new Derecha();
@@ -50,6 +50,7 @@ public class TestGrilla {
 
         assertThrows (LlegadaALaMeta.class, task);
     }
+    */
 
     @Test
     public void SeGeneraControlPolicialEnUnaPosicionDeLaGrilla () {
@@ -174,7 +175,7 @@ public class TestGrilla {
         int contadorDeUbicables = 0;
 
         for (int j = 0; j < unaGrilla1.getMaximaCantidadDePosicionesEnY() ; j++ ) {
-            if (unaGrilla1.existeUbicableEn (new Posicion (finalDeGrillaX , j))) {
+            if (unaGrilla1.existeUbicableEn (new Posicion (finalDeGrillaX -1, j))) {
                 contadorDeUbicables++;
             }
         }

@@ -83,6 +83,15 @@ public class Grilla {
         return false;
     }
 
+    public Ubicable getUbicableEn (Posicion posicion) {
+        for( Ubicable ubicable : ubicables){
+            if (ubicable.estaEnPosicion(posicion)) {
+                return ubicable;
+            }
+        }
+        return null;
+    }
+
     public void agregarUbicable(Ubicable unUbicable){
         this.ubicables.add(unUbicable);
     }
@@ -149,16 +158,16 @@ public class Grilla {
 
         for(int j = 1; j < this.maximaCantidadDePosicionesEnY; j = j + 2 ){
             if ( Math.random() > (this.probabilidadDeGenerarMetaEnPosicion)) {
-                Ubicable meta = new Meta(new Posicion (this.maximaCantidadDePosicionesEnX, j));
+                Ubicable meta = new Meta(new Posicion (this.maximaCantidadDePosicionesEnX -1, j));
                 this.agregarUbicable (meta);
                 return;
             }
         }
         if ( !((this.maximaCantidadDePosicionesEnX % 2 == 0) && (maximaCantidadDePosicionesEnY % 2 == 0))) {
-            Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX, maximaCantidadDePosicionesEnY));
+            Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX -1, maximaCantidadDePosicionesEnY));
             this.agregarUbicable (meta);
         } else {
-            Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX, maximaCantidadDePosicionesEnY - 1));
+            Ubicable meta = new Meta (new Posicion (this.maximaCantidadDePosicionesEnX -1, maximaCantidadDePosicionesEnY - 1));
             this.agregarUbicable (meta);
         }
     }
@@ -172,9 +181,9 @@ public class Grilla {
     }
 
     public void comprobarCoordenadasDentroDeLosLimites(int coordenadaX, int coordenadaY) {
-        if(     coordenadaX< 0 || coordenadaY < 0
-                || this.maximaCantidadDePosicionesEnX < coordenadaX
-                || this.maximaCantidadDePosicionesEnY < coordenadaY){
+        if(     coordenadaX< 1 || coordenadaY < 1
+                || this.maximaCantidadDePosicionesEnX - 1 < coordenadaX
+                || this.maximaCantidadDePosicionesEnY - 1 < coordenadaY ){
              throw new PosicionFueraDeLimite();
         }
     }

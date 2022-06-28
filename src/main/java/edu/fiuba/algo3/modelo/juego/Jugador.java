@@ -23,8 +23,6 @@ public class Jugador implements Comparable<Jugador> {
         this.puntaje = unPuntaje;
     }
 
-
-
     public Jugador (String unNickname, Posicion unaPosicion) {
         this.nickname = unNickname;
         this.puntaje = 0;
@@ -62,5 +60,13 @@ public class Jugador implements Comparable<Jugador> {
         }else{
             return 1;
         }
+    }
+
+    public TipoDeVehiculo obtenerVehiculoEnPosicion(Posicion unaPosicion) {
+        TipoDeVehiculo vehiculoEnPosicion = null;
+        if (this.unVehiculo.estaEnPosicion (unaPosicion)) {
+            vehiculoEnPosicion = unVehiculo.getTipoDeVehiculo();
+        }
+        return vehiculoEnPosicion;
     }
 }

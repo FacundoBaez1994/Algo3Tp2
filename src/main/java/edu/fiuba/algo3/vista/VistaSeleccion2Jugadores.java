@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.vista;
 
+import edu.fiuba.algo3.controlador.HandlerComienzoJuegoEnGrilla;
+import edu.fiuba.algo3.controlador.TextoSeleccionJugadorHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -24,20 +26,23 @@ public class VistaSeleccion2Jugadores {
 
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
+        Label etiquetaInfoSobreNickName1 = new Label();
+        etiquetaInfoSobreNickName1.setText("");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
+        Label etiquetaInfoSobreNickName2 = new Label();
+        etiquetaInfoSobreNickName2.setText("");
 
-        Label etiqueta = new Label();
-        etiqueta.setText("Seleccione cantidad de jugadores");
         StackPane root =  new StackPane();
 
-        Button boton1Jugador = new Button();
-        boton1Jugador .setText("SELECCION");
-       // boton1Jugador.setOnAction(new HandlerSeleccion1Jugador(stage));
+        Button botonEmpezarJuego = new Button();
+        botonEmpezarJuego.setText("Mandale Mecha!");
+        botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla(stage));
+        botonEmpezarJuego.setVisible(false);
 
-
-        VBox contenedorVertical = new VBox ( textoCuadroNickName1, textoCuadroNickName2, boton1Jugador);
+        VBox contenedorVertical = new VBox ( textoCuadroNickName1, etiquetaInfoSobreNickName1
+                ,textoCuadroNickName2, etiquetaInfoSobreNickName2,botonEmpezarJuego);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
@@ -46,6 +51,14 @@ public class VistaSeleccion2Jugadores {
         final ImageView imagenVista = new ImageView(imagen);
 
         root.getChildren().addAll(imagenVista, contenedorVertical);
+
+        TextoSeleccionJugadorHandler textoSeleccionJugadorHandler1 =
+                new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName1, textoCuadroNickName1, textoCuadroNickName2 );
+        textoCuadroNickName1.setOnKeyPressed(textoSeleccionJugadorHandler1);
+
+        TextoSeleccionJugadorHandler textoSeleccionJugadorHandler2 =
+                new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName2, textoCuadroNickName2, botonEmpezarJuego );
+        textoCuadroNickName2.setOnKeyPressed(textoSeleccionJugadorHandler2);
 
         Scene scene = new Scene(root, 500, 500);
 
