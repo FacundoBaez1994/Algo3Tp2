@@ -27,11 +27,13 @@ public class VistaSeleccion2Jugadores {
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
         Label etiquetaInfoSobreNickName1 = new Label();
+        etiquetaInfoSobreNickName1.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName1.setText("");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
         Label etiquetaInfoSobreNickName2 = new Label();
+        etiquetaInfoSobreNickName2.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName2.setText("");
 
         StackPane root =  new StackPane();

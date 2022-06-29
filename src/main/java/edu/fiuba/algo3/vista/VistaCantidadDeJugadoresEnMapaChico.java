@@ -25,6 +25,7 @@ public class VistaCantidadDeJugadoresEnMapaChico {
     public void mostrarPantalla() {
 
         Label etiqueta = new Label();
+        etiqueta.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiqueta.setText("Seleccione cantidad de jugadores");
 
         StackPane root =  new StackPane();

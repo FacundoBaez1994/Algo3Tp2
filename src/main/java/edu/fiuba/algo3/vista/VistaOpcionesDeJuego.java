@@ -31,6 +31,7 @@ public class VistaOpcionesDeJuego {
 
         Label etiqueta = new Label();
         etiqueta.setText("Seleccione tamaño del mapa");
+        etiqueta.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
 
         StackPane root =  new StackPane();
 

@@ -28,21 +28,25 @@ public class VistaSeleccion4Jugadores {
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
         Label etiquetaInfoSobreNickName1 = new Label();
+        etiquetaInfoSobreNickName1.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName1.setText("");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
         Label etiquetaInfoSobreNickName2 = new Label();
+        etiquetaInfoSobreNickName2.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName2.setText("");
 
         TextField textoCuadroNickName3 = new TextField();
         textoCuadroNickName3.setPromptText("Ingrese nickname Jugador 3");
         Label etiquetaInfoSobreNickName3 = new Label();
+        etiquetaInfoSobreNickName3.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName3.setText("");
 
         TextField textoCuadroNickName4 = new TextField();
         textoCuadroNickName4.setPromptText("Ingrese nickname Jugador 4");
         Label etiquetaInfoSobreNickName4 = new Label();
+        etiquetaInfoSobreNickName4.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfoSobreNickName4.setText("");
 
 

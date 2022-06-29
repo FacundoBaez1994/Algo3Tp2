@@ -29,6 +29,7 @@ public class VistaSeleccion1Jugador {
         textoCuadroNickName.setPromptText("Ingrese su nickname");
 
         Label etiquetaInfo = new Label();
+        etiquetaInfo.setStyle("-fx-text-fill: white; -fx-background-color: black; -fx-border-color: green");
         etiquetaInfo.setText("");
 
         Button botonEmpezarJuego = new Button();
