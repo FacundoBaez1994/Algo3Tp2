@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.juego;
 
+import edu.fiuba.algo3.archivador.Archivador;
+import edu.fiuba.algo3.archivador.FormatoJson;
 import edu.fiuba.algo3.modelo.excepciones.PosicionFueraDeLimite;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.modelo.grilla.Ubicable;
@@ -8,6 +10,7 @@ import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.modelo.vehiculo.TipoDeVehiculo;
 import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,6 +19,7 @@ public class Juego {
     // Singleton pattern
 
     private Queue<Jugador> jugadores = null;
+
     private PuntajesAltos unosPuntajes;
     private String datosDelJugadorActual = null;
 
@@ -28,7 +32,10 @@ public class Juego {
         return INSTANCE;
     }
     private Juego (){
+
         this.jugadores = new LinkedList<>();
+        this.unosPuntajes = new PuntajesAltos();
+        this.cargarPuntajesAltos();
     }
 
     public void agregarJugador (Jugador unJugador){
@@ -63,7 +70,7 @@ public class Juego {
     }
     public String obtenerNicknameJugadorActual (){
         Jugador unJugador =  this.jugadores.peek();
-        return unJugador.getNickName();
+        return unJugador.getNickname();
     }
     public int obtenerPuntajeJugadorActual (){
         Jugador unJugador =  this.jugadores.peek();
@@ -74,12 +81,25 @@ public class Juego {
         return unJugador.getVehiculo().getPosicion();
     }
 
-    public void huboGanador (){
+    public void huboGanador() {
         Jugador unJugador = this.jugadores.peek();
-        this.datosDelJugadorActual = unJugador.getNickName() + "Con puntaje: " + unJugador.getPuntaje();
+        this.unosPuntajes.agregarJugador(unJugador);
+        this.datosDelJugadorActual = unJugador.getNickname() + "Con puntaje: " + unJugador.getPuntaje();
     }
+
     public String obtenerGanador (){
         return this.datosDelJugadorActual;
     }
 
+    public ArrayList<Jugador> obtenerPuntajesAltos (){
+        return unosPuntajes.obtenerPuntajesAltos();
+    }
+
+    public void cargarPuntajesAltos (){
+        unosPuntajes.importar();
+    }
+
+    public void exportarPuntajesAltos () throws IOException {
+        unosPuntajes.exportar();
+    }
 }
