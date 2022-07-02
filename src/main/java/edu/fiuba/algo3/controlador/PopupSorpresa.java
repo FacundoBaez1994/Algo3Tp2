@@ -20,7 +20,6 @@ public class PopupSorpresa extends javafx.stage.Popup {
         this.texto = texto;
         Label label = new Label(this.texto);
         this.popup = new javafx.stage.Popup();
-        label.setStyle("-fx-background-color: grey;");
         label.setMinWidth(10);
         label.setMinHeight(10);
 

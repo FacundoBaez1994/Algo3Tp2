@@ -44,18 +44,18 @@ public class VistaFinDelJuego {
         TableView<Jugador> tablaRanking = new TableView<>(miembrosDelRanking);
 
         TableColumn<Jugador, String> columnaNickname = new TableColumn<>("Nickname");
-        columnaNickname.setMaxWidth(100);
+        //columnaNickname.setMaxWidth(100);
         columnaNickname.setCellValueFactory(new PropertyValueFactory<>("nickname"));
 
         TableColumn<Jugador, Integer> columnaPuntaje = new TableColumn<>("Puntaje");
-        columnaPuntaje.setMaxWidth(100);
+        //columnaPuntaje.setMaxWidth(100);
         columnaPuntaje.setCellValueFactory(new PropertyValueFactory<>("puntaje"));
 
 
         tablaRanking.getColumns().add(columnaNickname);
         tablaRanking.getColumns().add(columnaPuntaje);
-        tablaRanking.setMaxHeight(200);
-        tablaRanking.setMaxWidth(200);
+        //tablaRanking.setMaxHeight(200);
+        //tablaRanking.setMaxWidth(200);
 
 
         VBox vbox = new VBox();
