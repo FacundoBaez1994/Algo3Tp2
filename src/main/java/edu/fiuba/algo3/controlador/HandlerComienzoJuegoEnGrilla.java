@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerMandaleMecha;
 import edu.fiuba.algo3.vista.VistaDeLaPartida;
 import edu.fiuba.algo3.vista.VistaOpcionesDeJuego;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ public class HandlerComienzoJuegoEnGrilla implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        HandlerMandaleMecha.reproducirSonido();
         VistaDeLaPartida vistaDeLaPartida = new VistaDeLaPartida(this.stage);
         vistaDeLaPartida.mostrarPantalla();
     }

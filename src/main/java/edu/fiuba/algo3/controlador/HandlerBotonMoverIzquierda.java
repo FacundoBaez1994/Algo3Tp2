@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerPiquete;
+import edu.fiuba.algo3.controlador.sonido.HandlerSonidoError;
+import edu.fiuba.algo3.controlador.sonido.HandlerVictoria;
 import edu.fiuba.algo3.modelo.excepciones.PosicionFueraDeLimite;
 import edu.fiuba.algo3.modelo.excepciones.VehiculoNoPuedePasar;
 import edu.fiuba.algo3.modelo.juego.Juego;
-import edu.fiuba.algo3.modelo.movimiento.direcciones.Derecha;
 import edu.fiuba.algo3.modelo.movimiento.direcciones.Izquierda;
+import edu.fiuba.algo3.modelo.posicion.Posicion;
 import edu.fiuba.algo3.vista.VistaDeLaPartida;
 import edu.fiuba.algo3.vista.VistaFinDelJuego;
 import javafx.event.ActionEvent;
@@ -30,14 +33,20 @@ public class HandlerBotonMoverIzquierda implements EventHandler<ActionEvent> {
         this.etiquetaSucesosDeLaPartida.setTextFill(Color.GREEN);
         String datosGanador;
         Juego juego = Juego.getInstance();
+        Posicion posJugador = new Posicion (juego.obtenerPosicionDeJugadorActual ());
         try {
             juego.jugadorConTurnoActualMueveVehiculo(this.izquierda);
+            HandlerUbicables.handleUbicableEnDireccion(posJugador, this.izquierda,  this.stage);
         } catch (PosicionFueraDeLimite error) {
-            this.etiquetaSucesosDeLaPartida.setText("Te fuiste ameo");
-            this.etiquetaSucesosDeLaPartida.setTextFill(Color.RED);
+            PopupSorpresa pop = new PopupSorpresa( "Te fuiste del mapa");
+            pop.mostrar(stage);
+            HandlerSonidoError.reproducirSonido();
+            return;
         } catch (VehiculoNoPuedePasar error) {
-            this.etiquetaSucesosDeLaPartida.setText("Hay un piquete ahi!");
-            this.etiquetaSucesosDeLaPartida.setTextFill(Color.RED);
+            HandlerPiquete.reproducirSonido();
+            PopupSorpresa pop = new PopupSorpresa( "Hay un piquete!");
+            pop.mostrar(stage);
+            return;
         }
         if ((datosGanador = juego.obtenerGanador()) != null) {
             VistaFinDelJuego vistaDeLaPartida = new VistaFinDelJuego(this.stage);

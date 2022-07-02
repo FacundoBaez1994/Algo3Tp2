@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerTemaPrincipal;
 import edu.fiuba.algo3.vista.VistaOpcionesDeJuego;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
-import java.io.File;
-
 public class HandlerInicioDeJuego implements EventHandler<ActionEvent> {
     private Stage stage;
+
 
     public HandlerInicioDeJuego (Stage stage) {
         super();

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerJapish;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.vista.VistaCantidadDeJugadoresEnMapaMediano;
 import javafx.event.ActionEvent;
@@ -18,6 +19,7 @@ public class HandlerOpcionMapaMediano implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        HandlerJapish.reproducirSonido();
         Grilla unaGrilla = Grilla.getInstance(LARGO_DE_GRILLA_EN_X,LARGO_DE_GRILLA_EN_Y);
         unaGrilla.generarUbicablesRandom();
         unaGrilla.generarMeta();

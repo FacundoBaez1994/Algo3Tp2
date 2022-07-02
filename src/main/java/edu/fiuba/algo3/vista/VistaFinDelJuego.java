@@ -1,15 +1,14 @@
 package edu.fiuba.algo3.vista;
 
-import edu.fiuba.algo3.controlador.HandlerInicioDeJuego;
+import edu.fiuba.algo3.controlador.sonido.HandlerTemaPrincipal;
+import edu.fiuba.algo3.controlador.sonido.HandlerVictoria;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class VistaFinDelJuego {
@@ -20,8 +19,9 @@ public class VistaFinDelJuego {
     }
 
     public void mostrarPantallaGanador(String datosGanador){
+        HandlerTemaPrincipal.detenerSonido();
+        HandlerVictoria.reproducirSonido();
         StackPane root =  new StackPane();
-
         Label etiquetaJugador = new Label();
         etiquetaJugador.setText("Jugador ganador: ".concat(datosGanador));
 

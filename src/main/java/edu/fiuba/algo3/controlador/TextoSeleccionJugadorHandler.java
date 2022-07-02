@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerSonidoError;
 import edu.fiuba.algo3.modelo.grilla.Grilla;
 import edu.fiuba.algo3.modelo.juego.Juego;
 import edu.fiuba.algo3.modelo.juego.Jugador;
@@ -50,6 +51,7 @@ public class TextoSeleccionJugadorHandler implements EventHandler <KeyEvent> {
     public void handle(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (this.unNickName.getText().trim().equals("")) {
+                HandlerSonidoError.reproducirSonido();
                 this.unaEtiqueta.setText("Nombre invalido");
                 this.unaEtiqueta.setTextFill(Color.RED);
                 this.unNickName.requestFocus();

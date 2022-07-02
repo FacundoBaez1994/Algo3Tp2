@@ -3,6 +3,7 @@ package edu.fiuba.algo3.vista;
 import edu.fiuba.algo3.controlador.HandlerOpcionMapaChico;
 import edu.fiuba.algo3.controlador.HandlerOpcionMapaGrande;
 import edu.fiuba.algo3.controlador.HandlerOpcionMapaMediano;
+import edu.fiuba.algo3.controlador.sonido.HandlerTemaPrincipal;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

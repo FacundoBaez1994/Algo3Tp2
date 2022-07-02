@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.controlador;
 
+import edu.fiuba.algo3.controlador.sonido.HandlerJapish;
 import edu.fiuba.algo3.vista.VistaCantidadDeJugadoresEnMapaGrande;
 import edu.fiuba.algo3.vista.VistaSeleccion2Jugadores;
 import edu.fiuba.algo3.vista.VistaSeleccion3Jugadores;
@@ -18,6 +19,7 @@ public class HandlerSeleccion3Jugadores implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
+        HandlerJapish.reproducirSonido();
         VistaSeleccion3Jugadores vistaSeleccion3Jugadores  =
                 new VistaSeleccion3Jugadores(this.stage);
         vistaSeleccion3Jugadores.mostrarPantalla();

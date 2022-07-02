@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controlador.HandlerInicioDeJuego;
+import edu.fiuba.algo3.controlador.sonido.HandlerTemaPrincipal;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,7 +17,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-
+        HandlerTemaPrincipal handlerTemaPrincipal = new HandlerTemaPrincipal ();
+        handlerTemaPrincipal.reproducirSonido();
         StackPane root =  new StackPane();
         Button buttonInicio = new Button();
         buttonInicio.setText("Iniciar juego");
@@ -32,6 +34,9 @@ public class App extends Application {
         stage.setTitle("GPS CHALLENGE");
         stage.setScene(scene);
         stage.show();
+
+
+
     }
 
     public static void main(String[] args) {
