@@ -37,7 +37,7 @@ public class TestPuntajesAltos {
         puntajesAltos.agregarJugador(jugador7);
         puntajesAltos.agregarJugador(jugador8);
 
-        assertEquals(puntajesAltos.obtenerJugadorConPuntajeMasAlto().getNickName(), "JuanKelly");
+        assertEquals(puntajesAltos.obtenerJugadorConPuntajeMasAlto().getNickname(), "JuanKelly");
 
     }
 }
