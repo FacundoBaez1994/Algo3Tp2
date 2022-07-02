@@ -40,7 +40,7 @@ public class HandlerBotonMoverArriba implements EventHandler<ActionEvent> {
         }
         if ((datosGanador = juego.obtenerGanador()) != null) {
             VistaFinDelJuego vistaDeLaPartida = new VistaFinDelJuego(this.stage);
-            vistaDeLaPartida.mostrarPantallaGanador (datosGanador);
+            vistaDeLaPartida.mostrarPantallaGanador (datosGanador, juego.obtenerPuntajesAltos());
         } else  {
             VistaDeLaPartida vistaDeLaPartida = new VistaDeLaPartida(this.stage, this.etiquetaSucesosDeLaPartida);
             vistaDeLaPartida.mostrarPantalla();

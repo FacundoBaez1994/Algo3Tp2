@@ -38,7 +38,7 @@ public class FormatoJson implements Archivador {
             for (int i = 0; i < ja.length(); i++) {
 
                 JSONObject jo = ja.getJSONObject(i);
-                Jugador jugador = new Jugador(jo.getString("nickName"), jo.getInt("puntaje"));
+                Jugador jugador = new Jugador(jo.getString("nickname"), jo.getInt("puntaje"));
                 jugadores.add(jugador);
             }
 
@@ -60,7 +60,7 @@ public class FormatoJson implements Archivador {
 
             for (Jugador jugador : jugadores) {
                 JSONObject jo = new JSONObject();
-                jo.put("nickName", jugador.getNickName());
+                jo.put("nickname", jugador.getNickname());
                 jo.put("puntaje", jugador.getPuntaje());
                 ja.put(jo);
             }

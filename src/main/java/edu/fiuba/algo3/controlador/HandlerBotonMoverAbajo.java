@@ -12,6 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class HandlerBotonMoverAbajo implements EventHandler<ActionEvent> {
     private Stage stage;
     private Abajo abajo;
@@ -39,8 +41,13 @@ public class HandlerBotonMoverAbajo implements EventHandler<ActionEvent> {
             this.etiquetaSucesosDeLaPartida.setTextFill(Color.RED);
         }
         if ((datosGanador = juego.obtenerGanador()) != null) {
+            try {
+                juego.exportarPuntajesAltos();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             VistaFinDelJuego vistaDeLaPartida = new VistaFinDelJuego(this.stage);
-            vistaDeLaPartida.mostrarPantallaGanador (datosGanador);
+            vistaDeLaPartida.mostrarPantallaGanador (datosGanador, juego.obtenerPuntajesAltos());
         }else  {
             VistaDeLaPartida vistaDeLaPartida = new VistaDeLaPartida(this.stage, this.etiquetaSucesosDeLaPartida);
             vistaDeLaPartida.mostrarPantalla();

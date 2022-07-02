@@ -43,7 +43,8 @@ public class Jugador implements Comparable<Jugador> {
     public int getPuntaje () {
         return this.puntaje;
     }
-    public String getNickName () {
+
+    public String getNickname () {
         return this.nickname;
     }
 
