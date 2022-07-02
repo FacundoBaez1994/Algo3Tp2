@@ -53,6 +53,7 @@ public class VistaCantidadDeJugadoresEnMapaMediano {
         root.getChildren().addAll(imagenVista, contenedorVertical);
 
         Scene scene = new Scene(root, 500, 500);
+        scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");
         this.stage.setScene(scene);

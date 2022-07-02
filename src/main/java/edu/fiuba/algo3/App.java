@@ -30,7 +30,7 @@ public class App extends Application {
         root.getChildren().addAll(imagenVista, buttonInicio);
 
         Scene scene = new Scene(root, 500, 500);
-
+        scene.getStylesheets().add("file:style.css");
         stage.setTitle("GPS CHALLENGE");
         stage.setScene(scene);
         stage.show();
