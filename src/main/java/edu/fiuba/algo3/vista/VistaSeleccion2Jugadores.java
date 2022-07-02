@@ -61,6 +61,7 @@ public class VistaSeleccion2Jugadores {
         textoCuadroNickName2.setOnKeyPressed(textoSeleccionJugadorHandler2);
 
         Scene scene = new Scene(root, 500, 500);
+        scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");
         this.stage.setScene(scene);

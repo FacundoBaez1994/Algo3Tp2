@@ -38,6 +38,7 @@ public class VistaFinDelJuego {
         root.getChildren().addAll(imagenVista, hbox);
 
         Scene scene = new Scene(root, 1000, 800);
+        scene.getStylesheets().add("file:style.css");
         this.stage.setTitle("GPS CHALLENGE");
         this.stage.setScene(scene);
         stage.show();
