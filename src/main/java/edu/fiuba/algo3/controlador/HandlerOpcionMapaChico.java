@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 
 public class HandlerOpcionMapaChico implements EventHandler<ActionEvent> {
     private Stage stage;
-    private final int LARGO_DE_GRILLA_EN_X = 20;
-    private final int LARGO_DE_GRILLA_EN_Y = 20;
+    private final int LARGO_DE_GRILLA_EN_X = 12;
+    private final int LARGO_DE_GRILLA_EN_Y = 12;
 
     public HandlerOpcionMapaChico (Stage stage) {
         super();

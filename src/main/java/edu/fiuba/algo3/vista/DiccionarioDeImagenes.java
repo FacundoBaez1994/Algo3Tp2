@@ -30,6 +30,10 @@ public class DiccionarioDeImagenes {
     private static String rutaControlPolicial = "file:src/recursos/img/controlPolicial.png";
     private static String rutaSorpresa = "file:src/recursos/img/Sorpresa.png";
     private static String rutaMeta = "file:src/recursos/img/meta.png";
+    private static String rutaCirculoVerde = "file:src/recursos/img/circuloVerde.png";
+    private static String rutaCirculoRojo = "file:src/recursos/img/circuloRojo.jpeg";
+    private static String rutaCirculoAzul = "file:src/recursos/img/circuloAzul.jpeg";
+    private static String rutaCirculoNaranja = "file:src/recursos/img/circuloNaranja.jpeg";
 
 
     public DiccionarioDeImagenes() {
@@ -43,10 +47,23 @@ public class DiccionarioDeImagenes {
         dicc.put(SorpresaNoFavorable.class, rutaSorpresa);
         dicc.put(CambioDeVehiculo.class, rutaSorpresa);
         dicc.put(Meta.class,rutaMeta);
+        dicc.put(1,rutaCirculoVerde);
+        dicc.put(2,rutaCirculoRojo);
+        dicc.put(3,rutaCirculoAzul);
+        dicc.put(4,rutaCirculoNaranja);
     }
 
     public ImageView get (Class className) {
         String ruta = (String)dicc.get(className);
+        ImageView img;
+        img = new ImageView(ruta);
+        img.setFitHeight(ALTURA_UBICABLE);
+        img.setFitWidth(ANCHURA_UBICABLE);
+        return img;
+    }
+
+    public ImageView get (int id) {
+        String ruta = (String)dicc.get(id);
         ImageView img;
         img = new ImageView(ruta);
         img.setFitHeight(ALTURA_UBICABLE);

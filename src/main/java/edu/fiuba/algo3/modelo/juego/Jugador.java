@@ -9,27 +9,34 @@ import edu.fiuba.algo3.modelo.vehiculo.Vehiculo;
 public class Jugador implements Comparable<Jugador> {
     private String nickname;
     private int puntaje;
+    public static int cantidadDeJugadores = 1;
+    private int numeroDeJugador = 0;
     Vehiculo unVehiculo;
 
     public Jugador (String unNickname) {
+        this.numeroDeJugador = cantidadDeJugadores;
         this.nickname = unNickname;
         this.puntaje = 0;
     }
     public Jugador () {
+        this.numeroDeJugador = cantidadDeJugadores;
         this.puntaje = 0;
     }
     public Jugador (String unNickname, int unPuntaje) {
+        this.numeroDeJugador = cantidadDeJugadores;
         this.nickname = unNickname;
         this.puntaje = unPuntaje;
     }
 
     public Jugador (String unNickname, Posicion unaPosicion) {
+        this.numeroDeJugador = cantidadDeJugadores++;
         this.nickname = unNickname;
         this.puntaje = 0;
         this.unVehiculo = new Vehiculo(new Moto(), unaPosicion);
     }
 
     public Jugador (String unNickname, TipoDeVehiculo unTipoDeVehiculo, Posicion unaPosicion) {
+        this.numeroDeJugador = cantidadDeJugadores;
         this.nickname = unNickname;
         this.puntaje = 0;
         this.unVehiculo = new Vehiculo(unTipoDeVehiculo, unaPosicion);
@@ -50,6 +57,10 @@ public class Jugador implements Comparable<Jugador> {
 
     public Vehiculo getVehiculo() {
         return this.unVehiculo;
+    }
+
+    public int getNumeroDeJugador() {
+        return this.numeroDeJugador;
     }
 
     @Override

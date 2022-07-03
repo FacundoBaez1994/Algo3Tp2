@@ -31,6 +31,7 @@ public class Juego {
         }
         return INSTANCE;
     }
+
     private Juego (){
 
         this.jugadores = new LinkedList<>();
@@ -68,6 +69,21 @@ public class Juego {
          }
         return unVehiculoEnPosicion;
     }
+
+    public int obtenerNumeroDeJugadorEnPosicion (Posicion unaPosicion){
+        int id = -1;
+        for (int i = 0; i < this.jugadores.size(); i++) {
+            Jugador unJugador = this.jugadores.poll();
+            Vehiculo unVehiculo = unJugador.getVehiculo();
+            if (unaPosicion.igualA(unVehiculo.getPosicion())){
+                id = unJugador.getNumeroDeJugador();
+            }
+            this.jugadores.add(unJugador);
+        }
+        return id;
+    }
+
+
     public String obtenerNicknameJugadorActual (){
         Jugador unJugador =  this.jugadores.peek();
         return unJugador.getNickname();

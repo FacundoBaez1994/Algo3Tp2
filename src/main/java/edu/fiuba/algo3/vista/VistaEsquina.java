@@ -14,6 +14,8 @@ import javafx.scene.layout.StackPane;
 public class VistaEsquina extends StackPane {
     private static final int ALTURA_CASILLERO = 32;
     private static final int ANCHURA_CASILLERO = 32;
+    private static String rutaCirculoVerde = "file:src/recursos/img/circuloVerde.png";
+
 
     private Posicion posicion;
     private ImageView imagen;
@@ -42,10 +44,19 @@ public class VistaEsquina extends StackPane {
 
     private void agregarVehiculos () {
         Juego juego = Juego.getInstance();
+        Posicion posicionDeJugadorActual = juego.obtenerPosicionDeJugadorActual ();
         TipoDeVehiculo unTipoDeVehiculo = juego.obtenerVehiculoEnPosicion (this.posicion);
         if ( unTipoDeVehiculo != null){
             ImageView imagen = this.diccionarioImagenes.get(unTipoDeVehiculo.getClass());
+            int id = juego.obtenerNumeroDeJugadorEnPosicion(this.posicion);
+            if (id > 0) {
+                // AGREGAR DICCIONARIO
+                ImageView img = this.diccionarioImagenes.get(id);
+                this.getChildren().add(img);
+                this.getChildren().add(imagen);
+            } else  {
             this.getChildren().add(imagen);
+            }
         }
     }
 

@@ -33,7 +33,7 @@ public class HandlerTecladoMoverArriba implements EventHandler <KeyEvent>  {
     @Override
     public void handle(KeyEvent event) {
         if (event.getCode() == KeyCode.S) {
-            this.etiquetaSucesosDeLaPartida.setText("arriba");
+            this.etiquetaSucesosDeLaPartida.setText("abajo");
             this.etiquetaSucesosDeLaPartida.setTextFill(Color.GREEN);
             String datosGanador;
             Juego juego = Juego.getInstance();

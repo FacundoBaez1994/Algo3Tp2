@@ -33,7 +33,7 @@ public class HandlerTecladoMoverAbajo implements EventHandler <KeyEvent>  {
     @Override
     public void handle(KeyEvent event) {
         if (event.getCode() == KeyCode.W) {
-            this.etiquetaSucesosDeLaPartida.setText("abajo");
+            this.etiquetaSucesosDeLaPartida.setText("arriba");
             this.etiquetaSucesosDeLaPartida.setTextFill(Color.GREEN);
             String datosGanador;
             Juego juego = Juego.getInstance();
