@@ -54,6 +54,7 @@ public class Juego {
     }
     public void reiniciar() {
         this.jugadores =  new LinkedList<>();
+        this.datosDelJugadorActual = null;
     }
 
     public TipoDeVehiculo obtenerVehiculoEnPosicion (Posicion unaPosicion){
@@ -84,7 +85,7 @@ public class Juego {
     public void huboGanador() {
         Jugador unJugador = this.jugadores.peek();
         this.unosPuntajes.agregarJugador(unJugador);
-        this.datosDelJugadorActual = unJugador.getNickname() + "Con puntaje: " + unJugador.getPuntaje();
+        this.datosDelJugadorActual = unJugador.getNickname() + " con puntaje: " + unJugador.getPuntaje();
     }
 
     public String obtenerGanador (){
