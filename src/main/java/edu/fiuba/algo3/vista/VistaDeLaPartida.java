@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -75,6 +76,14 @@ public class VistaDeLaPartida {
 
         Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
+        HandlerTecladoMoverAbajo abajoHandler = new HandlerTecladoMoverAbajo (this.stage, this.etiquetaSucesosDeLaPartida);
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, abajoHandler );
+        HandlerTecladoMoverArriba arribaHandler = new HandlerTecladoMoverArriba (this.stage, this.etiquetaSucesosDeLaPartida);
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, arribaHandler );
+        HandlerTecladoMoverIzquierda izqHandler = new HandlerTecladoMoverIzquierda (this.stage, this.etiquetaSucesosDeLaPartida);
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, izqHandler );
+        HandlerTecladoMoverDerecha derHandler = new HandlerTecladoMoverDerecha (this.stage, this.etiquetaSucesosDeLaPartida);
+        scene.addEventHandler(KeyEvent.KEY_PRESSED, derHandler );
 
         this.stage.setTitle("GPS CHALLENGE");
         this.stage.setScene(scene);
