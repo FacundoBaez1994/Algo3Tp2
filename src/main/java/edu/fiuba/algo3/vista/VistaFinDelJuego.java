@@ -66,20 +66,20 @@ public class VistaFinDelJuego {
 
         tablaRanking.getColumns().add(columnaNickname);
         tablaRanking.getColumns().add(columnaPuntaje);
-        tablaRanking.setMaxHeight(400);
-        tablaRanking.setMaxWidth(400);
+        tablaRanking.setMaxHeight(220);
+        tablaRanking.setMaxWidth(403);
 
         etiquetaJugador.setAlignment(Pos.CENTER);
 
         VBox vbox = new VBox();
-        vbox.setSpacing (25);
+        vbox.setSpacing (110);
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().add(vBoxMenuBarra);
         vbox.getChildren().add(etiquetaJugador);
         vbox.getChildren().add(tablaRanking);
         vbox.getChildren().add(botonVolver);
 
-        Image imagen = new Image("file:src/recursos/img/ganador.png",1000,800,true,true);
+        Image imagen = new Image("file:src/recursos/img/ganador.jpeg",1000,800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
         root.getChildren().addAll(imagenVista, vbox);

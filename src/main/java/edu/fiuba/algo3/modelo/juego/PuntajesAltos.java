@@ -26,14 +26,7 @@ public class PuntajesAltos {
         int numeroDePosicionDePuntajeMasAlto = 0;
         return this.jugadores.get(numeroDePosicionDePuntajeMasAlto);
     }
-/*    public Map<String, Integer> obtenerPuntajesAltos(){
-        Map<String, Integer> ranking = new HashMap<String, Integer>();
-        for (int i = 0; i < 3; i++) {
-           ranking.put(this.jugadores.get(i).getNickName(),this.jugadores.get(i).getPuntaje());
-        }
-        return ranking;
-    }
-*/
+
     public void importar(){
         this.jugadores = this.archivador.importar();
     }

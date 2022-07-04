@@ -58,11 +58,14 @@ public class FormatoJson implements Archivador {
             JSONArray ja = new JSONArray();
             Writer output = new FileWriter(filePath);
 
+            int counter = 0;
+
             for (Jugador jugador : jugadores) {
                 JSONObject jo = new JSONObject();
                 jo.put("nickname", jugador.getNickname());
                 jo.put("puntaje", jugador.getPuntaje());
                 ja.put(jo);
+                if(counter < 5) counter++; else break;
             }
             mainJo.put("jugadores", ja);
 
