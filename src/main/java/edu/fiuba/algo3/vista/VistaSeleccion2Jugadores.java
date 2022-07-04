@@ -23,6 +23,9 @@ public class VistaSeleccion2Jugadores {
     }
 
     public void mostrarPantalla() {
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
+        VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
+        //////////////////////
 
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
@@ -49,8 +52,11 @@ public class VistaSeleccion2Jugadores {
 
         Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
+        ///////////////////
+        VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
+        contenedorVerticalFinal.setSpacing (150);
 
-        root.getChildren().addAll(imagenVista, contenedorVertical);
+        root.getChildren().addAll(imagenVista, contenedorVerticalFinal);
 
         TextoSeleccionJugadorHandler textoSeleccionJugadorHandler1 =
                 new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName1, textoCuadroNickName1, textoCuadroNickName2 );

@@ -22,7 +22,9 @@ public class VistaSeleccion1Jugador {
     }
 
     public void mostrarPantalla() {
-
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
+        VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
+        //////////////////////
         StackPane root =  new StackPane();
 
         TextField textoCuadroNickName = new TextField();
@@ -44,8 +46,11 @@ public class VistaSeleccion1Jugador {
 
         Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
+        ///////////////////
+        VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
+        contenedorVerticalFinal.setSpacing (200);
 
-        root.getChildren().addAll(imagenVista, contenedorVertical);
+        root.getChildren().addAll(imagenVista, contenedorVerticalFinal);
 
         TextoSeleccionJugadorHandler textoSeleccionJugadorHandler =
                 new TextoSeleccionJugadorHandler (etiquetaInfo, textoCuadroNickName, botonEmpezarJuego);

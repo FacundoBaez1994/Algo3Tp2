@@ -31,6 +31,9 @@ public class VistaFinDelJuego {
     }
 
     public void mostrarPantallaGanador(String datosGanador, ArrayList<Jugador> jugadores){
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
+        VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
+
         HandlerTemaPrincipal.detenerSonido();
         HandlerVictoria.reproducirSonido();
         StackPane root =  new StackPane();
@@ -61,6 +64,7 @@ public class VistaFinDelJuego {
         VBox vbox = new VBox();
         vbox.setSpacing (25);
         vbox.setAlignment(Pos.CENTER);
+        vbox.getChildren().add(vBoxMenuBarra);
         vbox.getChildren().add(vboxJugadorGanador);
         vbox.getChildren().add(tablaRanking);
 

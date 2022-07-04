@@ -2,12 +2,17 @@ package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.controlador.HandlerInicioDeJuego;
 import edu.fiuba.algo3.controlador.sonido.HandlerTemaPrincipal;
+import edu.fiuba.algo3.vista.BarraDeMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -19,15 +24,26 @@ public class App extends Application {
     public void start(Stage stage) {
         HandlerTemaPrincipal handlerTemaPrincipal = new HandlerTemaPrincipal ();
         handlerTemaPrincipal.reproducirSonido();
+
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
+
+
+
         StackPane root =  new StackPane();
         Button buttonInicio = new Button();
         buttonInicio.setText("Iniciar juego");
         buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
 
+
         Image imagen = new Image("file:src/recursos/img/InicioGPSChallenge.png",500,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
-        root.getChildren().addAll(imagenVista, buttonInicio);
+
+        VBox vBox = new VBox(menuBar.getMenuBar());
+        root.getChildren().addAll(imagenVista, vBox, buttonInicio);
+
+
+
 
         Scene scene = new Scene(root, 500, 500);
         scene.getStylesheets().add("file:style.css");

@@ -25,10 +25,7 @@ public class VistaOpcionesDeJuego {
     }
 
     public void mostrarPantalla() {
-        /*
-        TextField texto = new TextField();
-        texto.setPromptText("Seleccione Un tamaño del mapa");
-    */
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
 
         Label etiqueta = new Label();
         etiqueta.setText("Seleccione tamaño del mapa");
@@ -51,15 +48,20 @@ public class VistaOpcionesDeJuego {
         contenedorHorizontal.setSpacing (25);
         contenedorHorizontal.setAlignment(Pos.CENTER);
 
-        VBox contenedorVertical = new VBox (etiqueta, contenedorHorizontal);
-        contenedorVertical.setSpacing (10);
-        contenedorVertical.setPadding(new Insets(20));
-        contenedorVertical.setAlignment(Pos.CENTER);
+        VBox vboxBotones = new VBox ( etiqueta ,contenedorHorizontal);
+        vboxBotones.setSpacing (10);
+        vboxBotones.setAlignment(Pos.CENTER);
+
+        VBox contenedorVertical = new VBox (menuBar.getMenuBar());
+
+        VBox contenedorVerticalFinal = new VBox (contenedorVertical, vboxBotones);
+        contenedorVerticalFinal.setSpacing (200);
+
 
         Image imagen = new Image("file:src/recursos/img/LaMatanzaMapa.png",500,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
-        root.getChildren().addAll(imagenVista, contenedorVertical);
+        root.getChildren().addAll(imagenVista,contenedorVerticalFinal);
 
         Scene scene = new Scene(root, 500, 500);
         scene.getStylesheets().add("file:style.css");

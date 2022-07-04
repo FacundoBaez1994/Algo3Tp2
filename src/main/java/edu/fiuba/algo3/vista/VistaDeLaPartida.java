@@ -29,6 +29,9 @@ public class VistaDeLaPartida {
     }
 
     public void mostrarPantalla() {
+        BarraDeMenu menuBar = new BarraDeMenu(stage);
+        VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
+
         String textoNicknameJugador = null;
         String textoPuntajeJugador = null;
         textoNicknameJugador = Juego.getInstance().obtenerNicknameJugadorActual();
@@ -47,9 +50,10 @@ public class VistaDeLaPartida {
 
         VBox vboxComandos = new VBox(vboxInfoJugador);
 
-        HBox root = new HBox();
-        root.getChildren().add(this.vistaGrilla);
+        VBox root = new VBox();
+        root.getChildren().add(vBoxMenuBarra);
         root.getChildren().add(vboxComandos);
+        root.getChildren().add(this.vistaGrilla);
         //HandlerTurnos.setVistaPartida(this);
 
         Scene scene = new Scene(root, 1000, 800);
