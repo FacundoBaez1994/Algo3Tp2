@@ -99,6 +99,7 @@ public class Grilla {
     public void reiniciar () {
         this.crearPosiciones();
         this.ubicables = new ArrayList<>();
+        INSTANCE = null;
     }
 
     public void generarUbicablesRandom () {
