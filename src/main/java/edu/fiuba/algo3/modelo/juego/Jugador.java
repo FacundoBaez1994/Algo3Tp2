@@ -42,6 +42,10 @@ public class Jugador implements Comparable<Jugador> {
         this.unVehiculo = new Vehiculo(unTipoDeVehiculo, unaPosicion);
     }
 
+    public static void reiniciarCantidadJugadores() {
+        cantidadDeJugadores = 1;
+    }
+
     public void moverVehiculoHacia (Direccion unaDireccion) {
         this.unVehiculo.moverseHacia (unaDireccion);
         this.puntaje = this.unVehiculo.getCantidadDeMovimientos();
