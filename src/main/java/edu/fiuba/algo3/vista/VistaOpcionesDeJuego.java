@@ -55,15 +55,15 @@ public class VistaOpcionesDeJuego {
         VBox contenedorVertical = new VBox (menuBar.getMenuBar());
 
         VBox contenedorVerticalFinal = new VBox (contenedorVertical, vboxBotones);
-        contenedorVerticalFinal.setSpacing (200);
+        contenedorVerticalFinal.setSpacing (300);
 
 
-        Image imagen = new Image("file:src/recursos/img/LaMatanzaMapa.png",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/LaMatanzaMapa.png",1000, 800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
         root.getChildren().addAll(imagenVista,contenedorVerticalFinal);
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");

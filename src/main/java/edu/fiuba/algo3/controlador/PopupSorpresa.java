@@ -33,7 +33,7 @@ public class PopupSorpresa extends javafx.stage.Popup {
         contenedorVertical.setPadding(new Insets(1));
         contenedorVertical.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/recursos/img/ladrillos.PNG",200,200,true,true);
+        Image imagen = new Image("file:src/recursos/img/ladrillos.PNG",300,300,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
         root.getChildren().addAll(imagenVista, contenedorVertical);

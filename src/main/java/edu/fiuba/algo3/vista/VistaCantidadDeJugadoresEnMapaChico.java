@@ -45,7 +45,7 @@ public class VistaCantidadDeJugadoresEnMapaChico {
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",1000, 800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         ///////////////////
         VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
@@ -53,7 +53,7 @@ public class VistaCantidadDeJugadoresEnMapaChico {
 
         root.getChildren().addAll(imagenVista, contenedorVerticalFinal);
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");

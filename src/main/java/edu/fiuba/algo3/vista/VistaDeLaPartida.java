@@ -2,6 +2,7 @@ package edu.fiuba.algo3.vista;
 
 import edu.fiuba.algo3.controlador.*;
 import edu.fiuba.algo3.modelo.juego.Juego;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
@@ -41,19 +42,19 @@ public class VistaDeLaPartida {
         Label etiquetaPuntajeJugador = new Label();
         etiquetaPuntajeJugador.setText("Puntos: ".concat(textoPuntajeJugador));
 
-
-        VBox vboxInfoJugador = new VBox(etiquetaNicknameJugador, etiquetaPuntajeJugador,this.etiquetaSucesosDeLaPartida );
-
-
-
-
+        HBox vboxInfoJugador = new HBox(etiquetaNicknameJugador, etiquetaPuntajeJugador );
 
         VBox vboxComandos = new VBox(vboxInfoJugador);
+
+        HBox mapBox = new HBox();
+        mapBox.getChildren().add(this.vistaGrilla);
+        mapBox.setAlignment(Pos.CENTER);
 
         VBox root = new VBox();
         root.getChildren().add(vBoxMenuBarra);
         root.getChildren().add(vboxComandos);
-        root.getChildren().add(this.vistaGrilla);
+        root.getChildren().add(mapBox);
+
         //HandlerTurnos.setVistaPartida(this);
 
         Scene scene = new Scene(root, 1000, 800);

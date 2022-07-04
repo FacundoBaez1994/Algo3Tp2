@@ -29,9 +29,10 @@ public class VistaInicioDeJuego {
         Button buttonInicio = new Button();
         buttonInicio.setText("Iniciar juego");
         buttonInicio.setOnAction(new HandlerInicioDeJuego(stage));
+        buttonInicio.setMaxSize(120,60);
 
 
-        Image imagen = new Image("file:src/recursos/img/InicioGPSChallenge.png",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/InicioGPSChallenge.png",1000, 800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
 
 
@@ -41,10 +42,11 @@ public class VistaInicioDeJuego {
 
 
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
         stage.setTitle("GPS CHALLENGE");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }

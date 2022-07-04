@@ -89,6 +89,7 @@ public class VistaFinDelJuego {
         etiquetaJugador.setFont(new Font("Arial",40));
         this.stage.setTitle("GPS CHALLENGE");
         this.stage.setScene(scene);
+        this.stage.setResizable(false);
         stage.show();
     }
 

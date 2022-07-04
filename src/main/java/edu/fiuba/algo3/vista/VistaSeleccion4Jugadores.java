@@ -27,20 +27,32 @@ public class VistaSeleccion4Jugadores {
         VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
         //////////////////////
 
+        Label tituloJugador1 = new Label();
+        tituloJugador1.setText("Nombre del Jugador 1");
+
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
         Label etiquetaInfoSobreNickName1 = new Label();
         etiquetaInfoSobreNickName1.setText("");
+
+        Label tituloJugador2 = new Label();
+        tituloJugador2.setText("Nombre del Jugador 2");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
         Label etiquetaInfoSobreNickName2 = new Label();
         etiquetaInfoSobreNickName2.setText("");
 
+        Label tituloJugador3 = new Label();
+        tituloJugador3.setText("Nombre del Jugador 3");
+
         TextField textoCuadroNickName3 = new TextField();
         textoCuadroNickName3.setPromptText("Ingrese nickname Jugador 3");
         Label etiquetaInfoSobreNickName3 = new Label();
         etiquetaInfoSobreNickName3.setText("");
+
+        Label tituloJugador4 = new Label();
+        tituloJugador4.setText("Nombre del Jugador 4");
 
         TextField textoCuadroNickName4 = new TextField();
         textoCuadroNickName4.setPromptText("Ingrese nickname Jugador 4");
@@ -54,15 +66,25 @@ public class VistaSeleccion4Jugadores {
         botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla(stage));
         botonEmpezarJuego.setVisible(false);
 
-        VBox contenedorVertical = new VBox ( textoCuadroNickName1, etiquetaInfoSobreNickName1
-                ,textoCuadroNickName2, etiquetaInfoSobreNickName2, textoCuadroNickName3,
-                etiquetaInfoSobreNickName3, textoCuadroNickName4,
-                etiquetaInfoSobreNickName4 ,botonEmpezarJuego);
+        VBox contenedorVertical = new VBox (
+                tituloJugador1,
+                textoCuadroNickName1,
+                etiquetaInfoSobreNickName1,
+                tituloJugador2,
+                textoCuadroNickName2,
+                etiquetaInfoSobreNickName2,
+                tituloJugador3,
+                textoCuadroNickName3,
+                etiquetaInfoSobreNickName3,
+                tituloJugador4,
+                textoCuadroNickName4,
+                etiquetaInfoSobreNickName4 ,
+                botonEmpezarJuego);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",1000,800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         ///////////////////
         VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
@@ -86,7 +108,7 @@ public class VistaSeleccion4Jugadores {
                 new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName4, textoCuadroNickName4, botonEmpezarJuego);
         textoCuadroNickName4.setOnKeyPressed(textoSeleccionJugadorHandler4);
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");

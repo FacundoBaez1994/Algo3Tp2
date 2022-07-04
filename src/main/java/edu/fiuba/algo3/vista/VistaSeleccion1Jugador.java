@@ -27,6 +27,9 @@ public class VistaSeleccion1Jugador {
         //////////////////////
         StackPane root =  new StackPane();
 
+        Label tituloJugador1 = new Label();
+        tituloJugador1.setText("Nombre del Jugador 1");
+
         TextField textoCuadroNickName = new TextField();
         textoCuadroNickName.setPromptText("Ingrese su nickname");
 
@@ -39,12 +42,12 @@ public class VistaSeleccion1Jugador {
         botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla (stage));
 
 
-        VBox contenedorVertical = new VBox (textoCuadroNickName, etiquetaInfo , botonEmpezarJuego);
+        VBox contenedorVertical = new VBox (tituloJugador1,textoCuadroNickName, etiquetaInfo , botonEmpezarJuego);
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",1000,800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         ///////////////////
         VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
@@ -56,7 +59,7 @@ public class VistaSeleccion1Jugador {
                 new TextoSeleccionJugadorHandler (etiquetaInfo, textoCuadroNickName, botonEmpezarJuego);
         textoCuadroNickName.setOnKeyPressed(textoSeleccionJugadorHandler);
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");

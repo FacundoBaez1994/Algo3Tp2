@@ -27,10 +27,16 @@ public class VistaSeleccion2Jugadores {
         VBox vBoxMenuBarra = new VBox(menuBar.getMenuBar());
         //////////////////////
 
+        Label tituloJugador1 = new Label();
+        tituloJugador1.setText("Nombre del Jugador 1");
+
         TextField textoCuadroNickName1 = new TextField();
         textoCuadroNickName1.setPromptText("Ingrese nickname Jugador 1");
         Label etiquetaInfoSobreNickName1 = new Label();
         etiquetaInfoSobreNickName1.setText("");
+
+        Label tituloJugador2 = new Label();
+        tituloJugador2.setText("Nombre del Jugador 2");
 
         TextField textoCuadroNickName2 = new TextField();
         textoCuadroNickName2.setPromptText("Ingrese nickname Jugador 2");
@@ -44,13 +50,21 @@ public class VistaSeleccion2Jugadores {
         botonEmpezarJuego.setOnAction(new HandlerComienzoJuegoEnGrilla(stage));
         botonEmpezarJuego.setVisible(false);
 
-        VBox contenedorVertical = new VBox ( textoCuadroNickName1, etiquetaInfoSobreNickName1
-                ,textoCuadroNickName2, etiquetaInfoSobreNickName2,botonEmpezarJuego);
+        VBox contenedorVertical = new VBox (
+                tituloJugador1,
+                textoCuadroNickName1,
+                etiquetaInfoSobreNickName1,
+                tituloJugador2,
+                textoCuadroNickName2,
+                etiquetaInfoSobreNickName2,
+                botonEmpezarJuego
+        );
+
         contenedorVertical.setSpacing (10);
         contenedorVertical.setPadding(new Insets(20));
         contenedorVertical.setAlignment(Pos.CENTER);
 
-        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",500,300,true,true);
+        Image imagen = new Image("file:src/recursos/img/SeleccionDeJugadores.PNG",1000,800,true,true);
         final ImageView imagenVista = new ImageView(imagen);
         ///////////////////
         VBox contenedorVerticalFinal = new VBox (vBoxMenuBarra, contenedorVertical);
@@ -66,7 +80,7 @@ public class VistaSeleccion2Jugadores {
                 new TextoSeleccionJugadorHandler (etiquetaInfoSobreNickName2, textoCuadroNickName2, botonEmpezarJuego );
         textoCuadroNickName2.setOnKeyPressed(textoSeleccionJugadorHandler2);
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, 1000, 800);
         scene.getStylesheets().add("file:style.css");
 
         this.stage.setTitle("GPS CHALLENGE");
