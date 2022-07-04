@@ -23,6 +23,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
+        stage.getIcons().add(new Image("file:src/recursos/img/malaFamaIconoDeJuego.png"));
         VistaInicioDeJuego vistaInicioDeJuego = new VistaInicioDeJuego(stage);
         vistaInicioDeJuego.mostrarPantalla();
     }
