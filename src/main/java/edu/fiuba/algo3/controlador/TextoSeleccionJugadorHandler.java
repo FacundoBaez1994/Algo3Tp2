@@ -50,9 +50,16 @@ public class TextoSeleccionJugadorHandler implements EventHandler <KeyEvent> {
     @Override
     public void handle(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER && unNickName.isEditable()) {
+            int maxLength = 50;
             if (this.unNickName.getText().trim().equals("")) {
                 HandlerSonidoError.reproducirSonido();
                 this.unaEtiqueta.setText("Nombre invalido");
+                this.unaEtiqueta.setTextFill(Color.RED);
+                this.unNickName.requestFocus();
+            }
+            if (this.unNickName.getText().length() > maxLength) {
+                HandlerSonidoError.reproducirSonido();
+                this.unaEtiqueta.setText("Nombre invalido, es muy largo");
                 this.unaEtiqueta.setTextFill(Color.RED);
                 this.unNickName.requestFocus();
             }
