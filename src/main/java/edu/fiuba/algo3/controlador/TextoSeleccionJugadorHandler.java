@@ -49,7 +49,7 @@ public class TextoSeleccionJugadorHandler implements EventHandler <KeyEvent> {
 
     @Override
     public void handle(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER) {
+        if (event.getCode() == KeyCode.ENTER && unNickName.isEditable()) {
             if (this.unNickName.getText().trim().equals("")) {
                 HandlerSonidoError.reproducirSonido();
                 this.unaEtiqueta.setText("Nombre invalido");
