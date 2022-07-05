@@ -86,4 +86,11 @@ public class Vehiculo{
             ubicable.serEncontradoPor(this);
         }
     }
+
+    public boolean verificarParidadDeMovimientos(){
+        if( this.cantidadDeMovimientos % 2 == 0){
+            return true;
+        }
+        return false;
+    }
 }
