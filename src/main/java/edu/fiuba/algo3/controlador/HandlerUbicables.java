@@ -35,6 +35,9 @@ public class HandlerUbicables {
                 if (ubicable.getClass() == (new Pozo()).getClass()){
                     HandlerPozo.reproducirSonido();
                 }
+                if (ubicable.getClass() == (new Piquete()).getClass()){
+                    HandlerPiquete.reproducirSonido();
+                }
                 if (ubicable.getClass() == (new SorpresaNoFavorable()).getClass() )  {
                     HandlerSorpresa.reproducirSonido();
                     PopupSorpresa pop = new PopupSorpresa( "Sorpresa No favorable encontrada");
